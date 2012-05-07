@@ -1003,6 +1003,9 @@ uint32 Unit::DealDamage(Unit *pVictim, uint32 damage, CleanDamage const* cleanDa
             he->SetHealth(1);
 
             he->duel->opponent->CombatStopWithPets(true);
+			if (sWorld.getConfig(CONFIG_DUEL_REWARD_SPELL_CAST) > 0)
+				he->duel->opponent->CastSpell(he, sWorld.getConfig(CONFIG_DUEL_REWARD_SPELL_CAST), true);
+
             he->CombatStopWithPets(true);
 
             he->CastSpell(he, 7267, true);                  // beg
