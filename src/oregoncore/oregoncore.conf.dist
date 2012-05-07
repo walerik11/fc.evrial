@@ -1987,6 +1987,16 @@ CharDelete.KeepDays = 30
 #       Default: 0 (Disabled)
 #                1 - Enabled
 #
+#	Rate.Resilience
+#		Default: 1
+#				 2 - 200%
+#				 0.5 - 50%
+#
+#	Rate.ResilienceLimitReduse
+#		Limit reduse crit damage from resilience
+#		Default: 25 - 25%
+#				 >50 - not recomended
+#
 ###############################################################################
 
 PlayerStart.AllReputation = 0
@@ -2006,6 +2016,8 @@ MinRecordUpdateTimeDiff = 100
 PlayerStart.String = ""
 DuelMod.Enable = 0
 DuelMod.Cooldowns = 0
+Rate.Resilience = 1
+Rate.ResilienceLimitReduse = 25
 
 ###############################################################################
 # AUTO BROADCAST

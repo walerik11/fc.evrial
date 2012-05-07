@@ -2892,9 +2892,9 @@ float Unit::GetUnitCriticalChance(WeaponAttackType attackType, const Unit *pVict
     if (pVictim->GetTypeId() == TYPEID_PLAYER)
     {
         if (attackType == RANGED_ATTACK)
-            crit -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_RANGED);
+            crit -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_RANGED) * sWorld.getRate(RATE_RESILIENCE);
         else
-            crit -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_MELEE);
+            crit -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_MELEE) * sWorld.getRate(RATE_RESILIENCE);;
     }
 
     if (crit < 0.0f)
@@ -7801,7 +7801,7 @@ bool Unit::isSpellCrit(Unit *pVictim, SpellEntry const *spellProto, SpellSchoolM
                 crit_chance += pVictim->GetTotalAuraModifier(SPELL_AURA_MOD_ATTACKER_SPELL_AND_WEAPON_CRIT_CHANCE);
                 // Modify by player victim resilience
                 if (pVictim->GetTypeId() == TYPEID_PLAYER)
-                    crit_chance -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_SPELL);
+                    crit_chance -= pVictim->ToPlayer()->GetRatingBonusValue(CR_CRIT_TAKEN_SPELL) * sWorld.getRate(RATE_RESILIENCE);
                 // scripted (increase crit chance ... against ... target by x%
                 if (pVictim->isFrozen()) // Shatter
                 {

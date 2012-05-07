@@ -534,6 +534,9 @@ void World::LoadConfigSettings(bool reload)
         rate_values[RATE_DURABILITY_LOSS_BLOCK] = 0.0f;
     }
 
+	rate_values[RATE_RESILIENCE] = sConfig.GetFloatDefault("Rate.Resilience",1.00f);
+	rate_values[RATE_RESILIENCE_LIMIT_REDUSE] = sConfig.GetFloatDefault("Rate.ResilienceLimitReduse",25.00f);
+
     // Read other configuration items from the config file
 
     m_configs[CONFIG_COMPRESSION] = sConfig.GetIntDefault("Compression", 1);
