@@ -5759,6 +5759,9 @@ void Aura::PeriodicTick()
             DEBUG_LOG("PeriodicTick: %u (TypeId: %u) attacked %u (TypeId: %u) for %u dmg inflicted by %u abs is %u",
                 GUID_LOPART(GetCasterGUID()), GuidHigh2TypeId(GUID_HIPART(GetCasterGUID())), m_target->GetGUIDLow(), m_target->GetTypeId(), pdamage, GetId(),absorb);
 
+			// Fix SoulLink
+			pdamage = (pdamage <= absorb+resist) ? 0 : (pdamage-absorb-resist);
+
             WorldPacket data(SMSG_PERIODICAURALOG, (21+16));// we guess size
             data << m_target->GetPackGUID();
             data.appendPackGUID(GetCasterGUID());
