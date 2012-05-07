@@ -1924,6 +1924,11 @@ CharDelete.KeepDays = 30
 #        Players will automatically gain max weapon/defense skill when
 #         logging in, leveling up etc.
 #
+#	 Antifarm
+#		 Check in PVP. If IP is equally - is no honor give.
+#		 Default: 0 - disabled
+#
+#
 #    PvPToken.Enable
 #        Enable/disable PvP Token System. Players will get a token
 #         after slaying another player that gives honor.
@@ -2005,6 +2010,7 @@ PlayerStart.MapsExplored = 0
 MusicInBattleground = 0
 HonorPointsAfterDuel = 0
 AlwaysMaxWeaponSkill = 0
+Antifarm = 0
 PvPToken.Enable = 0
 PvPToken.MapAllowType = 4
 PvPToken.ItemID = 29434
