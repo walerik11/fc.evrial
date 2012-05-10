@@ -6531,6 +6531,10 @@ bool Unit::IsHostileTo(Unit const* unit) const
         if (pTester->GetTeam() == pTarget->GetTeam())
             return false;
 
+		// Area Faction non-pvp
+		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
+			return false;
+
         // Red (can attack) if true, Blue/Yellow (can't attack) in another case
         return pTester->IsPvP() && pTarget->IsPvP();
     }
@@ -6639,6 +6643,10 @@ bool Unit::IsFriendlyTo(Unit const* unit) const
         // Green/Blue (non-attackable)
         if (pTester->GetTeam() == pTarget->GetTeam())
             return true;
+
+		// Area Faction non-pvp
+		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
+			return true;
 
         // Blue (friendly/non-attackable) if not PVP, or Yellow/Red in another case (attackable)
         return !pTarget->IsPvP();
@@ -12105,7 +12113,15 @@ void Unit::RemoveCharmedBy(Unit *charmer)
 void Unit::RestoreFaction()
 {
     if (GetTypeId() == TYPEID_PLAYER)
-        ToPlayer()->setFactionForRace(getRace());
+	{
+		if (ToPlayer()->GetZoneId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID))
+		{
+			ToPlayer()->setFaction(sWorld.getConfig(CONFIG_AREA_FACTION_FACTION));
+			SetPvP(true);
+		}
+		else
+			ToPlayer()->setFactionForRace(getRace());
+	}
     else
     {
         CreatureInfo const *cinfo = ToCreature()->GetCreatureInfo();

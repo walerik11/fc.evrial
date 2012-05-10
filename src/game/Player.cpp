@@ -6723,6 +6723,15 @@ void Player::UpdateZone(uint32 newZone)
         SetGroupUpdateFlag(GROUP_UPDATE_FLAG_ZONE);
 
     UpdateZoneDependentAuras(newZone);
+
+	// Area Faction non-pvp
+	if (zone->ID == sWorld.getConfig(CONFIG_AREA_FACTION_ID))
+	{
+		setFaction(sWorld.getConfig(CONFIG_AREA_FACTION_FACTION));
+		SetPvP(true);
+	}
+	else
+		setFactionForRace(getRace());
 }
 
 //If players are too far way of duel flag... then player loose the duel

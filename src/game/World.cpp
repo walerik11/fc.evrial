@@ -1094,6 +1094,8 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_NUMTHREADS] = sConfig.GetIntDefault("MapUpdate.Threads",1);
     m_configs[CONFIG_DUEL_MOD] = sConfig.GetBoolDefault("DuelMod.Enable", false);
     m_configs[CONFIG_DUEL_CD_RESET] = sConfig.GetBoolDefault("DuelMod.Cooldowns", false);
+	m_configs[CONFIG_AREA_FACTION_ID] = sConfig.GetIntDefault("AreaFaction.Id", 0);
+	m_configs[CONFIG_AREA_FACTION_FACTION] = sConfig.GetIntDefault("AreaFaction.Faction", 0);
 	m_configs[CONFIG_DUEL_REWARD_SPELL_CAST] = sConfig.GetIntDefault("DuelRewardSpellCast", 0);
 		if(m_configs[CONFIG_DUEL_REWARD_SPELL_CAST] < 0)
 			m_configs[CONFIG_DUEL_REWARD_SPELL_CAST]= 0;

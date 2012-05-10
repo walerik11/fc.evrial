@@ -1992,6 +1992,14 @@ CharDelete.KeepDays = 30
 #       Default: 0 (Disabled)
 #                1 - Enabled
 #
+#	AreaFaction.Id
+#		ID of the Area where need change faction of players.
+#			Default: 0 (no area)
+#
+#	AreaFaction.Faction
+#		Faction ID what was changet for players in AreaFaction.Id
+#			Default: 0 (no faction)
+#
 #	DuelRewardSpellCast
 #		Cast spell on the winner of duel.
 #		Default: 0 (Disabled)
@@ -2027,6 +2035,8 @@ MinRecordUpdateTimeDiff = 100
 PlayerStart.String = ""
 DuelMod.Enable = 0
 DuelMod.Cooldowns = 0
+AreaFaction.Id = 0
+AreaFaction.Faction = 1
 DuelRewardSpellCast = 41232
 Rate.Resilience = 1
 Rate.ResilienceLimitReduse = 25
