@@ -12003,6 +12003,43 @@ void Player::RemoveAllEnchantments(EnchantmentSlot slot, bool arena)
                         ++next;
                         continue;
                     }
+					/*if (pEnchant && 
+						(pEnchant->ID == 7 
+						|| pEnchant->ID == 8 
+						|| pEnchant->ID == 9 
+						|| pEnchant->ID == 10 
+						|| pEnchant->ID == 11 
+						|| pEnchant->ID == 22 
+						|| pEnchant->ID == 23 
+						|| pEnchant->ID == 36 
+						|| pEnchant->ID == 42
+						|| pEnchant->ID == 323
+						|| pEnchant->ID == 324 
+						|| pEnchant->ID == 325 
+						|| pEnchant->ID == 603 
+						|| pEnchant->ID == 623 
+						|| pEnchant->ID == 624 
+						|| pEnchant->ID == 625 
+						|| pEnchant->ID == 626 
+						|| pEnchant->ID == 627 
+						|| pEnchant->ID == 643
+						|| pEnchant->ID == 703 
+						|| pEnchant->ID == 704 
+						|| pEnchant->ID == 705 
+						|| pEnchant->ID == 706 
+						|| pEnchant->ID == 1003 
+						|| pEnchant->ID == 1723 
+						|| pEnchant->ID == 2630 
+						|| pEnchant->ID == 2640 
+						|| pEnchant->ID == 2641 
+						|| pEnchant->ID == 2642 
+						|| pEnchant->ID == 2643 
+						|| pEnchant->ID == 2644 
+						|| pEnchant->ID == 3102))
+					{
+                        ++next;
+                        continue;
+                    }*/
                 }
             }
             if (itr->item && itr->item->GetEnchantmentId(slot))
@@ -12026,7 +12063,16 @@ void Player::RemoveAllEnchantments(EnchantmentSlot slot, bool arena)
     {
         Item* pItem = GetItemByPos(INVENTORY_SLOT_BAG_0, i);
         if (pItem && pItem->GetEnchantmentId(slot))
-            pItem->ClearEnchantment(slot);
+		{
+			SpellItemEnchantmentEntry const *pEnchant = sSpellItemEnchantmentStore.LookupEntry(pItem->GetEnchantmentId(slot));
+			if (pEnchant && pEnchant->aura_id == ITEM_ENCHANTMENT_AURAID_POISON)
+                {
+                    ++i;
+                    continue;
+                }
+			else
+				pItem->ClearEnchantment(slot);
+		}
     }
 
     // in inventory bags
@@ -12038,9 +12084,18 @@ void Player::RemoveAllEnchantments(EnchantmentSlot slot, bool arena)
             for (uint32 j = 0; j < pBag->GetBagSize(); j++)
             {
                 Item* pItem = pBag->GetItemByPos(j);
-                if (pItem && pItem->GetEnchantmentId(slot))
-                    pItem->ClearEnchantment(slot);
-            }
+				if (pItem && pItem->GetEnchantmentId(slot))
+				{
+					SpellItemEnchantmentEntry const *pEnchant = sSpellItemEnchantmentStore.LookupEntry(pItem->GetEnchantmentId(slot));
+					if (pEnchant && pEnchant->aura_id == ITEM_ENCHANTMENT_AURAID_POISON)
+					{
+						++j;
+						continue;
+					}
+				else
+					pItem->ClearEnchantment(slot);
+				}
+			}
         }
     }
 }
