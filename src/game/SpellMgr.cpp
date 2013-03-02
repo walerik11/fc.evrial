@@ -2485,7 +2485,7 @@ void SpellMgr::LoadSpellCustomAttr()
         case 7922:                        // Charge stun
         case 25274:                       // Intercept stun
         case 2094:                        // Blind
-            spellInfo->speed = 590.0f;    // Minor delay
+            spellInfo->speed = 50.0f;    // Minor delay
             break;
         case 1833:                        // Cheap Shot
             spellInfo->speed = 1230.0f;   // Tiny delay
