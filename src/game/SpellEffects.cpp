@@ -3313,6 +3313,9 @@ void Spell::EffectSummonType(uint32 i)
                     if (!summon || !summon->isTotem())
                         return;
 
+					summon->SetUInt32Value(UNIT_CREATED_BY_SPELL, m_spellInfo->Id);
+
+
                     if (damage)                                            // if not spell info, DB values used
                     {
                         summon->SetMaxHealth(damage);
@@ -6075,7 +6078,14 @@ void Spell::EffectDestroyAllTotems(uint32 /*i*/)
             uint32 spell_id = totem->GetUInt32Value(UNIT_CREATED_BY_SPELL);
             SpellEntry const* spellInfo = sSpellStore.LookupEntry(spell_id);
             if (spellInfo)
-                mana += spellInfo->manaCost * damage / 100;
+                //mana += spellInfo->manaCost * damage / 100;
+	  	    {
+				float cost = spellInfo->manaCost;
+				if(spellInfo->ManaCostPercentage)
+					cost = spellInfo->ManaCostPercentage * m_caster->GetCreateMana() / 100;
+					mana += cost * 17 / 100.0f;
+			}
+
             ((Totem*)totem)->UnSummon();
         }
     }
