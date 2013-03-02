@@ -2508,7 +2508,7 @@ void SpellMgr::LoadSpellCustomAttr()
             spellInfo->rangeIndex = 13;
             break;
         case 34580:
-            mSpellCustomAttr[i] |= SPELL_ATTR_CU_IGNORE_ARMOR;
+            //mSpellCustomAttr[i] |= SPELL_ATTR_CU_IGNORE_ARMOR;
             break;
         case 6774:
             spellInfo->AttributesEx3 |= SPELL_ATTR_EX3_NO_INITIAL_AGGRO; // slice and dice no longer gives combat or remove stealth
