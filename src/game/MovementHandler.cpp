@@ -276,6 +276,15 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)
     if (mover->IsSitState() && movementInfo.GetMovementFlags() & (MOVEFLAG_MOVING | MOVEFLAG_TURNING))
         mover->SetStandState(UNIT_STAND_STATE_STAND);
 
+	if (mover->HasAura(23335,0) || mover->HasAura(23333,0))
+	{
+		if (mover->HasAuraType(SPELL_AURA_MOUNTED))
+		{
+			mover->RemoveAurasDueToSpell(23333);
+			mover->RemoveAurasDueToSpell(23335);
+		}
+	}
+
     /* handle special cases */
     if (movementInfo.HasMovementFlag(MOVEFLAG_ONTRANSPORT))
     {
