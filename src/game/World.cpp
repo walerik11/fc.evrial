@@ -951,6 +951,8 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_ARENA_AUTO_DISTRIBUTE_POINTS]              = sConfig.GetBoolDefault("Arena.AutoDistributePoints", false);
     m_configs[CONFIG_ARENA_AUTO_DISTRIBUTE_INTERVAL_DAYS]       = sConfig.GetIntDefault("Arena.AutoDistributeInterval", 7);
     m_configs[CONFIG_ARENA_LOG_EXTENDED_INFO]                   = sConfig.GetBoolDefault("ArenaLogExtendedInfo", false);
+	m_configs[CONFIG_ARENA_FIXED_CHANGE_RATING]					= sConfig.GetBoolDefault("Arena.FixedChangeRating", false);
+	m_configs[CONFIG_ARENA_CHANGE_RATING_COUNT]					= sConfig.GetIntDefault("Arena.ChangeRatingCount", 15);
     m_configs[CONFIG_INSTANT_LOGOUT]                            = sConfig.GetIntDefault("InstantLogout", SEC_MODERATOR);
 
     m_VisibleUnitGreyDistance = sConfig.GetFloatDefault("Visibility.Distance.Grey.Unit", 1);

@@ -1527,12 +1527,26 @@ Battleground.AllowTwoSide = 1
 #        If automatic distribution is enabled in days
 #        Default: 7 (weekly)
 #
+#	Arena.FixedChangeRating
+#		Включение фиксированного изменения рейтинга арены (т.е. при победе/поражении изменение рейтинга не будет зависеть от рейтингов команд)
+#		Deafult: 0 (Выключено - стандартный расчёт изменения рейтинга в зависимости от рейтиннгов команд)
+#				 1 (Включено - фиксированное изменение рейтинга)
+#
+#	Arena.ChangeRatingCount
+#		Количество рейтинга при фиксированном изменении
+#		Default: 15 (Рейтинг команд быдет менять на 15)
+#				 5
+#				 10
+#				 50
+#
 ###############################################################################
 
 Arena.MaxRatingDifference = 150
 Arena.RatingDiscardTimer = 600000
 Arena.AutoDistributePoints = 0
 Arena.AutoDistributeInterval = 7
+Arena.FixedChangeRating = 0
+Arena.ChangeRatingCount = 15
 
 ###############################################################################
 # NETWORK CONFIG
