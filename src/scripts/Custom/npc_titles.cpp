@@ -35,7 +35,7 @@ void SendDefaultMenu_npc_titles(Player* pPlayer, Creature* pCreature, uint32 uiA
         case 1000:
             // Gladiator's Title
 			if(pPlayer->GetMoney() >= (sWorld.getConfig(CONFIG_TITLER_G_GOLD) * 10000) && (pPlayer->GetMaxPersonalArenaRatingRequirement() >= sWorld.getConfig(CONFIG_TITLER_G_RATING) 
-				&& pPlayer->GetItemCount(sWorld.getConfig(CONFIG_TITLER_G_ITEMID)) >= sWorld.getConfig(CONFIG_TITLER_G_ITEMCOUNT) 
+				&& pPlayer->HasItemCount(sWorld.getConfig(CONFIG_TITLER_G_ITEMID), sWorld.getConfig(CONFIG_TITLER_G_ITEMCOUNT), true) 
 				&& pPlayer->GetHonorPoints() >= sWorld.getConfig(CONFIG_TITLER_G_HONOR) 
 				&& pPlayer->GetArenaPoints() >= sWorld.getConfig(CONFIG_TITLER_G_AP)))
             {
