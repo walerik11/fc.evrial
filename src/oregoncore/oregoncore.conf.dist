@@ -2231,6 +2231,19 @@ LexicsCutterNoActionOnGM = 1
 # Titler.Glad.Ap - Очки арены
 #
 #    Остальные звания по аналогии...
+#
+#
+#	NPC TRANSMOGRIFICATION		Трансмогрификатор - изменение визуального вида сэтов
+#
+#	Условия суммируются т.е. звание может быть получино не отдельно за золото или
+#   рейтинг арены, а необходимо и то и другое.
+#
+#	Transmogrification.Gold - Цена трансмогрификации за золото
+#	Transmogrification.Honor - Хонор
+#	Transmogrification.ArenaPoints - Очки Арены
+#	Transmogrification.Rating - Рейтинг Арены
+#	Transmogrification.Item - ИД Предмета, необходимого для покупки
+#	Transmogrification.ItemCount - Кол-во предметов
 ###############################################################################
 
 Titler.Glad.Gold = 0
@@ -2251,4 +2264,11 @@ Titler.VGlad.ItemID = 0
 Titler.VGlad.ItemCount = 0
 Titler.VGlad.Honor = 0
 Titler.VGlad.Ap = 0
+
+Transmogrification.Gold = 0
+Transmogrification.Honor = 0
+Transmogrification.ArenaPoints = 0 
+Transmogrification.Rating = 0
+Transmogrification.Item = 0
+Transmogrification.ItemCount = 0 
 ###############################################################################

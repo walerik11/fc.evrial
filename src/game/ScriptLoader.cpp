@@ -23,6 +23,7 @@
 
 //custom
 void AddSC_npc_titles();
+void AddSC_npc_transmogrification();
 
 //examples
 //void AddSC_custom_example();
@@ -399,6 +400,7 @@ void AddScripts()
 
     //Custom
     AddSC_npc_titles();
+	AddSC_npc_transmogrification();
 
 //    AddSC_custom_example();
 //    AddSC_custom_gossip_codebox();
