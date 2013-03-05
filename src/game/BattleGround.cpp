@@ -1237,11 +1237,24 @@ void BattleGround::EventPlayerLoggedOut(Player* player)
     if (GetStatus() == STATUS_IN_PROGRESS)
     {
         if (isBattleGround())
+		{
             EventPlayerDroppedFlag(player);
+			player->LeaveBattleground();
+		}
     }
 
     if (isArena())
-        player->LeaveBattleground();
+	{
+		if (GetAlivePlayersCountByTeam(player->GetTeam()) <= 1 && GetPlayersCountByTeam(GetOtherTeam(player->GetTeam())))
+			EndBattleGround(GetOtherTeam(player->GetTeam()));
+		if (!player->isSpectator())
+			player->LeaveBattleground();
+		else
+		{
+			player->SetSpectator(false);
+			player->LeaveBattleground();
+		}
+	}
 }
 
 /* This method should be called only once ... it adds pointer to queue */

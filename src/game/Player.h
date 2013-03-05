@@ -961,6 +961,9 @@ class Player : public Unit, public GridObject<Player>
         void SetGMVisible(bool on);
         void SetPvPDeath(bool on) { if (on) m_ExtraFlags |= PLAYER_EXTRA_PVP_DEATH; else m_ExtraFlags &= ~PLAYER_EXTRA_PVP_DEATH; }
 
+		bool isSpectator() const  { return spectatorFlag; }
+		void SetSpectator(bool on);
+
         void GiveXP(uint32 xp, Unit* victim);
         void GiveLevel(uint32 level);
         void InitStatsForLevel(bool reapplyMods = false);
@@ -2359,6 +2362,9 @@ class Player : public Unit, public GridObject<Player>
         float  m_summon_z;
 
         DeclinedName *m_declinedname;
+
+		bool spectatorFlag;
+
     private:
         // internal common parts for CanStore/StoreItem functions
         uint8 _CanStoreItem_InSpecificSlot(uint8 bag, uint8 slot, ItemPosCountVec& dest, ItemPrototype const *pProto, uint32& count, bool swap, Item *pSrcItem) const;

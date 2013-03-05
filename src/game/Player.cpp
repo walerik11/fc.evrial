@@ -271,6 +271,8 @@ Player::Player (WorldSession *session): Unit()
 
     m_ExtraFlags = 0;
 
+	spectatorFlag = false;
+
     // players always accept
     if (GetSession()->GetSecurity() == SEC_PLAYER)
         SetAcceptWhispers(true);
@@ -2174,6 +2176,64 @@ void Player::SetInWater(bool apply)
     getHostileRefManager().updateThreatTables();
 }
 
+void Player::SetSpectator(bool on)
+{
+	if (on)
+	{
+		CombatStop();
+		SetSpeed(MOVE_RUN, 2.0);
+
+		spectatorFlag = true;
+
+		RemoveArenaAuras();
+		RemoveAllEnchantments(TEMP_ENCHANTMENT_SLOT, true);
+
+		m_ExtraFlags |= PLAYER_EXTRA_GM_ON;
+		setFaction(35);
+		SetVisibility(VISIBILITY_OFF);
+		SetFFAPvP(false);
+
+		RemoveSpellsCausingAura(SPELL_AURA_MOUNTED);
+		Pet* pet = GetPet();
+		if (pet)
+		{
+			if (pet->getPetType() == SUMMON_PET || pet->getPetType() == HUNTER_PET)
+			{
+				SetTemporaryUnsummonedPetNumber(pet->GetCharmInfo()->GetPetNumber());
+				SetOldPetSpell(pet->GetUInt32Value(UNIT_CREATED_BY_SPELL));
+			}
+			RemovePet(NULL,PET_SAVE_NOT_IN_SLOT);
+		}
+		else
+			SetTemporaryUnsummonedPetNumber(0);
+
+		ResetContestedPvP();
+
+		getHostileRefManager().setOnlineOfflineState(false);
+		CombatStopWithPets();
+
+		uint32 morphs[8] = {25900, 736, 20582};
+		SetDisplayId(morphs[urand(0, 2)]);
+	}
+    else
+    {
+		UpdateSpeed(MOVE_RUN, true);
+		spectatorFlag = false;
+        m_ExtraFlags &= ~ PLAYER_EXTRA_GM_ON;
+        setFactionForRace(getRace());
+        SetVisibility(VISIBILITY_ON);
+
+        // restore FFA PvP Server state
+        if (sWorld.IsFFAPvPRealm())
+            SetFFAPvP(true);
+
+        getHostileRefManager().setOnlineOfflineState(true);
+        DeMorph();
+    }
+    UpdateObjectVisibility();
+
+
+}
 void Player::SetGameMaster(bool on)
 {
     if (on)

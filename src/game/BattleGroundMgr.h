@@ -239,10 +239,12 @@ class BattleGroundMgr
         bool isTesting() const { return m_Testing; }
 
         void SetHolidayWeekends(uint32 mask);
+
+		BattleGroundSet m_BattleGrounds;
     private:
 
         /* Battlegrounds */
-        BattleGroundSet m_BattleGrounds;
+        //BattleGroundSet m_BattleGrounds;
         uint32 m_MaxRatingDifference;
         uint32 m_RatingDiscardTimer;
         uint32 m_NextRatingDiscardUpdate;
