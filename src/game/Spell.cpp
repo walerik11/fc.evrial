@@ -2222,8 +2222,43 @@ void Spell::cast(bool skipCheck)
 		}
 	}
 
-	if (m_caster->HasAura(27089,0) && m_spellInfo->Id != 20580 && m_spellInfo->Id != 21009 && m_spellInfo->Id != 33778)
+	if (m_caster->HasAura(27089, 0) || 
+		m_caster->HasAura(33725, 0) || 
+		m_caster->HasAura(433, 0) || 
+		m_caster->HasAura(434, 0) || 
+		m_caster->HasAura(431, 0) || 
+		m_caster->HasAura(430, 0) || 
+		m_caster->HasAura(432, 0) || 
+		m_caster->HasAura(435, 0) || 
+		m_caster->HasAura(1127, 0) || 
+		m_caster->HasAura(1129, 0) || 
+		m_caster->HasAura(1131, 0) || 
+		m_caster->HasAura(1133, 0) || 
+		m_caster->HasAura(1135, 0) || 
+		m_caster->HasAura(1137, 0) || 
+		m_caster->HasAura(29073, 0) || 
+		m_caster->HasAura(22734, 0) || 
+		m_caster->HasAura(34291, 0))
+		if (m_spellInfo->Id != 20580 || m_spellInfo->Id != 21009 || m_spellInfo->Id != 33778)
+		{
 			m_caster->RemoveAurasDueToSpell(27089);
+			m_caster->RemoveAurasDueToSpell(33725);
+			m_caster->RemoveAurasDueToSpell(433);
+			m_caster->RemoveAurasDueToSpell(434);
+			m_caster->RemoveAurasDueToSpell(431);
+			m_caster->RemoveAurasDueToSpell(430);
+			m_caster->RemoveAurasDueToSpell(432);
+			m_caster->RemoveAurasDueToSpell(435);
+			m_caster->RemoveAurasDueToSpell(1127);
+			m_caster->RemoveAurasDueToSpell(1129);
+			m_caster->RemoveAurasDueToSpell(1131);
+			m_caster->RemoveAurasDueToSpell(1133);
+			m_caster->RemoveAurasDueToSpell(1135);
+			m_caster->RemoveAurasDueToSpell(1137);
+			m_caster->RemoveAurasDueToSpell(29073);
+			m_caster->RemoveAurasDueToSpell(22734);
+			m_caster->RemoveAurasDueToSpell(34291);
+		}
 
     // update pointers base at GUIDs to prevent access to non-existed already object
     UpdatePointers();
