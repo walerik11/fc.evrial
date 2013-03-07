@@ -71,10 +71,12 @@ void AnticheatMgr::FlyHackDetection(Player* player, MovementInfo movementInfo)
         return;
 
     uint32 key = player->GetGUIDLow();
-    if (!m_Players[key].GetLastMovementInfo().HasMovementFlag(MOVEFLAG_FLYING) || !m_Players[key].GetLastMovementInfo().HasMovementFlag(MOVEFLAG_FLYING2))
+    if (!m_Players[key].GetLastMovementInfo().HasMovementFlag(MOVEFLAG_FLYING2))
         return;
 
-    if (player->HasAuraType(SPELL_AURA_FLY))
+    if (player->HasAuraType(SPELL_AURA_FLY) ||
+		player->HasAuraType(SPELL_AURA_MOD_FLIGHT_SPEED) ||
+		player->HasAuraType(SPELL_AURA_MOD_FLIGHT_SPEED_MOUNTED))
         return;
 
     //sLog->outError("AnticheatMgr:: Fly-Hack detected player GUID (low) %u",player->GetGUIDLow());
