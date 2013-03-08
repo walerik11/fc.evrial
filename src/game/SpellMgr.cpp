@@ -2495,6 +2495,9 @@ void SpellMgr::LoadSpellCustomAttr()
         case 26679:                       // Deadly Throw
             spellInfo->speed = 0;         // Instant
             break;
+		case 31865:
+			spellInfo->EffectApplyAuraName[0] = SPELL_AURA_MOD_CHARM;
+			break;
         case 41013:     // Parasitic Shadowfiend Passive
             spellInfo->EffectApplyAuraName[0] = 4; // proc debuff, and summon infinite fiends
             break;
