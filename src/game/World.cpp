@@ -1137,6 +1137,7 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_ANTICHEAT_REPORTS_INGAME_NOTIFICATION] = sConfig.GetIntDefault("Anticheat.ReportsForIngameWarnings", 70);
     m_configs[CONFIG_ANTICHEAT_DETECTIONS_ENABLED] = sConfig.GetIntDefault("Anticheat.DetectionsEnabled",31);
     m_configs[CONFIG_ANTICHEAT_MAX_REPORTS_FOR_DAILY_REPORT] = sConfig.GetIntDefault("Anticheat.MaxReportsForDailyReport",70);
+	m_configs[CONFIG_ANTICHEAT_KICK_ENABLE] = sConfig.GetBoolDefault("Anticheat.KickEnable", false);
 
     std::string forbiddenmaps = sConfig.GetStringDefault("ForbiddenMaps", "");
     char * forbiddenMaps = new char[forbiddenmaps.length() + 1];

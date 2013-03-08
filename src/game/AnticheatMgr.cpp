@@ -330,12 +330,25 @@ void AnticheatMgr::BuildReport(Player* player,uint8 reportType)
 
     if (m_Players[key].GetTotalReports() > sWorld.getConfig(CONFIG_ANTICHEAT_REPORTS_INGAME_NOTIFICATION))
     {
-        // display warning at the center of the screen, hacky way?
-        std::string str = "";
-        str = "|cFFFFFC00[Anticheat ]|cFF00FFFF[|cFF60FF00" + std::string(player->GetName()) + " |cFF00FFFF] Found chiter!";
-        WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
-        data << str;
-        sWorld.SendGlobalGMMessage(&data);
+		if (sWorld.getConfig(CONFIG_ANTICHEAT_KICK_ENABLE))
+		{
+			// display warning at the center of the screen, hacky way?
+			std::string str = "";
+			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(player->GetName()) + " |cFF00FFFF] Found chiter! Kicked";
+			WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
+			data << str;
+			sWorld.SendGlobalGMMessage(&data);
+			player->GetSession()->KickPlayer();
+		}
+		else
+		{
+			// display warning at the center of the screen, hacky way?
+			std::string str = "";
+			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(player->GetName()) + " |cFF00FFFF] Found chiter!";
+			WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
+			data << str;
+			sWorld.SendGlobalGMMessage(&data);
+		}
     }
 }
 

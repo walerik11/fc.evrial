@@ -2179,6 +2179,13 @@ Anticheat.DetectionsEnabled = 31
 
 Anticheat.MaxReportsForDailyReport = 70
 
+#	Anticheat.KickEnable
+#		Description: If ReportsForIngameWarnings Then Kick cheater!
+#		Default:	0 (Disabled)
+#					1 (Enabled)
+
+Anticheat.KickEnable = 1
+
 ###############################################################################
 # CHAT LEXICS CUTTER
 #
