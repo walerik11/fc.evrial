@@ -7,7 +7,7 @@
 
 #include "ScriptPCH.h"
 #include <cstring>
-#include "world.h"
+#include "World.h"
 
 bool GossipHello_npc_titles(Player* pPlayer, Creature* pCreature)
 {
