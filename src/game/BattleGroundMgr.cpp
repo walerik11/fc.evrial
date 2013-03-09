@@ -180,14 +180,34 @@ void BattleGroundQueue::AddPlayer(Player *plr, GroupQueueInfo *ginfo)
 			ginfo->Team = plr->GetTeam();
 		else
 		{
-			uint32 sider;
-			sider = urand(1, 2);
-			if (sider == 1)
-				ginfo->Team = 469;
-			else if (sider = 2)
-				ginfo->Team = 67;
+			uint32 rHorde = 0;
+			uint32 rAlliance = 0;
+			for(std::map<uint64, PlayerQueueInfo>::iterator itr = m_QueuedPlayers[queue_id].begin(); itr != m_QueuedPlayers[queue_id].end(); ++itr)
+			{
+				Player *rPlayer = objmgr.GetPlayer((uint64)itr->first);
+				if (rPlayer)
+				{
+					if (rPlayer->GetBGTeam() == ALLIANCE)
+						rAlliance++;
+					else
+						rHorde++;
+				}
+			}
+			if (rAlliance > rHorde)
+				ginfo->Team = HORDE;
+			else if (rHorde > rAlliance)
+				ginfo->Team = ALLIANCE;
 			else
-				ginfo->Team = plr->GetTeam();
+			{
+				uint32 sider;
+				sider = urand(1, 2);
+				if (sider == 1)
+					ginfo->Team = ALLIANCE;
+				else if (sider = 2)
+					ginfo->Team = HORDE;
+				else
+					ginfo->Team = plr->GetTeam();
+			}
 		}
 	}
     if (sWorld.getConfig(CONFIG_BATTLEGROUND_QUEUE_ANNOUNCER_ENABLE))
