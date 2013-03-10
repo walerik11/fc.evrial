@@ -1485,6 +1485,11 @@ Death.Bones.BattlegroundOrArena = 1
 #        Default: 0 (disable)
 #                 1 (enable)
 #
+#	Battleground.AllowTwoSide
+#		Межфракционное БГ, т.е. на одной стороне могут сражаться Орда и Альянс
+#		Default: 1 (tnable)
+#				 0 (disable)
+#
 ###############################################################################
 
 Battleground.CastDeserter = 1
@@ -1493,6 +1498,7 @@ Battleground.QueueAnnouncer.PlayerOnly = 0
 Battleground.PrematureReward = 1
 BattleGround.PrematureFinishTimer = 300000
 Battleground.LeaveWrathMode = 0
+Battleground.AllowTwoSide = 1
 
 ###############################################################################
 # ARENA CONFIG

@@ -174,6 +174,22 @@ void BattleGroundQueue::AddPlayer(Player *plr, GroupQueueInfo *ginfo)
     // add the pinfo to ginfo's list
     ginfo->Players[plr->GetGUID()]  = &info;
 
+	if (sWorld.getConfig(CONFIG_BATTLEGROUND_ALLOW_TWO_SIDE))
+	{
+		if (ginfo->ArenaType != 0)
+			ginfo->Team = plr->GetTeam();
+		else
+		{
+			uint32 sider;
+			sider = urand(1, 2);
+			if (sider == 1)
+				ginfo->Team = 469;
+			else if (sider = 2)
+				ginfo->Team = 67;
+			else
+				ginfo->Team = plr->GetTeam();
+		}
+	}
     if (sWorld.getConfig(CONFIG_BATTLEGROUND_QUEUE_ANNOUNCER_ENABLE))
     {
         //announce only once in a time
@@ -201,7 +217,7 @@ void BattleGroundQueue::AddPlayer(Player *plr, GroupQueueInfo *ginfo)
             Player *_player = objmgr.GetPlayer((uint64)itr->first);
             if (_player)
             {
-                if (_player->GetTeam() == ALLIANCE)
+                if (_player->GetBGTeam() == ALLIANCE)
                     qAlliance++;
                 else
                     qHorde++;

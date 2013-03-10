@@ -6528,7 +6528,7 @@ bool Unit::IsHostileTo(Unit const* unit) const
 
         //= PvP states
         // Green/Blue (can't attack)
-        if (pTester->GetTeam() == pTarget->GetTeam())
+        if (pTester->GetBGTeam() == pTarget->GetBGTeam())
             return false;
 
 		// Area Faction non-pvp
@@ -6641,7 +6641,7 @@ bool Unit::IsFriendlyTo(Unit const* unit) const
 
         //= PvP states
         // Green/Blue (non-attackable)
-        if (pTester->GetTeam() == pTarget->GetTeam())
+        if (pTester->GetBGTeam() == pTarget->GetBGTeam())
             return true;
 
 		// Area Faction non-pvp
@@ -12118,6 +12118,13 @@ void Unit::RestoreFaction()
 		{
 			ToPlayer()->setFaction(sWorld.getConfig(CONFIG_AREA_FACTION_FACTION));
 			SetPvP(true);
+		}
+		else if (ToPlayer()->GetZoneId() == 3358 || ToPlayer()->GetZoneId() == 3820 || ToPlayer()->GetZoneId() == 3277)
+		{
+			if (ToPlayer()->GetBGTeam() == 469)
+				ToPlayer()->setFaction(1);
+			if (ToPlayer()->GetBGTeam() == 67)
+				ToPlayer()->setFaction(2);
 		}
 		else
 			ToPlayer()->setFactionForRace(getRace());

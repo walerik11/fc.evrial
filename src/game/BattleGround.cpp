@@ -615,8 +615,8 @@ void BattleGround::RewardHonorToTeam(uint32 Honor, uint32 TeamID)
             continue;
         }
 
-        uint32 team = itr->second.Team;
-        if (!team) team = plr->GetTeam();
+		uint32 team = plr->GetBGTeam();
+		if (!team) team = plr->GetBGTeam();
 
         if (team == TeamID)
             UpdatePlayerScore(plr, SCORE_BONUS_HONOR, Honor);

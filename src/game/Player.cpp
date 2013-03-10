@@ -6732,8 +6732,15 @@ void Player::UpdateZone(uint32 newZone)
 		setFaction(sWorld.getConfig(CONFIG_AREA_FACTION_FACTION));
 		SetPvP(true);
 	}
-	else
-		setFactionForRace(getRace());
+	else if (zone->ID == 3358 || zone->ID == 3820 || zone->ID == 3277)
+ 	{
+ 		if (GetBGTeam() == 469)
+ 			setFaction(1);
+ 		if (GetBGTeam() == 67)
+ 			setFaction(2);
+	}
+ 	else
+ 		setFactionForRace(getRace());
 }
 
 //If players are too far way of duel flag... then player loose the duel

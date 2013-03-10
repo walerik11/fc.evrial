@@ -932,6 +932,7 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_BATTLEGROUND_PREMATURE_REWARD]             = sConfig.GetBoolDefault("Battleground.PrematureReward", true);
     m_configs[CONFIG_BATTLEGROUND_PREMATURE_FINISH_TIMER]       = sConfig.GetIntDefault("BattleGround.PrematureFinishTimer", 5 * MINUTE * IN_MILLISECONDS);
     m_configs[CONFIG_BATTLEGROUND_WRATH_LEAVE_MODE]             = sConfig.GetBoolDefault("Battleground.LeaveWrathMode", false);
+	m_configs[CONFIG_BATTLEGROUND_ALLOW_TWO_SIDE]				= sConfig.GetBoolDefault("Battleground.AllowTwoSide", false);
     m_configs[CONFIG_ARENA_MAX_RATING_DIFFERENCE]               = sConfig.GetIntDefault("Arena.MaxRatingDifference", 0);
     m_configs[CONFIG_ARENA_RATING_DISCARD_TIMER]                = sConfig.GetIntDefault("Arena.RatingDiscardTimer", 10 * MINUTE * IN_MILLISECONDS);
     m_configs[CONFIG_ARENA_AUTO_DISTRIBUTE_POINTS]              = sConfig.GetBoolDefault("Arena.AutoDistributePoints", false);
