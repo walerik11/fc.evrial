@@ -3454,6 +3454,16 @@ bool Unit::AddAura(Aura *Aur)
 
     spellEffectPair spair = spellEffectPair(Aur->GetId(), Aur->GetEffIndex());
 
+	// Freedom fix
+	if(this->HasAura(1044,0))
+	{
+		if(aurSpellInfo->EffectApplyAuraName[0] == SPELL_AURA_MOD_DECREASE_SPEED || aurSpellInfo->EffectApplyAuraName[1] == SPELL_AURA_MOD_DECREASE_SPEED || aurSpellInfo->EffectApplyAuraName[2] == SPELL_AURA_MOD_DECREASE_SPEED)
+		{
+			delete Aur;
+			return false;
+		}
+	}
+
     bool stackModified=false;
     // passive and persistent auras can stack with themselves any number of times
     if (!Aur->IsPassive() && !Aur->IsPersistent())
