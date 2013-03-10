@@ -17,6 +17,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "AnticheatMgr.h"
 #include "Common.h"
 #include "Database/DatabaseEnv.h"
 #include "Config/Config.h"
@@ -1124,6 +1125,12 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_AUTOBROADCAST_TIMER] = sConfig.GetIntDefault("AutoBroadcast.Timer", 60000);
     m_configs[CONFIG_AUTOBROADCAST_ENABLED] = sConfig.GetIntDefault("AutoBroadcast.On", 0);
     m_configs[CONFIG_AUTOBROADCAST_CENTER] = sConfig.GetIntDefault("AutoBroadcast.Center", 0);
+
+	//Anticheat
+    m_configs[CONFIG_ANTICHEAT_ENABLE] = sConfig.GetBoolDefault("Anticheat.Enable", true);
+    m_configs[CONFIG_ANTICHEAT_REPORTS_INGAME_NOTIFICATION] = sConfig.GetIntDefault("Anticheat.ReportsForIngameWarnings", 70);
+    m_configs[CONFIG_ANTICHEAT_DETECTIONS_ENABLED] = sConfig.GetIntDefault("Anticheat.DetectionsEnabled",31);
+    m_configs[CONFIG_ANTICHEAT_MAX_REPORTS_FOR_DAILY_REPORT] = sConfig.GetIntDefault("Anticheat.MaxReportsForDailyReport",70);
 
     std::string forbiddenmaps = sConfig.GetStringDefault("ForbiddenMaps", "");
     char * forbiddenMaps = new char[forbiddenmaps.length() + 1];
@@ -2474,6 +2481,8 @@ void World::ResetDailyQuests()
     for (SessionMap::iterator itr = m_sessions.begin(); itr != m_sessions.end(); ++itr)
         if (itr->second->GetPlayer())
             itr->second->GetPlayer()->ResetDailyQuestStatus();
+			
+	sAnticheatMgr->ResetDailyReportStates();
 }
 
 void World::SetPlayerLimit(int32 limit, bool needUpdate)

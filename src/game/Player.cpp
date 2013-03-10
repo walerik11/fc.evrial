@@ -17,6 +17,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "AnticheatMgr.h"
 #include "Common.h"
 #include "Language.h"
 #include "Database/DatabaseEnv.h"
@@ -16607,6 +16608,8 @@ void Player::SaveToDB()
     _SaveReputation();
 
     CharacterDatabase.CommitTransaction();
+
+	sAnticheatMgr->SavePlayerData(this);
 
     // restore state (before aura apply, if aura remove flag then aura must set it ack by self)
     SetDisplayId(tmp_displayid);
