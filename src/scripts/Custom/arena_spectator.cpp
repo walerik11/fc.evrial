@@ -96,7 +96,7 @@ void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)
 			}
 			else
 			{
-				pPlayer->ADD_GOSSIP_ITEM(0, "Error", GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
+				pPlayer->ADD_GOSSIP_ITEM(0, "No Rated Arena Games Now!!!", GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
 			}
 		}
 	}
@@ -127,18 +127,12 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 		uint64 guid = (uiAction - 3000);
 		if (Player *pTarget = ObjectAccessor::FindPlayer(guid))
 			{
-				Map* cMap = pTarget->GetMap();
-				if (cMap->IsBattleGroundOrArena())
-				{
-					pPlayer->SetBattleGroundId(pTarget->GetBattleGroundId());
-					// remember current position as entry point for return at bg end teleportation
-					if (!pPlayer->GetMap()->IsBattleGroundOrArena())
-						pPlayer->SetBattleGroundEntryPoint();
-				}
-				else if (cMap->IsDungeon())
-				{
-					pPlayer->SetDifficulty(pTarget->GetDifficulty());
-				}
+			if (pTarget->GetMap()->IsBattleGroundOrArena())
+			{
+				pPlayer->SetBattleGroundId(pTarget->GetBattleGroundId());
+				// remember current position as entry point for return at bg end teleportation
+				if (!pPlayer->GetMap()->IsBattleGroundOrArena())
+					pPlayer->SetBattleGroundEntryPoint();
 
 				// stop flight if need
 				if (pPlayer->isInFlight())
@@ -158,9 +152,20 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 
 				pPlayer->SetSpectator(true);
 				return true;
+			}
+			else
+			{
+				pPlayer->CLOSE_GOSSIP_MENU();
+				pCreature->MonsterWhisper("Pleyrs not in Arena Now!!!", pPlayer->GetGUID());
+				return true;
+			}
 		}
 		else
-			pCreature->MonsterWhisper("Error", pPlayer->GetGUID());
+		{
+			pPlayer->CLOSE_GOSSIP_MENU();
+			pCreature->MonsterWhisper("Can not Find Target Players!!!", pPlayer->GetGUID());
+			return true;
+		}
 	}
 	return true;
 }
