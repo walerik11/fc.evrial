@@ -1000,7 +1000,15 @@ uint32 Unit::DealDamage(Unit *pVictim, uint32 damage, CleanDamage const* cleanDa
 
             ASSERT(he->duel);
 
-            he->SetHealth(1);
+            if (sWorld.getConfig(CONFIG_DUEL_MOD))
+			{
+				he->SetHealth(he->GetMaxHealth());
+				he->duel->opponent->SetHealth(he->duel->opponent->GetMaxHealth());
+
+				he->CombatStopWithPets(true);
+			}
+			else
+				he->SetHealth(1);
 
             he->duel->opponent->CombatStopWithPets(true);
 			if (sWorld.getConfig(CONFIG_DUEL_REWARD_SPELL_CAST) > 0)
