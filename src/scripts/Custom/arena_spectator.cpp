@@ -32,7 +32,7 @@ std::string GetClassNameById(uint8 id)
 
 std::string GetGamesStringData(BattleGround *bg, uint32 rating)
 {
-    std::string teamsMember[BG_TEAMS_COUNT];
+	std::string teamsMember[BG_TEAMS_COUNT];
     uint32 firstTeamId = 0;
     for (BattleGround::BattleGroundPlayerMap::const_iterator itr = bg->GetPlayers().begin(); itr != bg->GetPlayers().end(); ++itr)
         if (Player* player = ObjectAccessor::FindPlayer(itr->first))
@@ -72,11 +72,10 @@ void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)
 	for (BattleGroundSet::iterator itr = sBattleGroundMgr.m_BattleGrounds.begin(); itr != sBattleGroundMgr.m_BattleGrounds.end(); ++itr)
 	{
 		BattleGround * bg = itr->second;
-		if (bg->GetTypeID() == 4 || bg->GetTypeID() == 5 || bg->GetTypeID() == 8)
+		if (bg->isArena() && bg->isRated())
 		{
-			if (bg->isArena() && bg->isRated())
+			if (Player * aPlayer = ObjectAccessor::FindPlayer(GetFirstPlayerGuid(bg)))
 			{
-				Player * aPlayer = ObjectAccessor::FindPlayer(GetFirstPlayerGuid(bg));
 				uint32 rating = aPlayer->GetMaxPersonalArenaRatingRequirement();
 				if (isTop && rating >= 1800)
 				{
@@ -94,6 +93,10 @@ void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)
 					if (lowGames >= pages * gamesOnPage)
 						pPlayer->ADD_GOSSIP_ITEM(0, GetGamesStringData(bg, rating), GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
 				}
+			}
+			else
+			{
+				pPlayer->ADD_GOSSIP_ITEM(0, "Error", GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
 			}
 		}
 	}

@@ -2189,11 +2189,13 @@ void Player::SetSpectator(bool on)
 		RemoveAllEnchantments(TEMP_ENCHANTMENT_SLOT, true);
 
 		m_ExtraFlags |= PLAYER_EXTRA_GM_ON;
+		m_ExtraFlags |= PLAYER_EXTRA_GM_INVISIBLE; 
 		setFaction(35);
 		SetVisibility(VISIBILITY_OFF);
 		SetFFAPvP(false);
 
 		RemoveSpellsCausingAura(SPELL_AURA_MOUNTED);
+		RemoveSpellsCausingAura(SPELL_AURA_MOD_SHAPESHIFT);
 		Pet* pet = GetPet();
 		if (pet)
 		{
@@ -2220,6 +2222,7 @@ void Player::SetSpectator(bool on)
 		UpdateSpeed(MOVE_RUN, true);
 		spectatorFlag = false;
         m_ExtraFlags &= ~ PLAYER_EXTRA_GM_ON;
+		m_ExtraFlags &= ~PLAYER_EXTRA_GM_INVISIBLE;
         setFactionForRace(getRace());
         SetVisibility(VISIBILITY_ON);
 
@@ -17101,7 +17104,7 @@ void Player::UpdateSpeakTime()
 
 bool Player::CanSpeak() const
 {
-    return  GetSession()->m_muteTime <= time (NULL);
+	return GetSession()->m_muteTime <= time (NULL);
 }
 
 /*********************************************************/

@@ -169,6 +169,12 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket & recv_data)
             return;
         }
 
+		if (_player->isSpectator())
+		{
+			SendNotification("You can not Speak when Spectate Arena Match");
+			return;
+		}
+
         if (type != CHAT_MSG_AFK && type != CHAT_MSG_DND)
             GetPlayer()->UpdateSpeakTime();
     }
@@ -625,6 +631,13 @@ void WorldSession::HandleTextEmoteOpcode(WorldPacket & recv_data)
         SendNotification(GetOregonString(LANG_WAIT_BEFORE_SPEAKING),timeStr.c_str());
         return;
     }
+
+	if (_player->isSpectator())
+	{
+		SendNotification("You can not Speak when Spectate Arena Match");
+		return;
+	}
+
 
     uint32 text_emote, emoteNum;
     uint64 guid;

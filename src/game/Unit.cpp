@@ -6554,6 +6554,9 @@ bool Unit::IsHostileTo(Unit const* unit) const
 		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
 			return false;
 
+		if (pTester->isSpectator() || pTarget->isSpectator())
+			return false;
+
         // Red (can attack) if true, Blue/Yellow (can't attack) in another case
         return pTester->IsPvP() && pTarget->IsPvP();
     }
@@ -6667,7 +6670,10 @@ bool Unit::IsFriendlyTo(Unit const* unit) const
 		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
 			return true;
 
-        // Blue (friendly/non-attackable) if not PVP, or Yellow/Red in another case (attackable)
+		if (pTester->isSpectator() || pTarget->isSpectator())
+			return true;
+
+			// Blue (friendly/non-attackable) if not PVP, or Yellow/Red in another case (attackable)
         return !pTarget->IsPvP();
     }
 
