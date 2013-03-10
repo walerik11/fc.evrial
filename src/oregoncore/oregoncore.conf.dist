@@ -2168,4 +2168,41 @@ LexicsCutterActionDuration = 60000
 
 # Do not perform action on GM if this is enabled
 LexicsCutterNoActionOnGM = 1
+
+###############################################################################
+#  NPC TITLES VENDOR		Вендор званий
+#
+#  Условия суммируются т.е. звание может быть получино не отдельно за золото или
+#  рейтинг арены, а необходимо и то и другое.
+#
+# Mercurial Gladiator
+#
+# Titler.Glad.Gold - золото
+# Titler.Glad.Rating - Рейтинг арены
+# Titler.Glad.ItemID - ID предмета
+# Titler.Glad.ItemCount - Кол-во предметов
+# Titler.Glad.Honor - Очки чести
+# Titler.Glad.Ap - Очки арены
+#
+#    Остальные звания по аналогии...
+###############################################################################
+
+Titler.Glad.Gold = 0
+Titler.Glad.Rating = 1900
+Titler.Glad.ItemID = 0
+Titler.Glad.ItemCount = 0
+Titler.Glad.Honor = 0
+Titler.Glad.Ap = 0
+Titler.MGlad.Gold = 0
+Titler.MGlad.Rating = 2000
+Titler.MGlad.ItemID = 0
+Titler.MGlad.ItemCount = 0
+Titler.MGlad.Honor = 0
+Titler.MGlad.Ap = 0
+Titler.VGlad.Gold = 0
+Titler.VGlad.Rating = 2100
+Titler.VGlad.ItemID = 0
+Titler.VGlad.ItemCount = 0
+Titler.VGlad.Honor = 0
+Titler.VGlad.Ap = 0
 ###############################################################################

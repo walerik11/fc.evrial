@@ -21,6 +21,9 @@
 
 #ifdef SCRIPTS
 
+//custom
+void AddSC_npc_titles();
+
 //examples
 //void AddSC_custom_example();
 //void AddSC_custom_gossip_codebox();
@@ -393,6 +396,10 @@ void AddSC_onevents();
 void AddScripts()
 {
 #ifdef SCRIPTS
+
+    //Custom
+    AddSC_npc_titles();
+
 //    AddSC_custom_example();
 //    AddSC_custom_gossip_codebox();
 //    AddSC_test();

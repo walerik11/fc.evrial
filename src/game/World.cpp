@@ -1069,6 +1069,24 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_PVP_TOKEN_COUNT] = sConfig.GetIntDefault("PvPToken.ItemCount", 1);
     if (m_configs[CONFIG_PVP_TOKEN_COUNT] < 1)
         m_configs[CONFIG_PVP_TOKEN_COUNT] = 1;
+	m_configs[CONFIG_TITLER_G_GOLD] = sConfig.GetIntDefault("Titler.Glad.Gold", 0);
+	m_configs[CONFIG_TITLER_G_RATING] = sConfig.GetIntDefault("Titler.Glad.Rating", 0);
+	m_configs[CONFIG_TITLER_G_ITEMID] = sConfig.GetIntDefault("Titler.Glad.ItemID", 0);
+	m_configs[CONFIG_TITLER_G_ITEMCOUNT] = sConfig.GetIntDefault("Titler.Glad.ItemCount", 0);
+	m_configs[CONFIG_TITLER_G_HONOR] = sConfig.GetIntDefault("Titler.Glad.Honor", 0);
+	m_configs[CONFIG_TITLER_G_AP] = sConfig.GetIntDefault("Titler.Glad.Ap", 0);
+	m_configs[CONFIG_TITLER_MG_GOLD] = sConfig.GetIntDefault("Titler.MGlad.Gold", 0);
+	m_configs[CONFIG_TITLER_MG_RATING] = sConfig.GetIntDefault("Titler.MGlad.Rating", 0);
+	m_configs[CONFIG_TITLER_MG_ITEMID] = sConfig.GetIntDefault("Titler.MGlad.ItemID", 0);
+	m_configs[CONFIG_TITLER_MG_ITEMCOUNT] = sConfig.GetIntDefault("Titler.MGlad.ItemCount", 0);
+	m_configs[CONFIG_TITLER_MG_HONOR] = sConfig.GetIntDefault("Titler.MGlad.Honor", 0);
+	m_configs[CONFIG_TITLER_MG_AP] = sConfig.GetIntDefault("Titler.MGlad.Ap", 0);
+	m_configs[CONFIG_TITLER_VG_GOLD] = sConfig.GetIntDefault("Titler.VGlad.Gold", 0);
+	m_configs[CONFIG_TITLER_VG_RATING] = sConfig.GetIntDefault("Titler.VGlad.Rating", 0);
+	m_configs[CONFIG_TITLER_VG_ITEMID] = sConfig.GetIntDefault("Titler.VGlad.ItemID", 0);
+	m_configs[CONFIG_TITLER_VG_ITEMCOUNT] = sConfig.GetIntDefault("Titler.VGlad.ItemCount", 0);
+	m_configs[CONFIG_TITLER_VG_HONOR] = sConfig.GetIntDefault("Titler.VGlad.Honor", 0);
+	m_configs[CONFIG_TITLER_VG_AP] = sConfig.GetIntDefault("Titler.VGlad.Ap", 0);
     m_configs[CONFIG_NO_RESET_TALENT_COST] = sConfig.GetBoolDefault("NoResetTalentsCost", false);
     m_configs[CONFIG_SHOW_KICK_IN_WORLD] = sConfig.GetBoolDefault("ShowKickInWorld", false);
     m_configs[CONFIG_INTERVAL_LOG_UPDATE] = sConfig.GetIntDefault("RecordUpdateTimeDiffInterval", 60000);
