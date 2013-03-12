@@ -2239,24 +2239,7 @@ void Spell::cast(bool skipCheck)
 		m_caster->HasAura(29073, 0) || 
 		m_caster->HasAura(22734, 0) || 
 		m_caster->HasAura(34291, 0))
-		if (m_spellInfo->Id != 20580 || m_spellInfo->Id != 21009 || m_spellInfo->Id != 33778 || // Invis
-			m_spellInfo->Id != 27089 || 
-			m_spellInfo->Id != 33725 || 
-			m_spellInfo->Id != 433 || 
-			m_spellInfo->Id != 434 || 
-			m_spellInfo->Id != 431 || 
-			m_spellInfo->Id != 430 || 
-			m_spellInfo->Id != 432 || 
-			m_spellInfo->Id != 435 || 
-			m_spellInfo->Id != 1127 || 
-			m_spellInfo->Id != 1129 || 
-			m_spellInfo->Id != 1131 || 
-			m_spellInfo->Id != 1133 || 
-			m_spellInfo->Id != 1135 || 
-			m_spellInfo->Id != 1137 || 
-			m_spellInfo->Id != 29073 || 
-			m_spellInfo->Id != 22734 || 
-			m_spellInfo->Id != 34291)
+		if (!(m_spellInfo->Attributes & SPELL_ATTR_CASTABLE_WHILE_SITTING))
 		{
 			m_caster->RemoveAurasDueToSpell(27089);
 			m_caster->RemoveAurasDueToSpell(33725);

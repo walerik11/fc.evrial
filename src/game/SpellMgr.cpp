@@ -2475,6 +2475,9 @@ void SpellMgr::LoadSpellCustomAttr()
         case 44949: // Whirlwind's offhand attack - TODO: remove this (50% weapon damage effect)
             spellInfo->Effect[1] = NULL;
             break;
+		case 21009:
+			spellInfo->Attributes |= SPELL_ATTR_CASTABLE_WHILE_SITTING;
+			break;
         case 12723: // Sweeping Strikes proc
             //mSpellCustomAttr[i] |= SPELL_ATTR_CU_IGNORE_ARMOR;
             spellInfo->Attributes |= SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK;
