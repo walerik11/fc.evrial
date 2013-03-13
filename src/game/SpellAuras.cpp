@@ -5535,7 +5535,8 @@ void Aura::HandleSpiritOfRedemption(bool apply, bool Real)
                 m_target->SetStandState(UNIT_STAND_STATE_STAND);
         }
 
-        m_target->SetHealth(1);
+        //m_target->SetHealth(1);
+		m_target->SetHealth(m_target->GetMaxHealth());
     }
     // die at aura end
     else
