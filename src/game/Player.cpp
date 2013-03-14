@@ -2188,7 +2188,6 @@ void Player::SetSpectator(bool on)
 		RemoveArenaAuras();
 		RemoveAllEnchantments(TEMP_ENCHANTMENT_SLOT, true);
 
-		m_ExtraFlags |= PLAYER_EXTRA_GM_ON;
 		m_ExtraFlags |= PLAYER_EXTRA_GM_INVISIBLE; 
 		setFaction(35);
 		SetVisibility(VISIBILITY_OFF);
@@ -2221,7 +2220,6 @@ void Player::SetSpectator(bool on)
     {
 		UpdateSpeed(MOVE_RUN, true);
 		spectatorFlag = false;
-        m_ExtraFlags &= ~ PLAYER_EXTRA_GM_ON;
 		m_ExtraFlags &= ~PLAYER_EXTRA_GM_INVISIBLE;
         setFactionForRace(getRace());
         SetVisibility(VISIBILITY_ON);
@@ -19045,6 +19043,9 @@ bool Player::IsVisibleInGridForPlayer(Player const * pl) const
     // gamemaster in GM mode see all, including ghosts
     if (pl->isGameMaster() && GetSession()->GetSecurity() <= pl->GetSession()->GetSecurity())
         return true;
+
+	if (isSpectator() && !pl->isGameMaster())
+		return false;
 
     // It seems in battleground everyone sees everyone, except the enemy-faction ghosts
     if (InBattleGround())

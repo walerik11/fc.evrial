@@ -111,12 +111,12 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 	pPlayer->PlayerTalkClass->ClearMenus();
 	if (uiAction >= 1000 && uiAction < 2000)
 	{
-		ShowPage(pPlayer, pCreature, uiAction - 1000, false);
+		ShowPage(pPlayer, pCreature, uiAction - 1000, true);
 		pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
 	}
 	else if (uiAction >= 2000 && uiAction < 3000)
 	{
-		ShowPage(pPlayer, pCreature, uiAction - 2000, true);
+		ShowPage(pPlayer, pCreature, uiAction - 2000, false);
 		pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
 	}
 	else
