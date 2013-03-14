@@ -85,7 +85,7 @@ void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)
 					if (highGames >= pages * gamesOnPage)
 						pPlayer->ADD_GOSSIP_ITEM(0, GetGamesStringData(bg, rating), GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
 				}
-				else if (isTop && rating < 1800)
+				else if (!isTop && rating < 1800)
 				{
 					++lowGames;
 					if (lowGames > (pages + 1) * gamesOnPage)
@@ -94,10 +94,10 @@ void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)
 						pPlayer->ADD_GOSSIP_ITEM(0, GetGamesStringData(bg, rating), GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
 				}
 			}
-			else
+			/*else
 			{
 				pPlayer->ADD_GOSSIP_ITEM(0, "No Rated Arena Games Now!!!", GOSSIP_SENDER_MAIN, (3000 + GetFirstPlayerGuid(bg)));
-			}
+			}*/
 		}
 	}
 	if (pages > 0)
