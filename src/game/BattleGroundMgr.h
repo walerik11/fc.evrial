@@ -127,6 +127,8 @@ class BattleGroundQueue
     private:
 
         bool InviteGroupToBG(GroupQueueInfo * ginfo, BattleGround * bg, uint32 side);
+
+		uint32 m_BgInstanceGUID;
 };
 
 /*

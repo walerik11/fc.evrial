@@ -182,34 +182,74 @@ void BattleGroundQueue::AddPlayer(Player *plr, GroupQueueInfo *ginfo)
 		{
 			uint32 rHorde = 0;
 			uint32 rAlliance = 0;
-			for(std::map<uint64, PlayerQueueInfo>::iterator itr = m_QueuedPlayers[queue_id].begin(); itr != m_QueuedPlayers[queue_id].end(); ++itr)
+			for (std::map<uint64, PlayerQueueInfo>::iterator itr = m_QueuedPlayers[queue_id].begin(); itr != m_QueuedPlayers[queue_id].end(); ++itr)
 			{
-				Player *rPlayer = objmgr.GetPlayer((uint64)itr->first);
-				if (rPlayer)
+				Player *qPlayer = objmgr.GetPlayer((uint64)itr->first);
+				if (qPlayer)
 				{
-					if (rPlayer->GetBGTeam() == ALLIANCE)
+					if (itr->second.GroupInfo->Team == ALLIANCE)
+					{
 						rAlliance++;
-					else
+						//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Alliance +1");
+					}
+					else if (itr->second.GroupInfo->Team == HORDE)
+					{
 						rHorde++;
+						//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Horde +1");
+					}
+					else
+						//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "No Queues Found!");
 				}
 			}
+			uint32 plrT = plr->GetTeam();
+			uint32 plrA = 0;
+			uint32 plrH = 0;
+			if (plrT)
+			{
+				if (plrT == ALLIANCE)
+				{
+					plrA++;
+					//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Alliance -1");
+				}
+				else
+				{
+					plrH++;
+					//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Horde -1");
+				}
+			}
+			rAlliance -= plrA;
+			rHorde -= plrH;
 			if (rAlliance > rHorde)
+			{
+				//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Alliance > Horde. Send to Horde!");
 				ginfo->Team = HORDE;
+			}
 			else if (rHorde > rAlliance)
+			{
+				//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Horde > Alliance. Send to Alliance!");
 				ginfo->Team = ALLIANCE;
+			}
 			else
 			{
+				//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Horde = Alliance");
 				uint32 sider;
 				sider = urand(1, 2);
 				if (sider == 1)
+				{
+					//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Random send to Alliance!");
 					ginfo->Team = ALLIANCE;
+				}
 				else if (sider = 2)
+				{
+					//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Random send to Horde!");
 					ginfo->Team = HORDE;
+				}
 				else
 					ginfo->Team = plr->GetTeam();
 			}
 		}
 	}
+
     if (sWorld.getConfig(CONFIG_BATTLEGROUND_QUEUE_ANNOUNCER_ENABLE))
     {
         //announce only once in a time
