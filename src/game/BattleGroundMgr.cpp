@@ -197,7 +197,7 @@ void BattleGroundQueue::AddPlayer(Player *plr, GroupQueueInfo *ginfo)
 						rHorde++;
 						//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "Horde +1");
 					}
-					else
+					//else
 						//sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "No Queues Found!");
 				}
 			}
