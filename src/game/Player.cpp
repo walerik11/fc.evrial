@@ -2188,6 +2188,7 @@ void Player::SetSpectator(bool on)
 		RemoveArenaAuras();
 		RemoveAllEnchantments(TEMP_ENCHANTMENT_SLOT, true);
 
+		//m_ExtraFlags |= PLAYER_EXTRA_GM_ON;
 		m_ExtraFlags |= PLAYER_EXTRA_GM_INVISIBLE; 
 		setFaction(35);
 		SetVisibility(VISIBILITY_OFF);
@@ -2220,6 +2221,7 @@ void Player::SetSpectator(bool on)
     {
 		UpdateSpeed(MOVE_RUN, true);
 		spectatorFlag = false;
+		//m_ExtraFlags &= ~ PLAYER_EXTRA_GM_ON;
 		m_ExtraFlags &= ~PLAYER_EXTRA_GM_INVISIBLE;
         setFactionForRace(getRace());
         SetVisibility(VISIBILITY_ON);
@@ -18850,7 +18852,7 @@ void Player::LeaveBattleground(bool teleportToEntryPoint)
         bg->RemovePlayerAtLeave(GetGUID(), teleportToEntryPoint, true);
 
         // call after remove to be sure that player resurrected for correct cast
-        if (bg->isBattleGround() && !isGameMaster() && sWorld.getConfig(CONFIG_BATTLEGROUND_CAST_DESERTER))
+        if (bg->isBattleGround() && !isGameMaster() && !isSpectator() && sWorld.getConfig(CONFIG_BATTLEGROUND_CAST_DESERTER))
         {
             if (bg->GetStatus() == STATUS_IN_PROGRESS || bg->GetStatus() == STATUS_WAIT_JOIN)
             {
@@ -18911,6 +18913,12 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     // Always can see self
     if (m_mover == u || this == u)
         return true;
+
+	if (u->GetTypeId() == TYPEID_PLAYER)
+	{
+		if (isSpectator() && !u->ToPlayer()->isSpectator())
+			return true;
+	}
 
     // Game masters should always see the players
     if (isGameMaster())
@@ -18989,6 +18997,9 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     {
         if (owner->GetVisibility() == VISIBILITY_OFF)
         {
+			if (isSpectator())
+				return true;
+
             // GMs see any players, not higher GMs and all units
             if (isGameMaster())
             {
@@ -19004,6 +19015,9 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     // GM's can see everyone with invisibilitymask with less or equal security level
     if (m_mover->m_invisibilityMask || u->m_invisibilityMask)
     {
+		if (isSpectator())
+			return true;
+
         if (isGameMaster())
         {
             if (u->GetTypeId() == TYPEID_PLAYER)
@@ -19019,7 +19033,7 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     }
 
     // GM invisibility checks early, invisibility if any detectable, so if not stealth then visible
-    if (u->GetVisibility() == VISIBILITY_GROUP_STEALTH && !isGameMaster())
+    if (u->GetVisibility() == VISIBILITY_GROUP_STEALTH && !isGameMaster() && !isSpectator())
     {
         // if player is dead then he can't detect anyone in any cases
         //do not know what is the use of this detect
@@ -19040,12 +19054,17 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
 
 bool Player::IsVisibleInGridForPlayer(Player const * pl) const
 {
+	if (pl->isSpectator())
+	{
+		if (!isSpectator())
+			return true;
+		else
+			return false;
+	}
+
     // gamemaster in GM mode see all, including ghosts
     if (pl->isGameMaster() && GetSession()->GetSecurity() <= pl->GetSession()->GetSecurity())
         return true;
-
-	if (isSpectator() && !pl->isGameMaster())
-		return false;
 
     // It seems in battleground everyone sees everyone, except the enemy-faction ghosts
     if (InBattleGround())
@@ -19093,6 +19112,9 @@ bool Player::IsVisibleGloballyFor(Player* u) const
     // Visible units, always are visible for all players
     if (GetVisibility() == VISIBILITY_ON)
         return true;
+
+	if (u->ToPlayer()->isSpectator() && isSpectator())
+		return false;
 
     // GMs are visible for higher gms (or players are visible for gms)
     if (u->GetSession()->GetSecurity() > SEC_PLAYER)
