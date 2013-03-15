@@ -6545,6 +6545,10 @@ bool Unit::IsHostileTo(Unit const* unit) const
         if (pTester->IsFFAPvP() && pTarget->IsFFAPvP())
             return true;
 
+		// Arena Spectator
+		if (pTester->isSpectator() || pTarget->isSpectator())
+			return false;
+
         //= PvP states
         // Green/Blue (can't attack)
         if (pTester->GetBGTeam() == pTarget->GetBGTeam())
@@ -6552,9 +6556,6 @@ bool Unit::IsHostileTo(Unit const* unit) const
 
 		// Area Faction non-pvp
 		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
-			return false;
-
-		if (pTester->isSpectator() || pTarget->isSpectator())
 			return false;
 
         // Red (can attack) if true, Blue/Yellow (can't attack) in another case
@@ -6661,6 +6662,10 @@ bool Unit::IsFriendlyTo(Unit const* unit) const
         if (pTester->IsFFAPvP() && pTarget->IsFFAPvP())
             return false;
 
+		// Arena Spectator
+		if (pTester->isSpectator() || pTarget->isSpectator())
+			return true;
+
         //= PvP states
         // Green/Blue (non-attackable)
         if (pTester->GetBGTeam() == pTarget->GetBGTeam())
@@ -6668,9 +6673,6 @@ bool Unit::IsFriendlyTo(Unit const* unit) const
 
 		// Area Faction non-pvp
 		if ((pTester->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)) && (pTarget->GetAreaId() == sWorld.getConfig(CONFIG_AREA_FACTION_ID)))
-			return true;
-
-		if (pTester->isSpectator() || pTarget->isSpectator())
 			return true;
 
 			// Blue (friendly/non-attackable) if not PVP, or Yellow/Red in another case (attackable)
