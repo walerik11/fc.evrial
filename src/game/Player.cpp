@@ -12158,7 +12158,7 @@ void Player::RemoveAllEnchantments(EnchantmentSlot slot, bool arena)
                         ++next;
                         continue;
                     }
-					/*if (pEnchant && 
+					if (pEnchant && 
 						(pEnchant->ID == 7 
 						|| pEnchant->ID == 8 
 						|| pEnchant->ID == 9 
@@ -12194,7 +12194,7 @@ void Player::RemoveAllEnchantments(EnchantmentSlot slot, bool arena)
 					{
                         ++next;
                         continue;
-                    }*/
+                    }
                 }
             }
             if (itr->item && itr->item->GetEnchantmentId(slot))
