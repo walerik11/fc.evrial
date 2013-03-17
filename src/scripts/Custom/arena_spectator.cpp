@@ -148,6 +148,18 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 				float x,y,z;
 				pTarget->GetContactPoint(pPlayer,x,y,z);
 
+				if (pPlayer->GetPet())
+				{
+					if (pPlayer->GetPet()->getPetType() == SUMMON_PET || pPlayer->GetPet()->getPetType() == HUNTER_PET)
+					{
+						pPlayer->SetTemporaryUnsummonedPetNumber(pPlayer->GetPet()->GetCharmInfo()->GetPetNumber());
+						pPlayer->SetOldPetSpell(pPlayer->GetPet()->GetUInt32Value(UNIT_CREATED_BY_SPELL));
+					}
+					pPlayer->RemovePet(NULL,PET_SAVE_NOT_IN_SLOT);
+				}
+				else
+					pPlayer->SetTemporaryUnsummonedPetNumber(0);
+
 				pPlayer->TeleportTo(pTarget->GetMapId(), x, y, z, pPlayer->GetAngle(pTarget), TELE_TO_GM_MODE);
 
 				pPlayer->SetSpectator(true);
@@ -156,7 +168,7 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 			else
 			{
 				pPlayer->CLOSE_GOSSIP_MENU();
-				pCreature->MonsterWhisper("Pleyrs not in Arena Now!!!", pPlayer->GetGUID());
+				pCreature->MonsterWhisper("Players not in Arena Now!!!", pPlayer->GetGUID());
 				return true;
 			}
 		}
