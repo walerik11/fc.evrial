@@ -6762,6 +6762,12 @@ bool Unit::Attack(Unit *victim, bool meleeAttack)
 	if (GetTypeId() == TYPEID_PLAYER && ToPlayer()->isSpectator())
 		return false;
 
+	if (victim->GetTypeId() == TYPEID_PLAYER)
+	{
+		if (victim->ToPlayer()->isSpectator())
+			return false;
+	}
+
     // nobody can attack GM in GM-mode
     if (victim->GetTypeId() == TYPEID_PLAYER)
     {
