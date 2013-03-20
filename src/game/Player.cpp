@@ -2189,6 +2189,7 @@ void Player::SetSpectator(bool on)
 		RemoveAllEnchantments(TEMP_ENCHANTMENT_SLOT, true);
 
 		//m_ExtraFlags |= PLAYER_EXTRA_GM_ON;
+		SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PACIFIED);
 		m_ExtraFlags |= PLAYER_EXTRA_GM_INVISIBLE; 
 		setFaction(35);
 		SetVisibility(VISIBILITY_OFF);
@@ -2222,6 +2223,7 @@ void Player::SetSpectator(bool on)
 		UpdateSpeed(MOVE_RUN, true);
 		spectatorFlag = false;
 		//m_ExtraFlags &= ~ PLAYER_EXTRA_GM_ON;
+		RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PACIFIED);
 		m_ExtraFlags &= ~PLAYER_EXTRA_GM_INVISIBLE;
         setFactionForRace(getRace());
         SetVisibility(VISIBILITY_ON);
