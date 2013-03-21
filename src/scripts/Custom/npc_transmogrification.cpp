@@ -121,7 +121,7 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 	// Присваиваем переменные -> Изменяемые итемы
 	Item *oldItem1 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_HEAD);
 	Item *oldItem2 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_SHOULDERS);
-	Item *oldItem3= pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_CHEST);
+	Item *oldItem3 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_CHEST);
 	Item *oldItem4 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_WRISTS);
 	Item *oldItem5 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_HANDS);
 	Item *oldItem6 = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0 ,EQUIPMENT_SLOT_WAIST);
