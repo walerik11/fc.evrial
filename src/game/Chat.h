@@ -114,6 +114,9 @@ class ChatHandler
         bool HandleGMListIngameCommand(const char* args);
         bool HandleGMListFullCommand(const char* args);
 
+		// Spectator stop command
+		bool HandleSpectatorStopCommand(const char* args);
+
         bool HandleNamegoCommand(const char* args);
         bool HandleGonameCommand(const char* args);
         bool HandleGroupgoCommand(const char* args);

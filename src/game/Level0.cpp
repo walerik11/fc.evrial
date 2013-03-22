@@ -86,6 +86,15 @@ bool ChatHandler::HandleStartCommand(const char* /*args*/)
     return true;
 }
 
+bool ChatHandler::HandleSpectatorStopCommand(const char* args)
+{
+	Player *plr = m_session->GetPlayer();
+
+	plr->TeleportTo(plr->GetBattleGroundEntryPoint());
+	plr->SetSpectator(false);
+	return true;
+}
+
 bool ChatHandler::HandleServerInfoCommand(const char* /*args*/)
 {
     uint32 activeClientsNum = sWorld.GetActiveSessionCount();
