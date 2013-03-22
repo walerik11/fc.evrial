@@ -2026,6 +2026,11 @@ CharDelete.KeepDays = 30
 #       Default: 0 (Disabled)
 #                1 - Enabled
 #
+#	DuelMod.OnlyOpponentDetect
+#		Players in duel can see only their opponent
+#		Default: 0 (Disabled)
+#				 1 - Enabled
+#
 #	AreaFaction.Id
 #		ID of the Area where need change faction of players.
 #			Default: 0 (no area)
@@ -2071,6 +2076,7 @@ MinRecordUpdateTimeDiff = 100
 PlayerStart.String = ""
 DuelMod.Enable = 0
 DuelMod.Cooldowns = 0
+DuelMod.OnlyOpponentDetect = 1
 AreaFaction.Id = 0
 AreaFaction.Faction = 1
 DuelRewardSpellCast = 41232

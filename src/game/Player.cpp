@@ -18922,6 +18922,17 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
 			return true;
 	}
 
+	if (sWorld.getConfig(CONFIG_DUEL_ONLY_OPPONENT))
+	{
+		if (duel)
+		{
+			if (u->ToPlayer() == duel->opponent)
+				return true;
+			else
+				return false;
+		}
+	}
+
     // Game masters should always see the players
     if (isGameMaster())
         return true;
