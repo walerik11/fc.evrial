@@ -169,12 +169,6 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket & recv_data)
             return;
         }
 
-		if (_player->isSpectator())
-		{
-			SendNotification("You can not Speak when Spectate Arena Match");
-			return;
-		}
-
         if (type != CHAT_MSG_AFK && type != CHAT_MSG_DND)
             GetPlayer()->UpdateSpeakTime();
     }
@@ -214,17 +208,35 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket & recv_data)
             if (type == CHAT_MSG_SAY)
 			{
 				sChatLog.ChatMsg(GetPlayer(), msg, type);
-                GetPlayer()->Say(msg, lang);
+				if (GetPlayer()->isSpectator())
+				{
+					SendNotification("You can not Speak in this Channel when Spectate Arena Match. Use another Channel!");
+					return;
+				}
+				else
+					GetPlayer()->Say(msg, lang);
 			}
             else if (type == CHAT_MSG_EMOTE)
 			{
 				sChatLog.ChatMsg(GetPlayer(), msg, type);
-                GetPlayer()->TextEmote(msg);
+				if (GetPlayer()->isSpectator())
+				{
+					SendNotification("You can not Speak in this Channel when Spectate Arena Match. Use another Channel!");
+					return;
+				}
+				else
+					GetPlayer()->TextEmote(msg);
 			}
             else if (type == CHAT_MSG_YELL)
 			{
 				sChatLog.ChatMsg(GetPlayer(), msg, type);
-                GetPlayer()->Yell(msg, lang);
+				if (GetPlayer()->isSpectator())
+				{
+					SendNotification("You can not Speak in this Channel when Spectate Arena Match. Use another Channel!");
+					return;
+				}
+				else
+					GetPlayer()->Yell(msg, lang);
 			}
         } break;
 
@@ -634,7 +646,7 @@ void WorldSession::HandleTextEmoteOpcode(WorldPacket & recv_data)
 
 	if (_player->isSpectator())
 	{
-		SendNotification("You can not Speak when Spectate Arena Match");
+		SendNotification("You can not Speak in this Channel when Spectate Arena Match. Use another Channel!");
 		return;
 	}
 
