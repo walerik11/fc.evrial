@@ -90,8 +90,11 @@ bool ChatHandler::HandleSpectatorStopCommand(const char* args)
 {
 	Player *plr = m_session->GetPlayer();
 
-	plr->TeleportTo(plr->GetBattleGroundEntryPoint());
-	plr->SetSpectator(false);
+	if (plr->isSpectator())
+	{
+		plr->TeleportTo(plr->GetBattleGroundEntryPoint());
+		plr->SetSpectator(false);
+	}
 	return true;
 }
 
