@@ -1654,7 +1654,11 @@ void Spell::EffectDummy(uint32 i)
                     }
 
                     if (m_caster->IsFriendlyTo(unitTarget))
+					{
+						if (unitTarget->GetTypeId() == TYPEID_PLAYER && unitTarget->ToPlayer()->duel)
+							unitTarget = m_caster;
                         m_caster->CastSpell(unitTarget, heal, true, 0);
+					}
                     else
                         m_caster->CastSpell(unitTarget, hurt, true, 0);
 
