@@ -2212,6 +2212,12 @@ void Spell::cast(bool skipCheck)
     if (m_spellInfo->Id > MAX_SPELL_ID)
        return;
 
+	if (m_spellInfo->Id == 15269)
+	{
+		if (m_targets.getUnitTarget() == m_caster)
+			return;
+	}
+
 	if (m_caster->HasAura(12043,0) || m_caster->HasAura(16188,0) || m_caster->HasAura(17116,0))
 	{
 		if (m_spellInfo->CastingTimeIndex != 1)
