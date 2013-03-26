@@ -2218,6 +2218,9 @@ void Spell::cast(bool skipCheck)
 			return;
 	}
 
+	if (CheckItems() != 0)
+		return;
+
 	if (m_caster->HasAura(12043,0) || m_caster->HasAura(16188,0) || m_caster->HasAura(17116,0))
 	{
 		if (m_spellInfo->CastingTimeIndex != 1)
