@@ -18921,7 +18921,12 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
 	if (u->GetTypeId() == TYPEID_PLAYER)
 	{
 		if (isSpectator() && !u->ToPlayer()->isSpectator())
-			return true;
+		{
+			if (!sWorld.getConfig(CONFIG_SPECTATOR_SEE_INVIS) && u->GetVisibility() == VISIBILITY_GROUP_STEALTH)
+				return false;
+			else
+				return true;
+		}
 	}
 
 	if (sWorld.getConfig(CONFIG_DUEL_ONLY_OPPONENT))
@@ -19012,9 +19017,6 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     {
         if (owner->GetVisibility() == VISIBILITY_OFF)
         {
-			if (isSpectator())
-				return true;
-
             // GMs see any players, not higher GMs and all units
             if (isGameMaster())
             {
@@ -19030,9 +19032,6 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     // GM's can see everyone with invisibilitymask with less or equal security level
     if (m_mover->m_invisibilityMask || u->m_invisibilityMask)
     {
-		if (isSpectator())
-			return true;
-
         if (isGameMaster())
         {
             if (u->GetTypeId() == TYPEID_PLAYER)
@@ -19048,7 +19047,7 @@ bool Player::canSeeOrDetect(Unit const* u, bool detect, bool inVisibleList, bool
     }
 
     // GM invisibility checks early, invisibility if any detectable, so if not stealth then visible
-    if (u->GetVisibility() == VISIBILITY_GROUP_STEALTH && !isGameMaster() && !isSpectator())
+    if (u->GetVisibility() == VISIBILITY_GROUP_STEALTH && !isGameMaster())
     {
         // if player is dead then he can't detect anyone in any cases
         //do not know what is the use of this detect

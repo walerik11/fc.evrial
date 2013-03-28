@@ -2293,22 +2293,31 @@ LexicsCutterNoActionOnGM = 1
 #	Transmogrification.Rating - Рейтинг Арены
 #	Transmogrification.Item - ИД Предмета, необходимого для покупки
 #	Transmogrification.ItemCount - Кол-во предметов
+#
+#
+#
+#	NPC ARENA SPECTATOR		Арена Спектатор - просмотр боёв арены других игроков
+#
+#	Spectator.CanSeeInvis - может ли спектатор видеть игроков с невидимостью
+#		Default: 0 (не может)
+#				 1 (может)
+#
 ###############################################################################
 
 Titler.Glad.Gold = 0
-Titler.Glad.Rating = 1900
+Titler.Glad.Rating = 0
 Titler.Glad.ItemID = 0
 Titler.Glad.ItemCount = 0
 Titler.Glad.Honor = 0
 Titler.Glad.Ap = 0
 Titler.MGlad.Gold = 0
-Titler.MGlad.Rating = 2000
+Titler.MGlad.Rating = 0
 Titler.MGlad.ItemID = 0
 Titler.MGlad.ItemCount = 0
 Titler.MGlad.Honor = 0
 Titler.MGlad.Ap = 0
 Titler.VGlad.Gold = 0
-Titler.VGlad.Rating = 2100
+Titler.VGlad.Rating = 0
 Titler.VGlad.ItemID = 0
 Titler.VGlad.ItemCount = 0
 Titler.VGlad.Honor = 0
@@ -2320,4 +2329,6 @@ Transmogrification.ArenaPoints = 0
 Transmogrification.Rating = 0
 Transmogrification.Item = 0
 Transmogrification.ItemCount = 0 
+
+Spectator.CanSeeInvis = 0
 ###############################################################################

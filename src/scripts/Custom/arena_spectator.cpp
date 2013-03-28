@@ -164,7 +164,7 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 
 				pPlayer->SetSpectator(true);
 
-				pCreature->MonsterWhisper("You can Cancel Spectate! Use command .SPSTOP. For example in guild chat: /g .spstop", pPlayer->GetGUID());
+				pCreature->MonsterWhisper("You can Cancel Spectate! Use command .SPSTOP", pPlayer->GetGUID());
 				return true;
 			}
 			else

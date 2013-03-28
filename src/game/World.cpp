@@ -1116,6 +1116,7 @@ void World::LoadConfigSettings(bool reload)
 	m_configs[CONFIG_TRANS_RATING] = sConfig.GetIntDefault("Transmogrification.Rating", 0);
 	m_configs[CONFIG_TRANS_ITEM] = sConfig.GetIntDefault("Transmogrification.Item", 0);
 	m_configs[CONFIG_TRANS_ITEMCOUNT] = sConfig.GetIntDefault("Transmogrification.ItemCount", 0);
+	m_configs[CONFIG_SPECTATOR_SEE_INVIS] = sConfig.GetBoolDefault("Spectator.CanSeeInvis", 0);
     m_configs[CONFIG_NO_RESET_TALENT_COST] = sConfig.GetBoolDefault("NoResetTalentsCost", false);
     m_configs[CONFIG_SHOW_KICK_IN_WORLD] = sConfig.GetBoolDefault("ShowKickInWorld", false);
     m_configs[CONFIG_INTERVAL_LOG_UPDATE] = sConfig.GetIntDefault("RecordUpdateTimeDiffInterval", 60000);
