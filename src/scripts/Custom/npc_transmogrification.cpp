@@ -14,6 +14,7 @@ bool GossipHello_npc_transmogrification(Player *pPlayer, Creature *pCreature)
 	pPlayer->ADD_GOSSIP_ITEM(0, "Make Visual A2", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 80);
 	pPlayer->ADD_GOSSIP_ITEM(0, "Make Visual A3", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 90);
 	pPlayer->ADD_GOSSIP_ITEM(0, "Make Visual A4", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 100);
+	pPlayer->ADD_GOSSIP_ITEM(0, "Delete Transmogrifications", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 110);
 
 	// Показывать меню
 	pPlayer->SEND_GOSSIP_MENU(pPlayer->GetGossipTextId(pCreature), pCreature->GetGUID());
@@ -2908,6 +2909,29 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
 			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
 			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			return true;
+		}
+		case GOSSIP_ACTION_INFO_DEF + 110: // Уделение трансов
+		{
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_1_0 , oldItem1->GetEntry()); // Шлем
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_3_0 , oldItem2->GetEntry()); // Плечи
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_5_0 , oldItem3->GetEntry()); // Тело
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_9_0 , oldItem4->GetEntry()); // Брас
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_10_0 , oldItem5->GetEntry()); // Перчи
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_6_0 , oldItem6->GetEntry()); // Пояс
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_7_0 , oldItem7->GetEntry()); // Штаны
+			pPlayer->SetUInt32Value(PLAYER_VISIBLE_ITEM_8_0 , oldItem8->GetEntry()); // Тапок
+
+			oldItem1->DeleteFakeEntry();
+			oldItem2->DeleteFakeEntry();
+			oldItem3->DeleteFakeEntry();
+			oldItem4->DeleteFakeEntry();
+			oldItem5->DeleteFakeEntry();
+			oldItem6->DeleteFakeEntry();
+			oldItem7->DeleteFakeEntry();
+			oldItem8->DeleteFakeEntry();
+
+			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
 			return true;
 		}
 		break;
