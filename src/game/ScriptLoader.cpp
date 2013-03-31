@@ -182,6 +182,7 @@ void AddSC_boss_eredar_twins();
 void AddSC_boss_muru();
 void AddSC_boss_kiljaeden();
 void AddSC_sunwell_plateau();
+void AddSC_npc_sunwell_boss();
 void AddSC_boss_archaedas();                 //Uldaman
 void AddSC_boss_ironaya();
 void AddSC_uldaman();
@@ -557,6 +558,7 @@ void AddScripts()
     AddSC_boss_muru();
     AddSC_boss_kiljaeden();
     AddSC_sunwell_plateau();
+	AddSC_npc_sunwell_boss();
     AddSC_boss_archaedas();                 //Uldaman
     AddSC_boss_ironaya();
     AddSC_uldaman();
