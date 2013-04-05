@@ -1052,11 +1052,6 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
                 unit->SetStandState(UNIT_STAND_STATE_STAND);
     }
 
-	if (m_caster->IsFriendlyTo(unit) && m_caster->isInCombat())
-	{
-		unit->SetInCombatState(m_caster->GetCombatTimer() > 0);
-	}
-
     // if target is flagged for pvp also flag caster if a player
     if (unit->IsPvP())
     {
