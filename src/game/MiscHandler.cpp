@@ -345,6 +345,8 @@ void WorldSession::HandleLogoutRequestOpcode(WorldPacket & /*recv_data*/)
     if (GetPlayer()->isInCombat() ||                        //...is in combat
         GetPlayer()->duel         ||                        //...is in Duel
         GetPlayer()->HasAura(9454,0)         ||             //...is frozen by GM via freeze command
+		GetPlayer()->HasAura(6196,0)		 ||				//...hack far sight
+		GetPlayer()->HasAura(6197,0)		 ||				//...hack far sight
                                                             //...is jumping ...is falling
         GetPlayer()->HasUnitMovementFlag(MOVEFLAG_FALLING | MOVEFLAG_FALLINGFAR))
     {
