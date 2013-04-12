@@ -1247,14 +1247,10 @@ void BattleGround::EventPlayerLoggedOut(Player* player)
 
     if (isArena())
 	{
-		if (GetAlivePlayersCountByTeam(player->GetTeam()) <= 1 && GetPlayersCountByTeam(GetOtherTeam(player->GetTeam())))
-			EndBattleGround(GetOtherTeam(player->GetTeam()));
-		if (!player->isSpectator())
-			player->LeaveBattleground();
-		else
+		player->LeaveBattleground();
+		if (player->isSpectator())
 		{
 			player->SetSpectator(false);
-			player->LeaveBattleground();
 		}
 	}
 }
