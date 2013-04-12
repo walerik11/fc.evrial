@@ -7332,6 +7332,10 @@ uint32 Unit::SpellDamageBonus(Unit *pVictim, SpellEntry const *spellProto, uint3
         return pdamage;
 
     int32 BonusDamage = 0;
+
+	if (spellProto->Id == 46579)
+		return pdamage;
+
     if (GetTypeId() == TYPEID_UNIT)
     {
         // Pets just add their bonus damage to their spell damage
