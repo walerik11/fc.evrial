@@ -363,8 +363,13 @@ void WorldSession::HandleLogoutRequestOpcode(WorldPacket & /*recv_data*/)
     if (GetPlayer()->HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_RESTING) || GetPlayer()->isInFlight() ||
         GetSecurity() >= sWorld.getConfig(CONFIG_INSTANT_LOGOUT))
     {
-        LogoutPlayer(true);
-        return;
+		if (GetPlayer()->HasAura(6196,0) || GetPlayer()->HasAura(6197,0))
+			return;
+		else
+		{
+			LogoutPlayer(true);
+			return;
+		}
     }
 
     // not set flags if player can't free move to prevent lost state at logout cancel

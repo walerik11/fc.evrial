@@ -278,6 +278,9 @@ bool WorldSession::Update(uint32 diff)
 // Log the player out
 void WorldSession::LogoutPlayer(bool Save)
 {
+	if (_player->HasAura(6196,0) || _player->HasAura(6197,0))
+		return;
+
     // finish pending transfers before starting the logout
     while (_player && _player->IsBeingTeleportedFar())
         HandleMoveWorldportAckOpcode();
