@@ -1539,6 +1539,11 @@ Battleground.AllowTwoSide = 1
 #				 10
 #				 50
 #
+#	Arena.CanSeeInWhoListPrep
+#		Может ли игрок видеть в /who тех, кто на арене в подготовительной фазе
+#		По умолчанию: 1 (может)
+#					  0 (не может)
+#
 ###############################################################################
 
 Arena.MaxRatingDifference = 150
@@ -1547,6 +1552,7 @@ Arena.AutoDistributePoints = 0
 Arena.AutoDistributeInterval = 7
 Arena.FixedChangeRating = 0
 Arena.ChangeRatingCount = 15
+Arena.CanSeeInWhoListPrep = 0
 
 ###############################################################################
 # NETWORK CONFIG

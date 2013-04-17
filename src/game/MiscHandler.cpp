@@ -231,6 +231,13 @@ void WorldSession::HandleWhoOpcode(WorldPacket & recv_data)
             // player can see MODERATOR, GAME MASTER, ADMINISTRATOR only if CONFIG_GM_IN_WHO_LIST
             if ((itr->second->GetSession()->GetSecurity() > SEC_PLAYER && !gmInWhoList))
                 continue;
+
+			// player can not see another players in arena preparation
+			if (!sWorld.getConfig(CONFIG_SEEINWHOLIST_PREP))
+			{
+				if (itr->second->HasAura(SPELL_ARENA_PREPARATION, 0))
+					continue;
+			}
         }
 
         //do not process players which are not in world
