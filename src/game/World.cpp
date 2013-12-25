@@ -960,6 +960,8 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_ARENA_LOG_EXTENDED_INFO]                   = sConfig.GetBoolDefault("ArenaLogExtendedInfo", false);
 	m_configs[CONFIG_ARENA_FIXED_CHANGE_RATING]					= sConfig.GetBoolDefault("Arena.FixedChangeRating", false);
 	m_configs[CONFIG_ARENA_CHANGE_RATING_COUNT]					= sConfig.GetIntDefault("Arena.ChangeRatingCount", 15);
+	m_configs[CONFIG_ARENA_MIN_CHANGE_RATING]					= sConfig.GetBoolDefault("Arena.MinChangeRating", false);
+	m_configs[CONFIG_ARENA_MIN_RATING_COUNT]					= sConfig.GetIntDefault("Arena.MinRatingCount", 5);
 	m_configs[CONFIG_SEEINWHOLIST_PREP]							= sConfig.GetBoolDefault("Arena.CanSeeInWhoListPrep", true);
     m_configs[CONFIG_INSTANT_LOGOUT]                            = sConfig.GetIntDefault("InstantLogout", SEC_MODERATOR);
 
