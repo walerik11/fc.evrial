@@ -6550,14 +6550,14 @@ void Aura::HandleArenaPreparation(bool apply, bool Real)
     if (apply)
     {
         m_target->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PREPARATION);
-        m_target->SetFlag(PLAYER_FIELD_BYTES2,PLAYER_FIELD_BYTE2_INVISIBILITY_GLOW);
-        m_target->SetVisibility(UnitVisibility(m_target->GetVisibility() | VISIBILITY_GROUP_STEALTH));
+        //m_target->SetFlag(PLAYER_FIELD_BYTES2,PLAYER_FIELD_BYTE2_INVISIBILITY_GLOW);
+        //m_target->SetVisibility(UnitVisibility(m_target->GetVisibility() | VISIBILITY_GROUP_STEALTH));
     }
     else
     {
         m_target->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PREPARATION);
-        m_target->RemoveFlag(PLAYER_FIELD_BYTES2,PLAYER_FIELD_BYTE2_INVISIBILITY_GLOW);
-        m_target->SetVisibility(UnitVisibility(m_target->GetVisibility() & ~VISIBILITY_GROUP_STEALTH));
+        //m_target->RemoveFlag(PLAYER_FIELD_BYTES2,PLAYER_FIELD_BYTE2_INVISIBILITY_GLOW);
+        //m_target->SetVisibility(UnitVisibility(m_target->GetVisibility() & ~VISIBILITY_GROUP_STEALTH));
     }
 }
 
