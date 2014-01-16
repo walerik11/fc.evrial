@@ -129,6 +129,15 @@ bool GossipSelect_npc_arena_spectator(Player* pPlayer, Creature* pCreature, uint
 			{
 			if (pTarget->GetMap()->IsBattleGroundOrArena())
 			{
+				// Невозможно просматривать арену в которой являешься участником.
+				uint32 bgInstId = pTarget->GetBattleGround()->GetInstanceID();
+				if (pPlayer->IsInvitedForBattleGroundInstance(bgInstId))
+				{
+					pPlayer->CLOSE_GOSSIP_MENU();
+					pCreature->MonsterWhisper("You have INVITED to this Arena match! Can not spectater yourself.", pPlayer->GetGUID());
+					return true;
+				}
+
 				pPlayer->SetBattleGroundId(pTarget->GetBattleGroundId());
 				// remember current position as entry point for return at bg end teleportation
 				if (!pPlayer->GetMap()->IsBattleGroundOrArena())
