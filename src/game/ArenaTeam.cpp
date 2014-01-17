@@ -574,7 +574,6 @@ int32 ArenaTeam::WonAgainst(uint32 againstRating)
 	{
 		int32 mod = (int32)floor(32.0f * (1.0f - chance));
 		// modify the team stats accordingly
-		FinishGame(mod);
 		m_stats.wins_week += 1;
 		m_stats.wins_season += 1;
 
@@ -583,6 +582,7 @@ int32 ArenaTeam::WonAgainst(uint32 againstRating)
 			if (mod < sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
 				mod = sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
 		}
+		FinishGame(mod);
 
 		// return the rating change, used to display it on the results screen
 		return mod;
@@ -597,7 +597,7 @@ int32 ArenaTeam::LostAgainst(uint32 againstRating)
     // calculate the rating modification (ELO system with k=32)
 	if (sWorld.getConfig(CONFIG_ARENA_FIXED_CHANGE_RATING))
 	{
-		int32 mod = -sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
+		int32 mod = (-1)*sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
 		// modify the team stats accordingly
 		FinishGame(mod);
 
@@ -612,8 +612,8 @@ int32 ArenaTeam::LostAgainst(uint32 againstRating)
 
 		if (sWorld.getConfig(CONFIG_ARENA_MIN_CHANGE_RATING))
 		{
-			if (mod > sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
-				mod = -sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
+			if (mod > (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
+				mod = (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
 		}
 
 		// return the rating change, used to display it on the results screen
@@ -632,7 +632,7 @@ void ArenaTeam::MemberLost(Player * plr, uint32 againstRating)
 			if (sWorld.getConfig(CONFIG_ARENA_FIXED_CHANGE_RATING))
 			{
 				float chance = GetChanceAgainst(itr->personal_rating, againstRating);
-				int32 mod = -sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
+				int32 mod = (-1)*sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
 				itr->ModifyPersonalRating(plr, mod, GetSlot());
 				// update personal played stats
 				itr->games_week += 1;
@@ -648,8 +648,8 @@ void ArenaTeam::MemberLost(Player * plr, uint32 againstRating)
 				int32 mod = (int32)ceil(32.0f * (0.0f - chance));
 				if (sWorld.getConfig(CONFIG_ARENA_MIN_CHANGE_RATING))
 				{
-					if (mod > sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
-						mod = -sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
+					if (mod > (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
+						mod = (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
 				}
 				itr->ModifyPersonalRating(plr, mod, GetSlot());
 				// update personal played stats
@@ -675,7 +675,7 @@ void ArenaTeam::OfflineMemberLost(uint64 guid, uint32 againstRating)
 			if (sWorld.getConfig(CONFIG_ARENA_FIXED_CHANGE_RATING))
 			{
 				float chance = GetChanceAgainst(itr->personal_rating, againstRating);
-				int32 mod = -sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
+				int32 mod = (-1)*sWorld.getConfig(CONFIG_ARENA_CHANGE_RATING_COUNT);
 
 				int32 rating = int32(itr->personal_rating) + mod;
 				itr->personal_rating = rating < 0 ? 0 : rating;
@@ -691,8 +691,8 @@ void ArenaTeam::OfflineMemberLost(uint64 guid, uint32 againstRating)
 				int32 mod = (int32)ceil(32.0f * (0.0f - chance));
 				if (sWorld.getConfig(CONFIG_ARENA_MIN_CHANGE_RATING))
 				{
-					if (mod > sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
-						mod = -sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
+					if (mod > (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT))
+						mod = (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
 				}
 
 				int32 rating = int32(itr->personal_rating) + mod;
