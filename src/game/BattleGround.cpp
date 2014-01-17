@@ -715,10 +715,28 @@ void BattleGround::EndBattleGround(uint32 winner)
         }
         if (winner_arena_team && loser_arena_team)
         {
+			// ѕодготовка данных дл€ антислива
+			Player *capitanFirstTeam = objmgr.GetPlayer(winner_arena_team->GetCaptain());
+			Player *capitanSecondTeam = objmgr.GetPlayer(loser_arena_team->GetCaptain());
+			std::string FirstCapitanIP = capitanFirstTeam->GetSession()->GetRemoteAddress();
+			std::string SecondCapitanIP = capitanSecondTeam->GetSession()->GetRemoteAddress();
+
             loser_rating = loser_arena_team->GetStats().rating;
             winner_rating = winner_arena_team->GetStats().rating;
-            int32 winner_change = winner_arena_team->WonAgainst(loser_rating);
-            int32 loser_change = loser_arena_team->LostAgainst(winner_rating);
+
+			int32 winner_change;
+			int32 loser_change;
+			// ≈сли IP капитанов совпадают - проиграли обе команды
+			if (FirstCapitanIP == SecondCapitanIP)
+			{
+				winner_change = winner_arena_team->LostAgainst(loser_rating);
+				loser_change = loser_arena_team->LostAgainst(winner_rating);
+			}
+			else
+			{
+				winner_change = winner_arena_team->WonAgainst(loser_rating);
+				loser_change = loser_arena_team->LostAgainst(winner_rating);
+			}
             sLog.outDebug("--- Winner rating: %u, Loser rating: %u, Winner change: %u, Losser change: %u ---", winner_rating, loser_rating, winner_change, loser_change);
             if (winner == ALLIANCE)
             {
@@ -787,10 +805,49 @@ void BattleGround::EndBattleGround(uint32 winner)
         // per player calculation
         if (isArena() && isRated() && winner_arena_team && loser_arena_team)
         {
-            if (team == winner)
-                winner_arena_team->MemberWon(plr,loser_rating);
-            else
-                loser_arena_team->MemberLost(plr,winner_rating);
+			// ѕодготовка данных дл€ антислива
+			Player *capitanFirstTeam = objmgr.GetPlayer(winner_arena_team->GetCaptain());
+			Player *capitanSecondTeam = objmgr.GetPlayer(loser_arena_team->GetCaptain());
+			std::string FirstCapitanIP = capitanFirstTeam->GetSession()->GetRemoteAddress();
+			std::string SecondCapitanIP = capitanSecondTeam->GetSession()->GetRemoteAddress();
+			std::string PlayerIP = plr->GetSession()->GetRemoteAddress();
+
+			// ≈сли IP капитанов совпадают, то считаетс€ что игрок проиграл
+			if (FirstCapitanIP == SecondCapitanIP)
+			{
+				if (team == winner)
+					winner_arena_team->MemberLost(plr,loser_rating);
+				else
+					loser_arena_team->MemberLost(plr,winner_rating);
+			}
+			// ≈сли игрок не капитан первой команды, но его IP совпадает с капитаном первой команды, то считаетс€ что игрок проиграл
+			else if (plr != capitanFirstTeam && PlayerIP == FirstCapitanIP)
+			{
+				if (team == winner)
+					winner_arena_team->MemberLost(plr,loser_rating);
+				else
+					loser_arena_team->MemberLost(plr,winner_rating);
+			}
+			// јналогично дл€ капитана второй команды
+			else if (plr != capitanSecondTeam && PlayerIP == SecondCapitanIP)
+			{
+				if (team == winner)
+					winner_arena_team->MemberLost(plr,loser_rating);
+				else
+					loser_arena_team->MemberLost(plr,winner_rating);
+			}
+			// ¬ итоге, если IP капитанов не совпадают, игрок не €вл€етс€ капитаном и его IP не совпадает с IP капитанов.
+			// ¬ случаи, если игрок €вл€етс€ капитаном команды, он получит рейтинг если перва€ проверка не сработает.
+			// “.е. в случаи слива при разных IP капитанов, но совпадени€х в IP с участниками - капитаны получат рейтинг.
+			// —лив становитс€ крайне неудобен.
+			else
+			{
+				if (team == winner)
+					winner_arena_team->MemberWon(plr,loser_rating);
+				else
+					loser_arena_team->MemberLost(plr,winner_rating);
+			}
+			
         }
 
         if (team == winner)
@@ -1873,10 +1930,16 @@ void BattleGround::HandleKillUnit(Creature * /*creature*/, Player * /*killer*/)
 
 void BattleGround::CheckArenaWinConditions()
 {
-    if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
-        EndBattleGround(HORDE);
-    else if (GetPlayersCountByTeam(ALLIANCE) && !GetAlivePlayersCountByTeam(HORDE))
-        EndBattleGround(ALLIANCE);
+	// ≈сли јрена в подготовительной фазе - победивших нет
+	if (GetStatus() != STATUS_WAIT_JOIN)
+	{
+		if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
+			EndBattleGround(HORDE);
+		else if (GetPlayersCountByTeam(ALLIANCE) && !GetAlivePlayersCountByTeam(HORDE))
+			EndBattleGround(ALLIANCE);
+	}
+	else
+		EndBattleGround(0);
 }
 
 WorldSafeLocsEntry const* BattleGround::GetClosestGraveYard(Player* player)
