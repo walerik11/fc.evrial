@@ -608,7 +608,6 @@ int32 ArenaTeam::LostAgainst(uint32 againstRating)
 	{
 		int32 mod = (int32)ceil(32.0f * (0.0f - chance));
 		// modify the team stats accordingly
-		FinishGame(mod);
 
 		if (sWorld.getConfig(CONFIG_ARENA_MIN_CHANGE_RATING))
 		{
@@ -616,6 +615,7 @@ int32 ArenaTeam::LostAgainst(uint32 againstRating)
 				mod = (-1)*sWorld.getConfig(CONFIG_ARENA_MIN_RATING_COUNT);
 		}
 
+		FinishGame(mod);
 		// return the rating change, used to display it on the results screen
 		return mod;
 	}
