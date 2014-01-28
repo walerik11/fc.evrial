@@ -25,6 +25,7 @@
 void AddSC_npc_titles();
 void AddSC_npc_transmogrification();
 void AddSC_npc_arena_spectator();
+void AddSC_npc_exchanger();
 
 //examples
 //void AddSC_custom_example();
@@ -404,6 +405,7 @@ void AddScripts()
     AddSC_npc_titles();
 	AddSC_npc_transmogrification();
 	AddSC_npc_arena_spectator();
+	AddSC_npc_exchanger();
 
 //    AddSC_custom_example();
 //    AddSC_custom_gossip_codebox();
