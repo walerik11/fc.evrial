@@ -2147,7 +2147,7 @@ void Spell::prepare(SpellCastTargets * targets, Aura* triggeredByAura)
     }
 }
 
-void Spell::cancel()
+void Spell::cancel(bool sendInterrupt)
 {
     if (m_spellState == SPELL_STATE_FINISHED)
         return;
@@ -2166,7 +2166,8 @@ void Spell::cancel()
         case SPELL_STATE_DELAYED:
         {
             SendInterrupted(0);
-            SendCastResult(SPELL_FAILED_INTERRUPTED);
+            if (sendInterrupt)
+                SendCastResult(SPELL_FAILED_INTERRUPTED);
         } break;
 
         case SPELL_STATE_CASTING:
@@ -2187,7 +2188,8 @@ void Spell::cancel()
             m_caster->RemoveAurasByCasterSpell(m_spellInfo->Id, m_caster->GetGUID());
             SendChannelUpdate(0);
             SendInterrupted(0);
-            SendCastResult(SPELL_FAILED_INTERRUPTED);
+            if (sendInterrupt) 
+                SendCastResult(SPELL_FAILED_INTERRUPTED);
         } break;
 
         default:
@@ -2728,8 +2730,8 @@ void Spell::update(uint32 difftime)
                         cancel();
 
                     // check for incapacitating player states
-                    //if (m_caster->hasUnitState(UNIT_STAT_STUNNED | UNIT_STAT_CONFUSED))
-                    //    cancel();
+                    if (m_caster->hasUnitState(UNIT_STAT_STUNNED | UNIT_STAT_CONFUSED))
+                        cancel();
                 }
 
                 // check if there are alive targets left
