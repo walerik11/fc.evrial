@@ -2356,10 +2356,7 @@ void SpellMgr::LoadSpellCustomAttr()
                 case SPELL_AURA_OBS_MOD_HEALTH:
                     mSpellCustomAttr[i] |= SPELL_ATTR_CU_AURA_HOT;
                     break;
-                case SPELL_AURA_MOD_ROOT:
-                    mSpellCustomAttr[i] |= SPELL_ATTR_CU_AURA_CC;
-                    mSpellCustomAttr[i] |= SPELL_ATTR_CU_MOVEMENT_IMPAIR;
-                    break;
+				case SPELL_AURA_MOD_ROOT:
                 case SPELL_AURA_MOD_DECREASE_SPEED:
                     mSpellCustomAttr[i] |= SPELL_ATTR_CU_MOVEMENT_IMPAIR;
                     break;
