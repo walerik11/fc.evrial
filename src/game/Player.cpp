@@ -378,6 +378,8 @@ Player::Player (WorldSession *session): Unit()
     //when dying/logging out
     m_oldpetspell = 0;
 
+	m_petStatus = PET_STATUS_NONE;
+
     ////////////////////Rest System/////////////////////
     time_inn_enter=0;
     inn_pos_mapid=0;
@@ -15841,8 +15843,18 @@ void Player::LoadPet()
     if (IsInWorld())
     {
         Pet *pet = new Pet(this);
-        if (!pet->LoadPetFromDB(this,0,0,true))
+        if (!pet->LoadPetFromDB(this,0,0,true))   // Pet was not loaded from DB
+        {
+            // Even if the pet is not in the active slot and will not be loaded into the world, update it's status
+            // Need to fetch pet's current health value from the DB, to find out if the pet is dead or alive
+            if (QueryResult_AutoPtr result = CharacterDatabase.PQuery("SELECT curhealth FROM character_pet WHERE owner = '%u'", GetGUIDLow()))
+                SetPetStatus((result->Fetch()->GetUInt32() != 0) ? PET_STATUS_DISMISSED : PET_STATUS_DEAD_AND_REMOVED);
+
             delete pet;
+        }
+        // Pet has been loaded from the database into the world
+        else
+			SetPetStatus((pet->isAlive()) ? PET_STATUS_CURRENT : PET_STATUS_DEAD); 
     }
 }
 
@@ -17496,6 +17508,25 @@ void Player::RemovePet(Pet* pet, PetSaveMode mode, bool returnreagent)
 
     // only if current pet in slot
     pet->SavePetToDB(mode);
+
+    PetStatus petstatus = PET_STATUS_CURRENT;
+    switch (mode)
+    {
+        // Pet is being removed from the world and database
+        case PET_SAVE_AS_DELETED:
+        {
+            petstatus = PET_STATUS_NONE;
+            break;
+        }
+        // In these cases the pet is not in the world
+        case PET_SAVE_IN_STABLE_SLOT_1:
+        case PET_SAVE_IN_STABLE_SLOT_2:
+        case PET_SAVE_NOT_IN_SLOT:
+        {
+             petstatus = (pet->isAlive()) ?
+             PET_STATUS_DISMISSED : PET_STATUS_DEAD_AND_REMOVED;
+        }
+    } SetPetStatus(petstatus);  // Update pet status
 
     SetMinion(pet, false);
 
