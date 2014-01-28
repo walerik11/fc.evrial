@@ -8632,6 +8632,7 @@ void Unit::SetInCombatState(bool PvP, Unit* enemy)
     if (isInCombat())
         return;
 
+	// Combat is no longer in initiation phase
     SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IN_COMBAT);
 
 	setInitiatingCombat(false);
