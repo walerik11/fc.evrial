@@ -2351,3 +2351,33 @@ Transmogrification.ItemCount = 0
 
 Spectator.CanSeeInvis = 0
 ###############################################################################
+
+Vip.MaxHonorPoints = 75000
+Vip.MaxArenaPoints = 7500
+Vip.MaxPrimaryTradeSkill = 3
+Vip.MinPetitionSigns = 5
+Vip.MaxGroupXPDistance = 100
+Vip.Rate.Drop.Money = 2
+Vip.Rate.XP.Kill = 2
+Vip.Rate.XP.Quest = 2
+Vip.Rate.XP.Explore = 2
+Vip.Rate.Rest.InGame = 2
+Vip.Rate.Rest.Offline.InTavernOrCity = 2
+Vip.Rate.Rest.Offline.InWilderness = 2
+Vip.Rate.Damage.Fall = 0.5
+Vip.Rate.Reputation.Gain = 2
+Vip.SkillGain.Crafting = 2
+Vip.SkillGain.Defense = 2
+Vip.SkillGain.Gathering = 2
+Vip.SkillGain.Weapon = 2
+Vip.Death.SicknessLevel = 69
+Vip.NoResetTalentsCost = 1
+Vip.CharDelete.Method = 1
+Vip.Rate.Honor = 2
+#Rate.ArenaPoints
+Vip.Arena.CanSeeInWhoListPrep = 1
+
+Vip.Battleground.CastDeserter = 0
+#RateBGMarks
+
+Vip.HonorPointsAfterDuel = 5

@@ -1175,6 +1175,32 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_WARDEN_NUM_CHECKS] = sConfig.GetIntDefault("Warden.NumChecks", 3);
     m_configs[CONFIG_WARDEN_CLIENT_CHECK_HOLDOFF] = sConfig.GetIntDefault("Warden.ClientCheckHoldOff", 30);
     m_configs[CONFIG_WARDEN_CLIENT_RESPONSE_DELAY] = sConfig.GetIntDefault("Warden.ClientResponseDelay", 15);
+
+	//VIP system
+	m_configs[CONFIG_VIP_MAX_HONOR_POINTS] = sConfig.GetIntDefault("Vip.MaxHonorPoints", 75000);
+	m_configs[CONFIG_VIP_MAX_ARENA_POINTS] = sConfig.GetIntDefault("Vip.MaxArenaPoints", 7500);
+	m_configs[CONFIG_VIP_MAX_PRIMARY_TRADE_SKILL] = sConfig.GetIntDefault("Vip.MaxPrimaryTradeSkill", 3);
+	m_configs[CONFIG_VIP_MIN_PETITION_SIGNS] = sConfig.GetIntDefault("Vip.MinPetitionSigns", 5);
+	m_configs[CONFIG_VIP_GROUP_XP_DISTANCE] = sConfig.GetIntDefault("Vip.MaxGroupXPDistance", 100);
+	rate_values[VIP_RATE_DROP_MONEY]  = sConfig.GetFloatDefault("Vip.Rate.Drop.Money", 2.0f);
+	rate_values[VIP_RATE_XP_KILL]     = sConfig.GetFloatDefault("Vip.Rate.XP.Kill", 2.0f);
+    rate_values[VIP_RATE_XP_QUEST]    = sConfig.GetFloatDefault("Vip.Rate.XP.Quest", 2.0f);
+    rate_values[VIP_RATE_XP_EXPLORE]  = sConfig.GetFloatDefault("Vip.Rate.XP.Explore", 2.0f);
+	rate_values[VIP_RATE_REST_INGAME]                    = sConfig.GetFloatDefault("Vip.Rate.Rest.InGame", 2.0f);
+    rate_values[VIP_RATE_REST_OFFLINE_IN_TAVERN_OR_CITY] = sConfig.GetFloatDefault("Vip.Rate.Rest.Offline.InTavernOrCity", 2.0f);
+    rate_values[VIP_RATE_REST_OFFLINE_IN_WILDERNESS]     = sConfig.GetFloatDefault("Vip.Rate.Rest.Offline.InWilderness", 2.0f);
+	rate_values[VIP_RATE_DAMAGE_FALL]  = sConfig.GetFloatDefault("Vip.Rate.Damage.Fall", 0.5f);
+	rate_values[VIP_RATE_REPUTATION_GAIN]  = sConfig.GetFloatDefault("Vip.Rate.Reputation.Gain", 2.0f);
+	m_configs[CONFIG_VIP_SKILL_GAIN_CRAFTING]  = sConfig.GetIntDefault("Vip.SkillGain.Crafting", 2);
+	m_configs[CONFIG_VIP_SKILL_GAIN_DEFENSE]  = sConfig.GetIntDefault("Vip.SkillGain.Crafting", 2);
+	m_configs[CONFIG_VIP_SKILL_GAIN_GATHERING]  = sConfig.GetIntDefault("Vip.SkillGain.Crafting", 2);
+	m_configs[CONFIG_VIP_SKILL_GAIN_WEAPON]  = sConfig.GetIntDefault("Vip.SkillGain.Crafting", 2);
+	m_configs[CONFIG_VIP_DEATH_SICKNESS_LEVEL]           = sConfig.GetIntDefault ("Vip.Death.SicknessLevel", 69);
+	m_configs[CONFIG_VIP_NO_RESET_TALENT_COST] = sConfig.GetBoolDefault("Vip.NoResetTalentsCost", true);
+	rate_values[VIP_RATE_HONOR] = sConfig.GetFloatDefault("Vip.Rate.Honor",2.0f);
+	m_configs[CONFIG_VIP_SEEINWHOLIST_PREP]	= sConfig.GetBoolDefault("Vip.Arena.CanSeeInWhoListPrep", true);
+	m_configs[CONFIG_VIP_BATTLEGROUND_CAST_DESERTER] = sConfig.GetBoolDefault("Vip.Battleground.CastDeserter", true);
+	m_configs[CONFIG_VIP_HONOR_AFTER_DUEL] = sConfig.GetIntDefault("Vip.HonorPointsAfterDuel", 5);
 }
 
 // Initialize the World

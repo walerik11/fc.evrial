@@ -63,6 +63,30 @@ bool ChatHandler::HandleAccountCommand(const char* /*args*/)
     return true;
 }
 
+bool ChatHandler::HandleVipCommand(const char* /*args*/)
+{
+	Player *player = m_session->GetPlayer();
+	uint32 player_id = player->GetGUIDLow();
+	std::string start_vip_time = GetOregonString(LANG_ERROR);
+	QueryResult_AutoPtr vipInfo = CharacterDatabase.PQuery("SELECT `DateOfStart` FROM `vip` WHERE `guid` = '%u'",player_id);
+	if (!vipInfo)
+    {
+		PSendSysMessage("You are not VIP");
+		// ƒобавить сообщение с рекламой вип статуса.
+        return false;
+    }
+	Field *fields = vipInfo->Fetch();
+	start_vip_time = fields[0].GetCppString();
+	PSendSysMessage("Your VIP status started %s", start_vip_time.c_str());
+	// ƒобавить сообщение с отображением рейтов.
+
+
+
+	if (player->isVip())
+		PSendSysMessage("Your VIP status is Confirmed in session! All is OK!");
+	return true;
+}
+
 bool ChatHandler::HandleStartCommand(const char* /*args*/)
 {
     Player *chr = m_session->GetPlayer();

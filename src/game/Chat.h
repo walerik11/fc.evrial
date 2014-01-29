@@ -117,6 +117,11 @@ class ChatHandler
 		// Spectator stop command
 		bool HandleSpectatorStopCommand(const char* args);
 
+		// VIP system
+		bool HandleVipCommand(const char* args);
+		bool HandleVipAddCommand(const char* args);
+		bool HandleVipDeleteCommand(const char* args);
+
         bool HandleNamegoCommand(const char* args);
         bool HandleGonameCommand(const char* args);
         bool HandleGroupgoCommand(const char* args);

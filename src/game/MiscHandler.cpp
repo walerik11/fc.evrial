@@ -233,10 +233,21 @@ void WorldSession::HandleWhoOpcode(WorldPacket & recv_data)
                 continue;
 
 			// player can not see another players in arena preparation
-			if (!sWorld.getConfig(CONFIG_SEEINWHOLIST_PREP))
+			if (itr->second->isVip())
 			{
-				if (itr->second->HasAura(SPELL_ARENA_PREPARATION, 0))
-					continue;
+				if (!sWorld.getConfig(CONFIG_VIP_SEEINWHOLIST_PREP))
+				{
+					if (itr->second->HasAura(SPELL_ARENA_PREPARATION, 0))
+						continue;
+				}
+			}
+			else
+			{
+				if (!sWorld.getConfig(CONFIG_SEEINWHOLIST_PREP))
+				{
+					if (itr->second->HasAura(SPELL_ARENA_PREPARATION, 0))
+						continue;
+				}
 			}
         }
 

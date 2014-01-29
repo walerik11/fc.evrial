@@ -5623,6 +5623,85 @@ bool ChatHandler::HandleCompleteQuest(const char *args)
     player->CompleteQuest(entry);
     return true;
 }
+bool ChatHandler::HandleVipAddCommand(const char* args)
+{
+	if (!*args)
+        return false;
+
+	char *player_name = strtok((char*)args, " ");
+    if (!player_name)
+        return false;
+
+	std::string p_name = player_name;
+
+	if (!normalizePlayerName(p_name))
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+	uint64 player_guid = objmgr.GetPlayerGUIDByName(p_name.c_str());
+    if (!player_guid)
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+    Player *player = objmgr.GetPlayer(player_guid);
+
+	CharacterDatabase.PExecute("INSERT INTO `vip` VALUES (%u, NOW())", player_guid);
+
+	player->SetVip(true);
+
+	PSendSysMessage("Player %s is VIP now!", p_name.c_str());
+
+	if (player)
+        ChatHandler(player).PSendSysMessage("You are VIP now!!! To info about VIP status use .vip");
+
+	return true;
+}
+
+bool ChatHandler::HandleVipDeleteCommand(const char* args)
+{
+	if (!*args)
+        return false;
+
+	char *player_name = strtok((char*)args, " ");
+    if (!player_name)
+        return false;
+
+	std::string p_name = player_name;
+
+	if (!normalizePlayerName(p_name))
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+	uint64 player_guid = objmgr.GetPlayerGUIDByName(p_name.c_str());
+    if (!player_guid)
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+    Player *player = objmgr.GetPlayer(player_guid);
+
+	CharacterDatabase.PExecute("DELETE FROM `vip` WHERE `guid` = %u", player_guid);
+
+	player->SetVip(false);
+
+	PSendSysMessage("Player %s is NOT VIP now!", p_name.c_str());
+
+	if (player)
+        ChatHandler(player).PSendSysMessage("You are NOT VIP now!!! Please no cry noob ;)))");
+
+	return true;
+}
 
 bool ChatHandler::HandleBanAccountCommand(const char *args)
 {

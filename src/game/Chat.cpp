@@ -573,6 +573,15 @@ ChatCommand * ChatHandler::getCommandTable()
         { NULL,             0,                  false, NULL,                                                "", NULL }
     };
 
+	// VIP system
+	static ChatCommand vipCommandTable[] =
+	{
+		{ "add",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleVipAddCommand,					"", NULL},
+		{ "delete",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleVipDeleteCommand,				"", NULL},
+		{ "",				SEC_PLAYER,			false,	&ChatHandler::HandleVipCommand,						"", NULL},
+		{ NULL,				0,					false,	NULL,												"", NULL}
+	};
+
     static ChatCommand commandTable[] =
     {
         { "account",        SEC_PLAYER,         true,  NULL,                                           "", accountCommandTable  },
@@ -680,6 +689,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "unpossess",      SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnPossessCommand,           "", NULL },
         { "bindsight",      SEC_ADMINISTRATOR,  false, &ChatHandler::HandleBindSightCommand,           "", NULL },
         { "unbindsight",    SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnbindSightCommand,         "", NULL },
+		{ "vip",			SEC_PLAYER,			true,  &ChatHandler::HandleVipCommand,				   "", vipCommandTable },
 
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };

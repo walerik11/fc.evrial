@@ -745,6 +745,13 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 
     m_playerLoading = false;
 
+	QueryResult_AutoPtr vipInfo = CharacterDatabase.PQuery("SELECT `guid` FROM `vip` WHERE `guid` = '%u'",pCurrChar->GetGUIDLow());
+	if (vipInfo)
+    {
+		if (!pCurrChar->isVip())
+			pCurrChar->SetVip(true);
+    }
+
     //Hook for OnLogin Event
     sScriptMgr.OnLogin(pCurrChar);
 
