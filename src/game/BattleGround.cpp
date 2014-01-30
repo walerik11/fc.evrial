@@ -850,24 +850,48 @@ void BattleGround::EndBattleGround(uint32 winner)
 			
         }
 
+		uint32 nITEM_WINNER_COUNT;
+		uint32 nITEM_LOSER_COUNT;
+		switch(GetTypeID())
+		{
+			case BATTLEGROUND_AV:
+				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_WIN_COUNT);
+				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_LOSE_COUNT);
+				break;
+			case BATTLEGROUND_WS:
+				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_WS_WIN_COUNT);
+				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_WS_LOSE_COUNT);
+				break;
+			case BATTLEGROUND_AB:
+				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AB_WIN_COUNT);
+				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AB_LOSE_COUNT);
+				break;
+			case BATTLEGROUND_EY:
+				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_WIN_COUNT);
+				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_LOSE_COUNT);
+				break;
+			default:
+				return;
+		}
+
         if (team == winner)
         {
-            RewardMark(plr,ITEM_WINNER_COUNT);
+            RewardMark(plr,nITEM_WINNER_COUNT);
             UpdatePlayerScore(plr, SCORE_BONUS_HONOR, 20);
             RewardQuest(plr);
         }
         else if (winner != 0)
         {
-            RewardMark(plr,ITEM_LOSER_COUNT);
+            RewardMark(plr,nITEM_LOSER_COUNT);
         }
         else if (winner == 0)
         {
             if (sWorld.getConfig(CONFIG_BATTLEGROUND_PREMATURE_REWARD))
             {
                 if (almost_winning_team == team)                  // player's team had more points
-                    RewardMark(plr,ITEM_WINNER_COUNT);
+                    RewardMark(plr,nITEM_WINNER_COUNT);
                 else
-                    RewardMark(plr,ITEM_LOSER_COUNT);            // if scores were the same, each team gets 1 mark.
+                    RewardMark(plr,nITEM_LOSER_COUNT);            // if scores were the same, each team gets 1 mark.
             }
         }
 
@@ -928,20 +952,21 @@ void BattleGround::RewardMark(Player *plr,uint32 count)
     if (!plr || !count)
         return;
 
-    BattleGroundMarks mark;
+    //BattleGroundMarks mark; Не понятно зачем брали тип переменной как BattleGroundMarks, ведь переменная представлена цифрой и далее используется как uint32
+	uint32 mark;
     switch(GetTypeID())
     {
         case BATTLEGROUND_AV:
-            mark = ITEM_AV_MARK_OF_HONOR;
+            mark = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_MARK);
             break;
         case BATTLEGROUND_WS:
-            mark = ITEM_WS_MARK_OF_HONOR;
+            mark = sWorld.getConfig(CONFIG_BATTLEGROUND_WS_MARK);
             break;
         case BATTLEGROUND_AB:
-            mark = ITEM_AB_MARK_OF_HONOR;
+            mark = sWorld.getConfig(CONFIG_BATTLEGROUND_AB_MARK);
             break;
         case BATTLEGROUND_EY:
-            mark = ITEM_EY_MARK_OF_HONOR;
+            mark = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_MARK);
             break;
         default:
             return;

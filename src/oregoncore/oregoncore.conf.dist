@@ -1498,6 +1498,15 @@ Death.Bones.BattlegroundOrArena = 1
 #		Default: 1 (tnable)
 #				 0 (disable)
 #
+#	Battleground.AV.Mark, Battleground.WS.Mark, Battleground.AB.Mark, Battleground.EY.Mark
+#		ID предмета-марки соответствующего БГ. (AV - альтерак валей, WS - варсонг, AB - арати басин, EY - глаз шторма). При победе/порежении будет выдаваться именно этот предмет.
+#
+#	Battleground.AV.WinCount
+#		Количество марок за победу в БГ Альтерак. Остальные БГ по аналогии.
+#
+#	Battleground.AV.LoseCount
+#		Количество марок за поражение в БГ Альтера. Остальные БГ по аналогии.
+#
 ###############################################################################
 
 Battleground.CastDeserter = 1
@@ -1507,6 +1516,18 @@ Battleground.PrematureReward = 1
 BattleGround.PrematureFinishTimer = 300000
 Battleground.LeaveWrathMode = 0
 Battleground.AllowTwoSide = 1
+Battleground.AV.Mark = 20560
+Battleground.WS.Mark = 20558
+Battleground.AB.Mark = 20559
+Battleground.EY.Mark = 29024
+Battleground.AV.WinCount = 3
+Battleground.AV.LoseCount = 1
+Battleground.WS.WinCount = 3
+Battleground.WS.LoseCount = 1
+Battleground.AB.WinCount = 3
+Battleground.AB.LoseCount = 1
+Battleground.EY.WinCount = 3
+Battleground.EY.LoseCount = 1
 
 ###############################################################################
 # ARENA CONFIG
