@@ -5653,12 +5653,13 @@ bool ChatHandler::HandleVipAddCommand(const char* args)
 
 	CharacterDatabase.PExecute("INSERT INTO `vip` VALUES (%u, NOW())", player_guid);
 
-	player->SetVip(true);
-
 	PSendSysMessage("Player %s is VIP now!", p_name.c_str());
 
 	if (player)
+	{
+		player->SetVip(true);
         ChatHandler(player).PSendSysMessage("You are VIP now!!! To info about VIP status use .vip");
+	}
 
 	return true;
 }
@@ -5693,12 +5694,13 @@ bool ChatHandler::HandleVipDeleteCommand(const char* args)
 
 	CharacterDatabase.PExecute("DELETE FROM `vip` WHERE `guid` = %u", player_guid);
 
-	player->SetVip(false);
-
 	PSendSysMessage("Player %s is NOT VIP now!", p_name.c_str());
 
 	if (player)
+	{
+		player->SetVip(false);
         ChatHandler(player).PSendSysMessage("You are NOT VIP now!!! Please no cry noob ;)))");
+	}
 
 	return true;
 }
