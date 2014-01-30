@@ -1732,7 +1732,18 @@ void BattleGroundMgr::DistributeArenaPoints()
         //add points if player is online
         Player* pl = objmgr.GetPlayer(plr_itr->first);
         if (pl)
-            pl->ModifyArenaPoints(plr_itr->second);
+		{
+			uint32 points;
+			if (pl->isVip())
+			{
+				points = ((plr_itr->second)*sWorld.getConfig(VIP_RATE_ARENA_POINTS));
+			}
+			else
+			{
+				points = ((plr_itr->second)*sWorld.getConfig(RATE_ARENA_POINTS));
+			}
+            pl->ModifyArenaPoints(points);
+		}
     }
 
     PlayerPoints.clear();

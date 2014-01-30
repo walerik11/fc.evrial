@@ -874,6 +874,12 @@ void BattleGround::EndBattleGround(uint32 winner)
 				return;
 		}
 
+		if (plr->isVip())
+		{
+			nITEM_WINNER_COUNT += sWorld.getConfig(CONFIG_VIP_BG_MARKS_WIN);
+			nITEM_LOSER_COUNT += sWorld.getConfig(CONFIG_VIP_BG_MARKS_LOSE);
+		}
+
         if (team == winner)
         {
             RewardMark(plr,nITEM_WINNER_COUNT);

@@ -544,6 +544,7 @@ void World::LoadConfigSettings(bool reload)
 	rate_values[RATE_RESILIENCE] = sConfig.GetFloatDefault("Rate.Resilience",1.00f);
 	rate_values[RATE_RESILIENCE_LIMIT_REDUSE] = sConfig.GetFloatDefault("Rate.ResilienceLimitReduse",25.00f);
 
+	rate_values[RATE_ARENA_POINTS] = sConfig.GetFloatDefault("Rate.ArenaPoints",1.0f);
     // Read other configuration items from the config file
 
     m_configs[CONFIG_COMPRESSION] = sConfig.GetIntDefault("Compression", 1);
@@ -1217,6 +1218,9 @@ void World::LoadConfigSettings(bool reload)
 	m_configs[CONFIG_VIP_SEEINWHOLIST_PREP]	= sConfig.GetBoolDefault("Vip.Arena.CanSeeInWhoListPrep", true);
 	m_configs[CONFIG_VIP_BATTLEGROUND_CAST_DESERTER] = sConfig.GetBoolDefault("Vip.Battleground.CastDeserter", true);
 	m_configs[CONFIG_VIP_HONOR_AFTER_DUEL] = sConfig.GetIntDefault("Vip.HonorPointsAfterDuel", 5);
+	m_configs[CONFIG_VIP_BG_MARKS_WIN] = sConfig.GetIntDefault("Vip.RateBGMarksWin", 1);
+	m_configs[CONFIG_VIP_BG_MARKS_LOSE] = sConfig.GetIntDefault("Vip.RateBGMarksLose", 1);
+	rate_values[VIP_RATE_ARENA_POINTS] = sConfig.GetFloatDefault("Vip.Rate.ArenaPoints", 1.5f);
 }
 
 // Initialize the World
