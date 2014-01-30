@@ -1144,6 +1144,10 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_ANTICHEAT_MAX_REPORTS_FOR_DAILY_REPORT] = sConfig.GetIntDefault("Anticheat.MaxReportsForDailyReport",70);
 	m_configs[CONFIG_ANTICHEAT_KICK_ENABLE] = sConfig.GetBoolDefault("Anticheat.KickEnable", false);
 
+	m_configs[CONFIG_AUTORESTART_TIMER] = sConfig.GetIntDefault("Autorestart.Timer", 0);
+	if (m_configs[CONFIG_AUTORESTART_TIMER] < 0)
+		m_configs[CONFIG_AUTORESTART_TIMER] = 0;
+
     std::string forbiddenmaps = sConfig.GetStringDefault("ForbiddenMaps", "");
     char * forbiddenMaps = new char[forbiddenmaps.length() + 1];
     forbiddenMaps[forbiddenmaps.length()] = 0;
@@ -1638,6 +1642,9 @@ void World::SetInitialWorldSettings()
     Player::DeleteOldCharacters();
 
     sLog.outString("WORLD: World initialized");
+
+	if (sWorld.getConfig(CONFIG_AUTORESTART_TIMER) != 0)
+		sWorld.ShutdownServ(sWorld.getConfig(CONFIG_AUTORESTART_TIMER), SHUTDOWN_MASK_RESTART, RESTART_EXIT_CODE);
 }
 
 void World::DetectDBCLang()
