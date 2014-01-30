@@ -1221,6 +1221,9 @@ void World::LoadConfigSettings(bool reload)
 	m_configs[CONFIG_VIP_BG_MARKS_WIN] = sConfig.GetIntDefault("Vip.RateBGMarksWin", 1);
 	m_configs[CONFIG_VIP_BG_MARKS_LOSE] = sConfig.GetIntDefault("Vip.RateBGMarksLose", 1);
 	rate_values[VIP_RATE_ARENA_POINTS] = sConfig.GetFloatDefault("Vip.Rate.ArenaPoints", 1.5f);
+
+	m_configs[CONFIG_VIP_PVE_SHOW]	= sConfig.GetBoolDefault("Vip.PVE.Info", true);
+	m_configs[CONFIG_VIP_PVP_SHOW]	= sConfig.GetBoolDefault("Vip.PVP.Info", true);
 }
 
 // Initialize the World

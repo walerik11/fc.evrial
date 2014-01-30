@@ -67,23 +67,62 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 {
 	Player *player = m_session->GetPlayer();
 	uint32 player_id = player->GetGUIDLow();
-	std::string start_vip_time = GetOregonString(LANG_ERROR);
-	QueryResult_AutoPtr vipInfo = CharacterDatabase.PQuery("SELECT `DateOfStart` FROM `vip` WHERE `guid` = '%u'",player_id);
-	if (!vipInfo)
-    {
-		PSendSysMessage("You are not VIP");
-		// ƒобавить сообщение с рекламой вип статуса.
-        return false;
-    }
-	Field *fields = vipInfo->Fetch();
-	start_vip_time = fields[0].GetCppString();
-	PSendSysMessage("Your VIP status started %s", start_vip_time.c_str());
-	// ƒобавить сообщение с отображением рейтов.
-
-
-
 	if (player->isVip())
+	{
 		PSendSysMessage("Your VIP status is Confirmed in session! All is OK!");
+		PSendSysMessage("Configs:");
+	}
+	else
+	{
+		PSendSysMessage("Your VIP status is NOT Confirmed in session! Talk to GM to VIP status");
+		PSendSysMessage("VIP status grands:");
+	}
+	if (sWorld.getConfig(CONFIG_VIP_PVE_SHOW))
+	{
+		PSendSysMessage("In PVE:");
+		uint32 maxhonor = sWorld.getConfig(CONFIG_VIP_MAX_HONOR_POINTS);
+		PSendSysMessage("Max Honor Points - %u",maxhonor);
+		uint32 maxarena = sWorld.getConfig(CONFIG_VIP_MAX_ARENA_POINTS);
+		PSendSysMessage("Max Arena Points - %u",maxarena);
+		uint32 tradeskill = sWorld.getConfig(CONFIG_VIP_MAX_PRIMARY_TRADE_SKILL);
+		PSendSysMessage("Count of Professions - %u",tradeskill);
+		uint32 petition = sWorld.getConfig(CONFIG_VIP_MIN_PETITION_SIGNS);
+		PSendSysMessage("Petition Sings for Guild - %u",petition);
+		uint32 xpdist = sWorld.getConfig(CONFIG_VIP_GROUP_XP_DISTANCE);
+		PSendSysMessage("Distance of giving XP in party - %u",xpdist);
+		uint32 money = sWorld.getConfig(VIP_RATE_DROP_MONEY);
+		PSendSysMessage("Drop gold - %u X",money);
+		uint32 xpkill = sWorld.getConfig(VIP_RATE_XP_KILL);
+		PSendSysMessage("XP for kills - %u X",xpkill);
+		uint32 xpquest = sWorld.getConfig(VIP_RATE_XP_QUEST);
+		PSendSysMessage("XP for quests - %u X",xpquest);
+		uint32 rest = sWorld.getConfig(VIP_RATE_REST_OFFLINE_IN_TAVERN_OR_CITY);
+		PSendSysMessage("Rate Rest - %u X",rest);
+		uint32 fall = sWorld.getConfig(VIP_RATE_DAMAGE_FALL);
+		PSendSysMessage("Damage of fall - %u X",fall);
+		uint32 rep = sWorld.getConfig(VIP_RATE_REPUTATION_GAIN);
+		PSendSysMessage("Reputation giving - %u X",rep);
+		uint32 skills = sWorld.getConfig(CONFIG_VIP_SKILL_GAIN_WEAPON);
+		PSendSysMessage("Skills levelup - %u",skills);
+		uint32 slevel = sWorld.getConfig(CONFIG_VIP_DEATH_SICKNESS_LEVEL);
+		PSendSysMessage("Death Sickness level - %u",slevel);
+	}
+
+	if (sWorld.getConfig(CONFIG_VIP_PVP_SHOW))
+	{
+		PSendSysMessage("In PVP");
+		uint32 honor = sWorld.getConfig(VIP_RATE_HONOR);
+		PSendSysMessage("Honor - %u X",honor);
+		uint32 bgwin = sWorld.getConfig(CONFIG_VIP_BG_MARKS_WIN);
+		PSendSysMessage("More BG Marks if win - +%u",bgwin);
+		uint32 bglose = sWorld.getConfig(CONFIG_VIP_BG_MARKS_LOSE);
+		PSendSysMessage("More BG Marks if lose - +%u",bglose);
+		uint32 arena = sWorld.getConfig(VIP_RATE_ARENA_POINTS);
+		PSendSysMessage("More Arena Points Dintributing - %u X",arena);
+		uint32 desert = sWorld.getConfig(CONFIG_VIP_BATTLEGROUND_CAST_DESERTER);
+		if (desert == 0)
+			PSendSysMessage("No Desertire after leave BG");
+	}
 	return true;
 }
 
