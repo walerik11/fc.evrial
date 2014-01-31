@@ -361,7 +361,8 @@ void GameObject::Update(uint32 diff)
                         if (goInfo->trap.spellId)
                             CastSpell(ok, goInfo->trap.spellId);
 
-                        m_cooldownTime = time(NULL) + 4;        // 4 seconds
+                        //m_cooldownTime = time(NULL) + 4;        // 4 seconds
+						m_cooldownTime = time(NULL) + goInfo->trap.cooldown ? goInfo->trap.cooldown : 4;    // default 4 sec cooldown??
 
                         if (owner)  // || goInfo->trap.charges == 1)
                             SetLootState(GO_JUST_DEACTIVATED);
