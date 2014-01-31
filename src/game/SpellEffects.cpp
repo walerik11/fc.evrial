@@ -1727,17 +1727,24 @@ void Spell::EffectDummy(uint32 i)
                     }
 
                     // not empty (checked)
-                    Unit::AttackerSet const& attackers = unitTarget->getAttackers();
+                    //Unit::AttackerSet const& attackers = unitTarget->getAttackers();
+					Unit::AttackerSet attackers(unitTarget->getAttackers());
 
                     // chance to be selected from list
-                    float chance = 100.0f/attackers.size();
+                    /*float chance = 100.0f/attackers.size();
                     uint32 count=0;
-                    for (Unit::AttackerSet::const_iterator aItr = attackers.begin(); aItr != attackers.end() && count < 3; ++aItr)
+                    for (Unit::AttackerSet::const_iterator aItr = attackers.begin(); aItr != attackers.end() && count < 3; ++aItr)*/
+					uint32 maxTargets = std::min<uint32>(3, attackers.size());
+                    for (uint32 i = 0; i < maxTargets; ++i)
                     {
-                        if (!roll_chance_f(chance))
+                        /*if (!roll_chance_f(chance))
                             continue;
                         ++count;
-                        AddUnitTarget((*aItr), 1);
+                        AddUnitTarget((*aItr), 1);*/
+						Unit::AttackerSet::const_iterator aItr = attackers.begin();
+                        std::advance(aItr, urand(0, attackers.size() - 1));
+                        AddUnitTarget(*aItr, 1);
+                        attackers.erase(*aItr);
                     }
 
                     // now let next effect cast spell at each target.
