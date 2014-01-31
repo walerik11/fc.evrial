@@ -28,7 +28,10 @@ void ArenaTeamMember::ModifyPersonalRating(Player* plr, int32 mod, uint32 slot)
     else
         personal_rating += mod;
     if (plr)
+	{
         plr->SetArenaTeamInfoField(slot, ARENA_TEAM_PERSONAL_RATING, personal_rating);
+		plr->SaveToDB();
+	}
 }
 
 ArenaTeam::ArenaTeam()
