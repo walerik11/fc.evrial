@@ -763,12 +763,11 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 	// AntiSpam System
 	if (sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME) > 0)
 	{
-			if (pCurrChar->GetTotalPlayedTime() == 0)
-			{
-				uint32 mutetime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME)/60;
-				pCurrChar->GetSession()->m_muteTime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
-				ChatHandler(pCurrChar).PSendSysMessage("Your chat DISABLED for %u minutes because its new character.", mutetime);
-			}
+		if (pCurrChar->GetTotalPlayedTime() == 0)
+		{
+			uint32 mutetime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME)/60;
+			pCurrChar->GetSession()->m_muteTime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
+			ChatHandler(pCurrChar).PSendSysMessage("Your chat DISABLED for %u minutes because its new character.", mutetime);
 		}
 	}
 
