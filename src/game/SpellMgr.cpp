@@ -2453,6 +2453,13 @@ void SpellMgr::LoadSpellCustomAttr()
         case 41303: // Soul Drain
             spellInfo->MaxAffectedTargets = 3;
             break;
+		case 45034:
+            spellInfo->MaxAffectedTargets = 1;
+            spellInfo->AttributesEx |= SPELL_ATTR_EX_CANT_TARGET_SELF;
+			break;
+		case 39692: // Cannon
+            spellInfo->AttributesEx |= SPELL_ATTR_EX_CANT_TARGET_SELF;
+			break;
         case 38310: // Multi-Shot
             spellInfo->MaxAffectedTargets = 4;
             break;

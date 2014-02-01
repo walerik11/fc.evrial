@@ -5269,12 +5269,44 @@ CurrentSpellTypes Spell::GetCurrentContainer()
 
 bool Spell::CheckTarget(Unit* target, uint32 eff)
 {
+	if (m_spellInfo->Effect[eff] == SPELL_EFFECT_APPLY_AURA && (m_spellInfo->EffectImplicitTargetA[eff] == TARGET_UNIT_PARTY_TARGET ||
+        m_spellInfo->EffectImplicitTargetA[eff] == TARGET_UNIT_CLASS_TARGET) &&  target->getLevel() < m_spellInfo->spellLevel)
+        return false;
+
     // Check targets for creature type mask and remove not appropriate (skip explicit self target case, maybe need other explicit targets)
     if (m_spellInfo->EffectImplicitTargetA[eff] != TARGET_UNIT_CASTER)
     {
         if (!CheckTargetCreatureType(target))
             return false;
     }
+
+    // hack for level req
+    switch (m_spellInfo->Id)
+    {
+        // Songflower Serenade
+        case 15366:
+        // Mol'dar's Moxie
+        case 18222:
+        // Slip'kik's Savvy
+        case 22820:
+        // Rallying Cry of the Dragonslayer
+        case 22888:
+        // Traces of Silithyst
+        case 29534:
+        {
+            if (target->getLevel() >= 64)
+                return false;
+        }
+    }
+
+    if (m_spellInfo->AttributesEx3 & SPELL_ATTR_EX3_PLAYERS_ONLY && target->GetTypeId() != TYPEID_PLAYER &&
+        m_spellInfo->EffectImplicitTargetA[eff] != TARGET_UNIT_CASTER)
+        return false;
+
+    // Check targets for creature type mask and remove not appropriate (skip explicit self target case, maybe need other explicit targets)
+	if (m_spellInfo->AttributesEx & SPELL_ATTR_EX_CANT_TARGET_SELF && m_caster == target &&
+        !(m_spellInfo->EffectImplicitTargetA[eff] == TARGET_UNIT_CASTER && m_spellInfo->EffectImplicitTargetB[eff] == 0))
+            return false;
 
     // Check targets for not_selectable unit flag and remove
     // A player can cast spells on his pet (or other controlled unit) though in any state
@@ -5309,12 +5341,14 @@ bool Spell::CheckTarget(Unit* target, uint32 eff)
     //Check targets for LOS visibility (except spells without range limitations)
     switch(m_spellInfo->Effect[eff])
     {
+		case SPELL_EFFECT_152:
         case SPELL_EFFECT_SUMMON_PLAYER:                    // from anywhere
             break;
         case SPELL_EFFECT_DUMMY:
             if (m_spellInfo->Id != 20577)                      // Cannibalize
                 break;
             //fall through
+		case SPELL_EFFECT_RESURRECT:
         case SPELL_EFFECT_RESURRECT_NEW:
             // player far away, maybe his corpse near?
             if (target != m_caster && !target->IsWithinLOSInMap(m_caster))
