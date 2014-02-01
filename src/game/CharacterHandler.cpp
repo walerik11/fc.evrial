@@ -751,10 +751,12 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 		if (!pCurrChar->isVip())
 			pCurrChar->SetVip(true);
     }
-	if (pCurrChar->isVip() && sWorld.getConfig(CONFIG_VIP_SPELL) > 0)
+	if (pCurrChar->isVip())
 	{
-		pCurrChar->CastSpell(pCurrChar, sWorld.getConfig(CONFIG_VIP_SPELL), true);
-		pCurrChar->AddAura(CONFIG_VIP_AURA, pCurrChar);
+		if (sWorld.getConfig(CONFIG_VIP_SPELL) > 0)
+			pCurrChar->CastSpell(pCurrChar, sWorld.getConfig(CONFIG_VIP_SPELL), true);
+		if (sWorld.getConfig(CONFIG_VIP_AURA) > 0)
+			pCurrChar->AddAura(CONFIG_VIP_AURA, pCurrChar);
 	}
 
     //Hook for OnLogin Event
