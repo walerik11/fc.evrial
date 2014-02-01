@@ -21239,7 +21239,6 @@ void Player::SetMap(Map * map)
     m_mapRef.link(map, this);
 }
 
-
 uint32 Player::SuitableForTransmogrification(Item* oldItem, Item* newItem) // custom
 {
     // not possibly the best structure here, but atleast I got my head around this
@@ -21288,4 +21287,79 @@ uint32 Player::SuitableForTransmogrification(Item* oldItem, Item* newItem) // cu
             return ERR_FAKE_BAD_SUBLCASS;
     return ERR_FAKE_BAD_CLASS;*/
 	return ERR_FAKE_OK;
+}
+
+void Player::ChangeRace(uint8 new_race)
+{
+    static uint16 CapitalForRace[] = {0,72,76,47,69,68,81,54,530,0,911,930};
+
+    //sLog.outLog(LOG_CHAR,"Starting race change for player %s [%u]",GetName(),GetGUIDLow());
+    Races old_race = Races(getRace());
+
+    if (bool((1 << new_race) & 0x44D) != bool((1 << old_race) & 0x2B2))
+    {
+        //sLog.outLog(LOG_CHAR,"Race change: invalid race change, trans-faction NYI");
+        return;
+    }
+
+    const PlayerInfo* new_info = objmgr.GetPlayerInfo(new_race,getClass());
+    if (!new_info)
+    {
+        //sLog.outLog(LOG_CHAR,"Race change: invalid race/class pair");
+        return;
+    }
+
+    if (getGender() == GENDER_FEMALE)
+    {
+        SetDisplayId(new_info->displayId_f);
+        SetNativeDisplayId(new_info->displayId_f);
+    }
+    else
+    {
+        SetDisplayId(new_info->displayId_m);
+        SetNativeDisplayId(new_info->displayId_m);
+    }
+
+    uint32 unitbytes0 = GetUInt32Value(UNIT_FIELD_BYTES_0) & 0xFFFFFF00;
+    unitbytes0 |= new_race;
+    SetUInt32Value(UNIT_FIELD_BYTES_0, unitbytes0);
+
+    //spells
+    const PlayerInfo* old_info = objmgr.GetPlayerInfo(old_race,getClass());
+    std::list<CreateSpellPair>::const_iterator spell_itr;
+    for (spell_itr = old_info->spell.begin(); spell_itr!=old_info->spell.end(); ++spell_itr)
+    {
+        uint16 tspell = spell_itr->first;
+        if (tspell)
+            removeSpell(tspell);
+    }
+
+    if (getClass() == CLASS_PRIEST)
+    {
+        removeSpell(2651);
+        removeSpell(2652);
+        removeSpell(2944);
+        removeSpell(9035);
+        removeSpell(10797);
+        removeSpell(13896);
+        removeSpell(13908);
+        removeSpell(18137);
+        removeSpell(32548);
+        removeSpell(32676);
+        removeSpell(44041);
+    }
+
+    for (spell_itr = new_info->spell.begin(); spell_itr!=new_info->spell.end(); ++spell_itr)
+    {
+        uint16 tspell = spell_itr->first;
+        if (tspell)
+            learnSpell(tspell);
+    }
+
+    //reps
+    setFaction(Player::getFactionForRace(new_race));
+    //GetReputationMgr().SwitchReputation(CapitalForRace[old_race],CapitalForRace[new_race]);
+
+    //Items??
+    //sLog.outLog(LOG_CHAR,"Race change for player %s [%u] succesful",GetName(),GetGUIDLow());
 }

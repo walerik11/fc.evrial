@@ -2162,6 +2162,8 @@ class Player : public Unit, public GridObject<Player>
 
 		uint32 SuitableForTransmogrification(Item* oldItem, Item* newItem); // custom
 
+		void ChangeRace(uint8 new_race);
+
     protected:
 
         uint32 m_contestedPvPTimer;
