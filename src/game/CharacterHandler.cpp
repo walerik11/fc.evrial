@@ -763,13 +763,7 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 	// AntiSpam System
 	if (sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME) > 0)
 	{
-		QueryResult_AutoPtr antispam = CharacterDatabase.PQuery("SELECT `totaltime` FROM `characters` WHERE `guid` = '%u'",pCurrChar->GetGUIDLow());
-		if (antispam)
-		{
-			Field *fields = antispam->Fetch();
-			uint32 totaltime = fields[0].GetUInt32();
-
-			if (totaltime == 0)
+			if (pCurrChar->GetTotalPlayedTime() == 0)
 			{
 				uint32 mutetime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME)/60;
 				pCurrChar->GetSession()->m_muteTime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
