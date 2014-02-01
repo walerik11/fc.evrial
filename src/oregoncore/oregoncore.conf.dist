@@ -2148,6 +2148,9 @@ DuelRewardSpellCast = 41232
 Rate.Resilience = 1
 Rate.ResilienceLimitReduse = 25
 
+# Наложить мут на нового персонажа. Для усложнения жизни рекламеров
+NewChar.MuteTime = 600
+
 ###############################################################################
 # AUTO BROADCAST
 #

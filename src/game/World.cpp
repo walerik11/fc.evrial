@@ -1166,6 +1166,8 @@ void World::LoadConfigSettings(bool reload)
 	if (m_configs[CONFIG_AUTORESTART_TIMER] < 0)
 		m_configs[CONFIG_AUTORESTART_TIMER] = 0;
 
+	m_configs[CONFIG_NEWCHAR_MUTE_TIME] = sConfig.GetIntDefault("NewChar.MuteTime", 0);
+
     std::string forbiddenmaps = sConfig.GetStringDefault("ForbiddenMaps", "");
     char * forbiddenMaps = new char[forbiddenmaps.length() + 1];
     forbiddenMaps[forbiddenmaps.length()] = 0;
