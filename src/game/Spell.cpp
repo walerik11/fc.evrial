@@ -326,7 +326,7 @@ Spell::Spell(Unit* Caster, SpellEntry const *info, bool triggered, uint64 origin
 
     m_castPositionX = m_castPositionY = m_castPositionZ = 0;
     m_TriggerSpells.clear();
-    m_IsTriggeredSpell = triggered;
+    m_IsTriggeredSpell = m_spellInfo->AttributesEx4 & SPELL_ATTR_EX4_FORCE_TRIGGERED || triggered;
     //m_AreaAura = false;
     m_CastItem = NULL;
 
@@ -1381,6 +1381,7 @@ void Spell::SearchChainTarget(std::list<Unit*> &TagUnitMap, float max_range, uin
             while (m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MELEE
                 && !m_caster->isInFrontInMap(*next, max_range)
                 || !m_caster->canSeeOrDetect(*next, false)
+				|| (m_spellInfo->AttributesEx6 & SPELL_ATTR_EX6_CANT_TARGET_CCD || ((*next)->GetTypeId() == TYPEID_UNIT && (*next)->GetCreatureType() == CREATURE_TYPE_CRITTER))
                 || !cur->IsWithinLOSInMap(*next))
             {
                 ++next;
@@ -3283,6 +3284,9 @@ void Spell::SendResurrectRequest(Player* target)
     WorldPacket data(SMSG_RESURRECT_REQUEST, (8+4+2+4));
     data << m_caster->GetGUID();
     data << uint32(1) << uint16(0) << uint32(1);
+
+	if (m_spellInfo->AttributesEx3 & SPELL_ATTR_EX3_IGNORE_RESURRECTION_TIMER)
+        data << uint32(0);
 
     target->GetSession()->SendPacket(&data);
 }
