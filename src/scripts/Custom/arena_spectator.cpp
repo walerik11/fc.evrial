@@ -61,6 +61,7 @@ uint64 GetFirstPlayerGuid(BattleGround *bg)
 		else
 			return 0;
 	}
+	return 0;
 }
 
 void ShowPage (Player *pPlayer, Creature* pCreature, uint32 pages, bool isTop)

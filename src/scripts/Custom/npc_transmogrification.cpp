@@ -324,10 +324,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -353,10 +353,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -382,10 +382,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -411,10 +411,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -440,10 +440,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -469,10 +469,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -498,10 +498,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -527,10 +527,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -556,10 +556,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -585,10 +585,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -614,10 +614,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -643,10 +643,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -672,10 +672,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -701,10 +701,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -730,10 +730,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -759,10 +759,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -788,10 +788,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -817,10 +817,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -846,10 +846,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -875,10 +875,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -904,10 +904,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -933,10 +933,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -962,10 +962,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -991,10 +991,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1020,10 +1020,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1049,10 +1049,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1078,10 +1078,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1107,10 +1107,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1136,10 +1136,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;;
 		}
 		break;
@@ -1165,10 +1165,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1194,10 +1194,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1223,10 +1223,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1252,10 +1252,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1281,10 +1281,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1310,10 +1310,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1339,10 +1339,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1368,10 +1368,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1397,10 +1397,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1426,10 +1426,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1455,10 +1455,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1484,10 +1484,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1513,10 +1513,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1542,10 +1542,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1571,10 +1571,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1600,10 +1600,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1629,10 +1629,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1658,10 +1658,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1687,10 +1687,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1716,10 +1716,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1745,10 +1745,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1774,10 +1774,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1803,10 +1803,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1832,10 +1832,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1861,10 +1861,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1890,10 +1890,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1919,10 +1919,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1948,10 +1948,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -1977,10 +1977,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2006,10 +2006,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2035,10 +2035,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2064,10 +2064,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2093,10 +2093,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2122,10 +2122,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2151,10 +2151,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2180,10 +2180,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2209,10 +2209,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2238,10 +2238,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2267,10 +2267,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2296,10 +2296,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2325,10 +2325,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2354,10 +2354,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2383,10 +2383,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2412,10 +2412,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2441,10 +2441,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2470,10 +2470,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2499,10 +2499,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2528,10 +2528,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2557,10 +2557,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2586,10 +2586,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2615,10 +2615,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2644,10 +2644,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2673,10 +2673,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2702,10 +2702,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2731,10 +2731,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2760,10 +2760,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2789,10 +2789,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2818,10 +2818,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2847,10 +2847,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2876,10 +2876,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		break;
@@ -2905,10 +2905,10 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 
 			// Обновить вид, взять плату
 			UpdateGear(pPlayer); pPlayer->CLOSE_GOSSIP_MENU();
-			pPlayer->ModifyMoney( -sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
-			pPlayer->ModifyHonorPoints(-sWorld.getConfig(CONFIG_TRANS_HONOR));
-			pPlayer->ModifyArenaPoints(-sWorld.getConfig(CONFIG_TRANS_AP));
-			pPlayer->DestroyItemCount(-sWorld.getConfig(CONFIG_TRANS_ITEM), -sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
+			pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TRANS_GOLD) * 10000);
+			pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TRANS_HONOR));
+			pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TRANS_AP));
+			pPlayer->DestroyItemCount((-1)*sWorld.getConfig(CONFIG_TRANS_ITEM),(-1)*sWorld.getConfig(CONFIG_TRANS_ITEMCOUNT), true);
 			return true;
 		}
 		case GOSSIP_ACTION_INFO_DEF + 110: // Уделение трансов
@@ -2936,6 +2936,7 @@ bool GossipSelect_npc_transmogrification(Player *pPlayer, Creature *pCreature, u
 		}
 		break;
 	}
+	return true;
 }
 void AddSC_npc_transmogrification()
 {
