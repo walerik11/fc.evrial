@@ -1229,6 +1229,9 @@ void World::LoadConfigSettings(bool reload)
 
 	m_configs[CONFIG_VIP_PVE_SHOW]	= sConfig.GetBoolDefault("Vip.PVE.Info", true);
 	m_configs[CONFIG_VIP_PVP_SHOW]	= sConfig.GetBoolDefault("Vip.PVP.Info", true);
+
+	m_configs[CONFIG_VIP_SPELL] = sConfig.GetIntDefault("Vip.Spell", 0);
+	m_configs[CONFIG_VIP_AURA] = sConfig.GetIntDefault("Vip.Aura", 0);
 }
 
 // Initialize the World
