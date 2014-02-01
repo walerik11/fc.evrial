@@ -350,7 +350,7 @@ Spell::Spell(Unit* Caster, SpellEntry const *info, bool triggered, uint64 origin
     m_canReflect = false;
 
     //if (m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx2 & 0x4) == 0)
-	if ((m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx & SPELL_ATTR_EX_NEGATIVE)== 0) ||
+	if ((m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx & SPELL_ATTR_EX_CANT_BE_REFLECTED)== 0) ||
 		(m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx2 & SPELL_ATTR_EX2_IGNORE_LOS) == 0) ||
 		(m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->Attributes & SPELL_ATTR_ABILITY) == 0))
     {
@@ -362,7 +362,7 @@ Spell::Spell(Unit* Caster, SpellEntry const *info, bool triggered, uint64 origin
             if (!IsPositiveTarget(m_spellInfo->EffectImplicitTargetA[j],m_spellInfo->EffectImplicitTargetB[j]))
                 m_canReflect = true;
             else
-                m_canReflect = (m_spellInfo->AttributesEx & SPELL_ATTR_EX_NEGATIVE) ? true : false;
+                m_canReflect = (m_spellInfo->AttributesEx & SPELL_ATTR_EX_CANT_BE_REFLECTED) ? true : false;
 
             if (m_canReflect)
                 continue;

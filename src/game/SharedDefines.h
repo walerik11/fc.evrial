@@ -262,7 +262,7 @@ const uint32 ItemQualityColors[MAX_ITEM_QUALITY] = {
 #define SPELL_ATTR_EX_UNK4                        0x00000010            // 4
 #define SPELL_ATTR_EX_NOT_BREAK_STEALTH           0x00000020            // 5 Not break stealth
 #define SPELL_ATTR_EX_CHANNELED_2                 0x00000040            // 6 channeled 2
-#define SPELL_ATTR_EX_NEGATIVE                    0x00000080            // 7
+#define SPELL_ATTR_EX_CANT_BE_REFLECTED           0x00000080            // 7 spells that can not be reflected
 #define SPELL_ATTR_EX_NOT_IN_COMBAT_TARGET        0x00000100            // 8 Spell req target not to be in combat state
 #define SPELL_ATTR_EX_UNK9                        0x00000200            // 9
 #define SPELL_ATTR_EX_NO_THREAT                   0x00000400            // 10 no generates threat on cast 100% (old NO_INITIAL_AGGRO)
