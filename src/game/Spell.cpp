@@ -350,8 +350,9 @@ Spell::Spell(Unit* Caster, SpellEntry const *info, bool triggered, uint64 origin
     m_canReflect = false;
 
     //if (m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx2 & 0x4) == 0)
-	if ((m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx & 0x80)==0) ||
-		(m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx2 & 0x4) == 0))
+	if ((m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx & SPELL_ATTR_EX_NEGATIVE)== 0) ||
+		(m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->AttributesEx2 & SPELL_ATTR_EX2_IGNORE_LOS) == 0) ||
+		(m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && !IsAreaOfEffectSpell(m_spellInfo) && (m_spellInfo->Attributes & SPELL_ATTR_ABILITY) == 0))
     {
         for (int j=0;j<3;j++)
         {
@@ -5349,6 +5350,9 @@ Unit* Spell::SelectMagnetTarget()
 
     if (target && m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && target->HasAuraType(SPELL_AURA_SPELL_MAGNET)) //Attributes & 0x10 what is this?
     {
+		if (m_spellInfo->Attributes & (SPELL_ATTR_ABILITY | SPELL_ATTR_UNAFFECTED_BY_INVULNERABILITY) || m_spellInfo->AttributesEx & SPELL_ATTR_EX_CANT_BE_REDIRECTED)
+            return target;
+
         Unit::AuraList const& magnetAuras = target->GetAurasByType(SPELL_AURA_SPELL_MAGNET);
         for (Unit::AuraList::const_iterator itr = magnetAuras.begin(); itr != magnetAuras.end(); ++itr)
         {
