@@ -43,10 +43,10 @@ void SendDefaultMenu_npc_titles(Player* pPlayer, Creature* pCreature, uint32 uiA
 				idg = 42;
 				CharTitlesEntry const* title = sCharTitlesStore.LookupEntry(idg);
                 pPlayer->CLOSE_GOSSIP_MENU();
-				pPlayer->ModifyMoney( - sWorld.getConfig(CONFIG_TITLER_G_GOLD) * 10000);
+				pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TITLER_G_GOLD) * 10000);
 				pPlayer->DestroyItemCount(sWorld.getConfig(CONFIG_TITLER_G_ITEMID),sWorld.getConfig(CONFIG_TITLER_G_ITEMCOUNT), true);
-				pPlayer->ModifyHonorPoints( - sWorld.getConfig(CONFIG_TITLER_G_HONOR));
-				pPlayer->ModifyArenaPoints( - sWorld.getConfig(CONFIG_TITLER_G_AP));
+				pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TITLER_G_HONOR));
+				pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TITLER_G_AP));
 				pPlayer->SetTitle(title);
                 pCreature->MonsterWhisper("Here are your Gladuator's Title. Relogin please.", pPlayer->GetGUID());
             }
@@ -67,10 +67,10 @@ void SendDefaultMenu_npc_titles(Player* pPlayer, Creature* pCreature, uint32 uiA
 				idmg = 62;
 				CharTitlesEntry const* title = sCharTitlesStore.LookupEntry(idmg);
                 pPlayer->CLOSE_GOSSIP_MENU();
-				pPlayer->ModifyMoney( - sWorld.getConfig(CONFIG_TITLER_MG_GOLD) * 10000);
+				pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TITLER_MG_GOLD) * 10000);
 				pPlayer->DestroyItemCount(sWorld.getConfig(CONFIG_TITLER_MG_ITEMID),sWorld.getConfig(CONFIG_TITLER_G_ITEMCOUNT), true);
-				pPlayer->ModifyHonorPoints( - sWorld.getConfig(CONFIG_TITLER_MG_HONOR));
-				pPlayer->ModifyArenaPoints( - sWorld.getConfig(CONFIG_TITLER_MG_AP));
+				pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TITLER_MG_HONOR));
+				pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TITLER_MG_AP));
 				pPlayer->SetTitle(title);
                 pCreature->MonsterWhisper("Here are your Merciless Gladuator's Title. Relogin please.", pPlayer->GetGUID());
             }
@@ -91,10 +91,10 @@ void SendDefaultMenu_npc_titles(Player* pPlayer, Creature* pCreature, uint32 uiA
 				idvg = 71;
 				CharTitlesEntry const* title = sCharTitlesStore.LookupEntry(idvg);
                 pPlayer->CLOSE_GOSSIP_MENU();
-				pPlayer->ModifyMoney( - sWorld.getConfig(CONFIG_TITLER_VG_GOLD) * 10000);
+				pPlayer->ModifyMoney((-1)*sWorld.getConfig(CONFIG_TITLER_VG_GOLD) * 10000);
 				pPlayer->DestroyItemCount(sWorld.getConfig(CONFIG_TITLER_VG_ITEMID),sWorld.getConfig(CONFIG_TITLER_G_ITEMCOUNT), true);
-				pPlayer->ModifyHonorPoints( - sWorld.getConfig(CONFIG_TITLER_VG_HONOR));
-				pPlayer->ModifyArenaPoints( - sWorld.getConfig(CONFIG_TITLER_VG_AP));
+				pPlayer->ModifyHonorPoints((-1)*sWorld.getConfig(CONFIG_TITLER_VG_HONOR));
+				pPlayer->ModifyArenaPoints((-1)*sWorld.getConfig(CONFIG_TITLER_VG_AP));
 				pPlayer->SetTitle(title);
                 pCreature->MonsterWhisper("Here are your Vengeful Gladuator's Title. Relogin please.", pPlayer->GetGUID());
             }
