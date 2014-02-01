@@ -21358,8 +21358,23 @@ void Player::ChangeRace(uint8 new_race)
 
     //reps
     setFaction(Player::getFactionForRace(new_race));
-    //GetReputationMgr().SwitchReputation(CapitalForRace[old_race],CapitalForRace[new_race]);
+    SwitchReputation(CapitalForRace[old_race],CapitalForRace[new_race]);
 
     //Items??
     //sLog.outLog(LOG_CHAR,"Race change for player %s [%u] succesful",GetName(),GetGUIDLow());
+}
+
+bool Player::SwitchReputation(uint32 faction1Id, uint32 faction2Id)
+{
+    FactionEntry const *faction1Entry = sFactionStore.LookupEntry(faction1Id);
+    FactionEntry const *faction2Entry = sFactionStore.LookupEntry(faction2Id);
+    if (!faction1Entry || !faction2Entry)
+        return false;
+
+    int32 tempreputation =  GetReputation(faction1Entry);
+    if (!SetOneFactionReputation(faction1Entry,GetReputation(faction2Entry)))
+        return false;
+    if (!SetOneFactionReputation(faction2Entry,tempreputation))
+        return false;
+    return true;
 }

@@ -2163,6 +2163,7 @@ class Player : public Unit, public GridObject<Player>
 		uint32 SuitableForTransmogrification(Item* oldItem, Item* newItem); // custom
 
 		void ChangeRace(uint8 new_race);
+		bool SwitchReputation(uint32 faction1Id, uint32 faction2Id);
 
     protected:
 
