@@ -765,9 +765,9 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 	{
 		if (pCurrChar->GetTotalPlayedTime() == 0)
 		{
-			uint32 mutetime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME)/60;
-			pCurrChar->GetSession()->m_muteTime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
-			ChatHandler(pCurrChar).PSendSysMessage("Your chat DISABLED for %u minutes because its new character.", mutetime);
+			uint32 mutetime = time(NULL) + sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
+			pCurrChar->GetSession()->m_muteTime = mutetime;
+			ChatHandler(pCurrChar).PSendSysMessage("Your chat DISABLED for %u minutes because its new character.", (mutetime/60));
 		}
 	}
 
