@@ -1949,3 +1949,12 @@ void BattleGroundMgr::SetHolidayWeekends(uint32 mask)
     }
 }
 
+uint32 BattleGroundMgr::GetArenaEndAfterTime() const
+{
+    return sWorld.getConfig(CONFIG_ARENA_END_AFTER_TIME);
+}
+
+bool BattleGroundMgr::IsArenaEndAfterAlwaysDraw() const
+{
+    return sWorld.getConfig(CONFIG_ARENA_END_AFTER_ALWAYS_DRAW);
+}

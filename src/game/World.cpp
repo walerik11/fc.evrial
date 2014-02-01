@@ -545,6 +545,11 @@ void World::LoadConfigSettings(bool reload)
 	rate_values[RATE_RESILIENCE_LIMIT_REDUSE] = sConfig.GetFloatDefault("Rate.ResilienceLimitReduse",25.00f);
 
 	rate_values[RATE_ARENA_POINTS] = sConfig.GetFloatDefault("Rate.ArenaPoints",1.0f);
+
+	m_configs[CONFIG_ARENA_END_AFTER_TIME] = sConfig.GetIntDefault("Arena.EndAfter.Time",0);
+	if (m_configs[CONFIG_ARENA_END_AFTER_TIME] < 0)
+		m_configs[CONFIG_ARENA_END_AFTER_TIME] = 0;
+    m_configs[CONFIG_ARENA_END_AFTER_ALWAYS_DRAW] = sConfig.GetBoolDefault("Arena.EndAfter.AlwaysDraw",false);
     // Read other configuration items from the config file
 
     m_configs[CONFIG_COMPRESSION] = sConfig.GetIntDefault("Compression", 1);

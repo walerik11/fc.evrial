@@ -180,6 +180,7 @@ BattleGround::BattleGround()
 
     m_PrematureCountDown = false;
     m_PrematureCountDown = 0;
+	m_TimeElapsedSinceBeggining = 0;
 
     m_HonorMode = BG_NORMAL;
 
@@ -234,6 +235,7 @@ void BattleGround::Update(time_t diff)
         return;
 
     m_StartTime += diff;
+	m_TimeElapsedSinceBeggining += diff;
 
     // WorldPacket data;
 
@@ -469,6 +471,26 @@ void BattleGround::Update(time_t diff)
             }
             // do not change any battleground's private variables
         }
+    }
+
+	if (isArena() && sBattleGroundMgr.GetArenaEndAfterTime() && m_TimeElapsedSinceBeggining > sBattleGroundMgr.GetArenaEndAfterTime() && GetStatus() == STATUS_IN_PROGRESS)
+    {
+        if (!sBattleGroundMgr.IsArenaEndAfterAlwaysDraw())
+        {
+            if(GetAlivePlayersCountByTeam(HORDE) > GetAlivePlayersCountByTeam(ALLIANCE))
+            {
+                EndBattleGround(HORDE);
+                return;
+            }
+            else if (GetAlivePlayersCountByTeam(HORDE) < GetAlivePlayersCountByTeam(ALLIANCE))
+            {
+                EndBattleGround(ALLIANCE);
+                return;
+            }
+        }
+
+        EndBattleGround(0);
+        return;
     }
 }
 

@@ -232,6 +232,9 @@ class BattleGroundMgr
         uint32 GetMaxRatingDifference() const {return m_MaxRatingDifference;}
         uint32 GetRatingDiscardTimer() const {return m_RatingDiscardTimer;}
 
+		uint32 GetArenaEndAfterTime() const;
+        bool IsArenaEndAfterAlwaysDraw() const;
+
         void InitAutomaticArenaPointDistribution();
         void DistributeArenaPoints();
         uint32 GetPrematureFinishTime() const {return m_PrematureFinishTimer;}
