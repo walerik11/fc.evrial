@@ -676,6 +676,13 @@ void Spell::prepareDataForTriggerSystem()
             }
             break;
     }
+
+	if (m_IsTriggeredSpell && m_spellInfo->AttributesEx2 & SPELL_ATTR_EX2_TRIGGERED_CAN_TRIGGER)
+        m_canTrigger = true;
+
+    if (m_spellInfo->AttributesEx3 & SPELL_ATTR_EX3_CANT_TRIGGER_PROC)
+        m_canTrigger = false;
+
     // Hunter traps spells (for Entrapment trigger)
     // Gives your Immolation Trap, Frost Trap, Explosive Trap, and Snake Trap ....
     if (m_spellInfo->SpellFamilyName == SPELLFAMILY_HUNTER && m_spellInfo->SpellFamilyFlags & 0x0000200000000014LL)
