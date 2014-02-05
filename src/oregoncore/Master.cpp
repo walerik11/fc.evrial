@@ -77,7 +77,8 @@ public:
             else if (getMSTimeDiff(w_lastchange,curtime) > _delaytime)
             {
                 sLog.outError("World Thread is stuck.  Terminating server!");
-                *((uint32 volatile*)NULL) = 0;                       // bang crash
+                //*((uint32 volatile*)NULL) = 0;                       // bang crash // Áûכמ המ ÎÑ 1708
+				abort();
             }
         }
         sLog.outString("Anti-freeze thread exiting without problems.");
@@ -241,15 +242,18 @@ int Master::Run()
     // Stop freeze protection before shutdown tasks
     if (freeze_thread)
     {
-        freeze_thread->destroy();
+        //freeze_thread->destroy(); // Áûכמ המ ÎÑ 1708
+		freeze_thread->interrupt();
+        freeze_thread->wait();
         delete freeze_thread;
     }
 
     // Stop soap thread
     if (soap_thread)
     {
+		soap_thread->interrupt();
         soap_thread->wait();
-        soap_thread->destroy();
+        //soap_thread->destroy(); // Áûכמ המ ÎÑ 1708
         delete soap_thread;
     }
 
@@ -257,7 +261,7 @@ int Master::Run()
     LoginDatabase.PExecute("UPDATE realmlist SET realmflags = realmflags | %u WHERE id = '%d'", REALM_FLAG_OFFLINE, realmID);
 
     // Remove signal handling before leaving
-    _UnhookSignals();
+    //_UnhookSignals(); // Áûכמ המ ÎÑ 1708
 
     // when the main thread closes the singletons get unloaded
     // since worldrunnable uses them, it will crash if unloaded after master
@@ -319,10 +323,16 @@ int Master::Run()
 
         cliThread->destroy();
 
+		cliThread->interrupt();
+        cliThread->wait();
+
         #endif
 
         delete cliThread;
     }
+
+	// Remove signal handling before leaving
+    _UnhookSignals();
 
     // for some unknown reason, unloading scripts here and not in worldrunnable
     // fixes a memory leak related to detaching threads from the module

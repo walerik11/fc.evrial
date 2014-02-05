@@ -647,7 +647,8 @@ class World
         void ShutdownCancel();
         void ShutdownMsg(bool show = false, Player* player = NULL);
         static uint8 GetExitCode() { return m_ExitCode; }
-        static void StopNow(uint8 exitcode) { m_stopEvent = true; m_ExitCode = exitcode; }
+        //static void StopNow(uint8 exitcode) { m_stopEvent = true; m_ExitCode = exitcode; } // Áûכמ המ ÎÑ 1708
+		static void StopNow(uint8 exitcode) { if (!m_stopEvent) return; m_stopEvent = true; m_ExitCode = exitcode; }
         static bool IsStopped() { return m_stopEvent; }
 
         void Update(time_t diff);
