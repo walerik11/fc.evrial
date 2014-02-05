@@ -15400,7 +15400,8 @@ bool Player::LoadFromDB(uint32 guid, SqlQueryHolder *holder)
 				? bubble1*sWorld.getRate(RATE_REST_OFFLINE_IN_TAVERN_OR_CITY)
 				: bubble0*sWorld.getRate(RATE_REST_OFFLINE_IN_WILDERNESS);
 
-        SetRestBonus(GetRestBonus()+ time_diff*((float)GetUInt32Value(PLAYER_NEXT_LEVEL_XP)/72000)*bubble);
+    SetRestBonus((GetRestBonus() + time_diff * ((float) GetUInt32Value(PLAYER_NEXT_LEVEL_XP) / 72000)) * bubble);
+
     }
 
     m_cinematic = fields[19].GetUInt32();
