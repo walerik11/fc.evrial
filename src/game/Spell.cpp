@@ -1381,7 +1381,7 @@ void Spell::SearchChainTarget(std::list<Unit*> &TagUnitMap, float max_range, uin
             while (m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_MELEE
                 && !m_caster->isInFrontInMap(*next, max_range)
                 || !m_caster->canSeeOrDetect(*next, false)
-				|| (m_spellInfo->AttributesEx6 & SPELL_ATTR_EX6_CANT_TARGET_CCD || ((*next)->GetTypeId() == TYPEID_UNIT && (*next)->GetCreatureType() == CREATURE_TYPE_CRITTER))
+				|| (/*m_spellInfo->AttributesEx6 & SPELL_ATTR_EX6_CANT_TARGET_CCD || */((*next)->GetTypeId() == TYPEID_UNIT && (*next)->GetCreatureType() == CREATURE_TYPE_CRITTER))
                 || !cur->IsWithinLOSInMap(*next))
             {
                 ++next;
