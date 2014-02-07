@@ -169,6 +169,12 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket & recv_data)
             return;
         }
 
+		if (_player->isNewChar())
+		{
+			SendNotification("Your chat is DISABLED. You can speak when the played time is more than %u", sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME));
+			return;
+		}
+
         if (type != CHAT_MSG_AFK && type != CHAT_MSG_DND)
             GetPlayer()->UpdateSpeakTime();
     }

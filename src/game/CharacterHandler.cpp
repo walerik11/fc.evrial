@@ -763,12 +763,13 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 	// AntiSpam System
 	if (sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME) > 0)
 	{
-		if (pCurrChar->GetTotalPlayedTime() == 0)
+		if (pCurrChar->GetTotalPlayedTime() <= sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME))
 		{
-			uint32 mutetime = time(NULL) + sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME);
-			pCurrChar->GetSession()->m_muteTime = mutetime;
-			ChatHandler(pCurrChar).PSendSysMessage("Your chat DISABLED for %u minutes because its new character.", (mutetime/60));
+			pCurrChar->SetNewChar(true);
+			ChatHandler(pCurrChar).PSendSysMessage("Your chat is DISABLED. You can speak when the played time is more than %u", sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME));
 		}
+		else
+			pCurrChar->SetNewChar(false);
 	}
 
     //Hook for OnLogin Event

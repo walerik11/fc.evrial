@@ -276,6 +276,8 @@ Player::Player (WorldSession *session): Unit()
 	//VIP system
 	vipFlag = false;
 
+	newCharFlag = false;
+
     // players always accept
     if (GetSession()->GetSecurity() == SEC_PLAYER)
         SetAcceptWhispers(true);
@@ -1324,6 +1326,11 @@ void Player::Update(uint32 p_time)
 
     if (IsHasDelayedTeleport())
         TeleportTo(m_teleport_dest, m_teleport_options);
+
+	if (m_Played_time[PLAYED_TIME_TOTAL] > sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME))
+		SetNewChar(false);
+	else
+		SetNewChar(true);
 }
 
 void Player::setDeathState(DeathState s)
@@ -2261,6 +2268,19 @@ void Player::SetVip(bool on)
 		vipFlag = false;
 	}
 }
+
+void Player::SetNewChar(bool on)
+{
+	if (on)
+	{
+		newCharFlag = true;
+	}
+	else
+	{
+		newCharFlag = false;
+	}
+}
+
 void Player::SetGameMaster(bool on)
 {
     if (on)

@@ -968,6 +968,9 @@ class Player : public Unit, public GridObject<Player>
 		bool isVip() const { return vipFlag; }
 		void SetVip(bool on);
 
+		bool isNewChar() const { return newCharFlag; }
+		void SetNewChar(bool on);
+
         void GiveXP(uint32 xp, Unit* victim);
         void GiveLevel(uint32 level);
         void InitStatsForLevel(bool reapplyMods = false);
@@ -2382,6 +2385,8 @@ class Player : public Unit, public GridObject<Player>
 
 		//VIP system
 		bool vipFlag;
+
+		bool newCharFlag;
 
     private:
         // internal common parts for CanStore/StoreItem functions
