@@ -656,6 +656,12 @@ void WorldSession::HandleTextEmoteOpcode(WorldPacket & recv_data)
 		return;
 	}
 
+	if (_player->isNewChar())
+	{
+		SendNotification("Your chat is DISABLED. You can speak when the played time is more than %u", sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME));
+		return;
+	}
+
 
     uint32 text_emote, emoteNum;
     uint64 guid;
