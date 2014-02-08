@@ -2551,3 +2551,44 @@ Referrals.ThirdItemID = 29434
 Referrals.ThirdItemCount = 20
 
 ###############################################################################
+#
+#	BONUSES FOR PLAYED TIME (BFPT)
+#
+#	Система бонусов, за отыгранное время для каждого игрока.
+#	Начисление бонусов выполняется одной единственной командой .bfpt
+#	После написания команды игроку начисляются бонусы в базивимости от отыгранного времени и конфига (ниже)
+#
+#
+#Игрок получит первый бонус отыграв часов:
+BonusForPlayerdTime.First = 48
+#Второй бонус отыграв часов:
+BonusForPlayerdTime.Second = 200
+#Третий бонус отыграв яасов:
+BonusForPlayerdTime.Third = 500
+
+#Отыграв кол-во часов BonusForPlayerdTime.First игрок получит:
+#Золота:
+BonusForPlayerdTime.FirstGold = 5
+#Хонора:
+BonusForPlayerdTime.FirstHonor = 500
+#Арена поинтов:
+BonusForPlayerdTime.FirstAP = 50
+#Предмет:
+BonusForPlayerdTime.FirstItemID = 29434
+#В поличестве:
+BonusForPlayerdTime.FirstItemCount = 5
+
+#Настройки ВТОРОГО и ТРЕТЬЕГО бонусов аналогично первому.
+BonusForPlayerdTime.SecondGold = 10
+BonusForPlayerdTime.SecondHonor = 1000
+BonusForPlayerdTime.SecondAP = 100
+BonusForPlayerdTime.SecondItemID = 29434
+BonusForPlayerdTime.SecondItemCount = 10
+
+BonusForPlayerdTime.ThirdGold = 20
+BonusForPlayerdTime.ThirdHonor = 2000
+BonusForPlayerdTime.ThirdAP = 200
+BonusForPlayerdTime.ThirdItemID = 29434
+BonusForPlayerdTime.ThirdItemCount = 20
+
+###############################################################################

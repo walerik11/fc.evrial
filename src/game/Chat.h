@@ -124,10 +124,14 @@ class ChatHandler
 
 		// Referrals system
 		bool HandleReferralAddCommand(const char* args);
+		bool HandleReferralInfoCommand(const char* args);
 		bool HandleReferralDeleteCommand(const char* args);
 		bool HandleReferralPresentFirstCommand(const char* args);
 		bool HandleReferralPresentSecondCommand(const char* args);
 		bool HandleReferralPresentThirdCommand(const char* args);
+
+		// Bonus for played time
+		bool HandleBfptCommand(const char* args);
 
         bool HandleNamegoCommand(const char* args);
         bool HandleGonameCommand(const char* args);

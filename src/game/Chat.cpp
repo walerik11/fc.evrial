@@ -586,6 +586,7 @@ ChatCommand * ChatHandler::getCommandTable()
 	static ChatCommand refCommandTable[] =
 	{
 		{ "add",			SEC_PLAYER,			false,	&ChatHandler::HandleReferralAddCommand,				"", NULL},
+		{ "info",			SEC_PLAYER,			false,	&ChatHandler::HandleReferralInfoCommand,			"", NULL},
 		{ "delete",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralDeleteCommand,			"", NULL},
 		{ "first",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralPresentFirstCommand,	"", NULL},
 		{ "second",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralPresentSecondCommand,	"", NULL},
@@ -702,6 +703,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "unbindsight",    SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnbindSightCommand,         "", NULL },
 		{ "vip",			SEC_PLAYER,			true,  &ChatHandler::HandleVipCommand,				   "", vipCommandTable },
 		{ "ref",			SEC_PLAYER,			false, NULL,										   "", refCommandTable },
+		{ "bfpt",			SEC_PLAYER,			false, NULL,										   "", NULL },
 
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };

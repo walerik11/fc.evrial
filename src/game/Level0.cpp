@@ -173,7 +173,146 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
 	PSendSysMessage("You have registered referrer! Its nickname is %s", rrname);
 
 	if (rrplr)
-		ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player ID %u now! You will get a PRESENT when its Played Time will increase", rlguid);
+	{
+		QueryResult_AutoPtr rlName = CharacterDatabase.PQuery("SELECT `name` FROM `characters` WHERE `guid` = %u", rlguid);
+		if (!rlName)
+			ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player ID %u now! You will get a PRESENT when its Played Time will increase", rlguid);
+		Field *fieldss = rlName->Fetch();
+		std::string rlname = fieldss[0].GetString();
+		ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player %s now! You will get a PRESENT when its Played Time will increase", rlname);
+	}
+
+	return true;
+}
+
+bool ChatHandler::HandleReferralInfoCommand(const char* /*args*/)
+{
+	uint64 rrguid = m_session->GetPlayer()->GetGUIDLow();
+
+	QueryResult_AutoPtr rrInfo = CharacterDatabase.PQuery("SELECT `referral_guid`, `totaltime_start` FROM `referrals` WHERE `refferer_guid` = %u", rrguid);
+	if (!rrInfo)
+	{
+		PSendSysMessage("You have not Referrals :(");
+		return true;
+	}
+	PSendSysMessage("Your Refferals:");
+	do
+	{
+		Field *fields = rrInfo->Fetch();
+		uint64 rlguid = fields[0].GetInt64();
+		uint32 rlsttime = fields[1].GetInt32();
+		QueryResult_AutoPtr rldata = CharacterDatabase.PQuery("SELECT `name`, `totaltime` FROM `characters` WHERE `guid` = %u", rlguid);
+		if (!rldata)
+			PSendSysMessage("ID of referal - %u, but player is not exist :(", rlguid);
+		else
+		{
+			Field *fieldss = rldata->Fetch();
+			std::string rlname = fieldss[0].GetString();
+			uint32 rltime = fieldss[1].GetInt32();
+			uint32 reftime = rltime - rlsttime;
+			PSendSysMessage("Name - %s, Referral time - %u",  rlname, reftime);
+		}
+	}
+	while (rrInfo->NextRow());
+
+	return true;
+}
+
+bool ChatHandler::HandleBfptCommand(const char* /*args*/)
+{
+	Player *player = m_session->GetPlayer();
+	uint64 pguid = player->GetGUIDLow();
+
+	uint32 totaltime = player->GetTotalPlayedTime();
+	uint32 ptime = totaltime/3600;
+	PSendSysMessage("Your Total Played Time is %u hours.", ptime);
+
+	QueryResult_AutoPtr bonusinfo = CharacterDatabase.PQuery("SELECT `guid`, `first`, `second`, `third` FROM `bfpt` WHERE `guid` = %u", pguid);
+	uint32 first = 0;
+	uint32 second = 0;
+	uint32 third = 0;
+	if (bonusinfo)
+	{
+		Field* fields = bonusinfo->Fetch();
+		first = fields[0].GetInt32();
+		second = fields[1].GetInt32();
+		third = fields[2].GetInt32();
+	}
+
+	if (totaltime < sWorld.getConfig(CONFIG_BFPT_FIRST)*3600)
+	{
+		PSendSysMessage("For Bonus your Played Time is must bigger then %u", sWorld.getConfig(CONFIG_BFPT_FIRST));
+	}
+	else if (totaltime < sWorld.getConfig(CONFIG_BFPT_SECOND)*3600 && first == 0)
+	{
+		uint32 gold = sWorld.getConfig(CONFIG_BFPT_FIRST_GOLD)*10000;
+		uint32 honor = sWorld.getConfig(CONFIG_BFPT_FIRST_HONOR);
+		uint32 ap = sWorld.getConfig(CONFIG_BFPT_FIRST_AP);
+		uint32 itemid = sWorld.getConfig(CONFIG_BFPT_FIRST_ITEM_ID);
+		uint32 itemcount = sWorld.getConfig(CONFIG_BFPT_FIRST_ITEM_COUNT);
+
+		if (gold > 0)
+			player->ModifyMoney(gold);
+		if (honor > 0)
+			player->ModifyHonorPoints(honor);
+		if (ap > 0)
+			player->ModifyArenaPoints(ap);
+		if (itemid > 0 && itemcount > 0)
+		{
+			ItemPosCountVec dest;
+			if (Item* item = player->StoreNewItem(dest, itemid, true, 0))
+				player->SendNewItem(item,itemcount,false,true);
+		}
+		CharacterDatabase.PExecute("INSERT INTO `bfpt` VALUES (%u, 1, 0, 0)", pguid);
+		PSendSysMessage("For Big Bonus your Played Time is must bigger then %u", sWorld.getConfig(CONFIG_BFPT_SECOND));
+	}
+	else if (totaltime < sWorld.getConfig(CONFIG_BFPT_THIRD)*3600 && second == 0)
+	{
+		uint32 gold = sWorld.getConfig(CONFIG_BFPT_SECOND_GOLD)*10000;
+		uint32 honor = sWorld.getConfig(CONFIG_BFPT_SECOND_HONOR);
+		uint32 ap = sWorld.getConfig(CONFIG_BFPT_SECOND_AP);
+		uint32 itemid = sWorld.getConfig(CONFIG_BFPT_SECOND_ITEM_ID);
+		uint32 itemcount = sWorld.getConfig(CONFIG_BFPT_SECOND_ITEM_COUNT);
+
+		if (gold > 0)
+			player->ModifyMoney(gold);
+		if (honor > 0)
+			player->ModifyHonorPoints(honor);
+		if (ap > 0)
+			player->ModifyArenaPoints(ap);
+		if (itemid > 0 && itemcount > 0)
+		{
+			ItemPosCountVec dest;
+			if (Item* item = player->StoreNewItem(dest, itemid, true, 0))
+				player->SendNewItem(item,itemcount,false,true);
+		}
+		CharacterDatabase.PExecute("UPDATE `bfpt` SET `second` = 1 WHERE `guid` = %u", pguid);
+		PSendSysMessage("For Great Bonus your Played Time is must bigger then %u", sWorld.getConfig(CONFIG_BFPT_THIRD));
+	}
+	else if (third == 0)
+	{
+		uint32 gold = sWorld.getConfig(CONFIG_BFPT_THIRD_GOLD)*10000;
+		uint32 honor = sWorld.getConfig(CONFIG_BFPT_THIRD_HONOR);
+		uint32 ap = sWorld.getConfig(CONFIG_BFPT_THIRD_AP);
+		uint32 itemid = sWorld.getConfig(CONFIG_BFPT_THIRD_ITEM_ID);
+		uint32 itemcount = sWorld.getConfig(CONFIG_BFPT_THIRD_ITEM_COUNT);
+
+		if (gold > 0)
+			player->ModifyMoney(gold);
+		if (honor > 0)
+			player->ModifyHonorPoints(honor);
+		if (ap > 0)
+			player->ModifyArenaPoints(ap);
+		if (itemid > 0 && itemcount > 0)
+		{
+			ItemPosCountVec dest;
+			if (Item* item = player->StoreNewItem(dest, itemid, true, 0))
+				player->SendNewItem(item,itemcount,false,true);
+		}
+		CharacterDatabase.PExecute("UPDATE `bfpt` SET `third` = 1 WHERE `guid` = %u", pguid);
+	}
+	else
+		PSendSysMessage("You allready resive all bonuses for played time :)");
 
 	return true;
 }

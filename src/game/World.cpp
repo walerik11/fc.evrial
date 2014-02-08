@@ -1257,6 +1257,29 @@ void World::LoadConfigSettings(bool reload)
 	m_configs[CONFIG_REF_THIRD_AP] = sConfig.GetIntDefault("Referrals.ThirdAP", 200);
 	m_configs[CONFIG_REF_THIRD_ITEM_ID] = sConfig.GetIntDefault("Referrals.ThirdItemID", 29434);
 	m_configs[CONFIG_REF_THIRD_ITEM_COUNT] = sConfig.GetIntDefault("Referrals.ThirdItemCount", 20);
+
+	// Bonus for played time
+	m_configs[CONFIG_BFPT_FIRST] = sConfig.GetIntDefault("BonusForPlayerdTime.First", 48);
+	m_configs[CONFIG_BFPT_SECOND] = sConfig.GetIntDefault("BonusForPlayerdTime.Second", 200);
+	m_configs[CONFIG_BFPT_THIRD] = sConfig.GetIntDefault("BonusForPlayerdTime.Third", 500);
+
+	m_configs[CONFIG_BFPT_FIRST_GOLD] = sConfig.GetIntDefault("BonusForPlayerdTime.FirstGold", 5);
+	m_configs[CONFIG_BFPT_FIRST_HONOR] = sConfig.GetIntDefault("BonusForPlayerdTime.FirstHonor", 500);
+	m_configs[CONFIG_BFPT_FIRST_AP] = sConfig.GetIntDefault("BonusForPlayerdTime.FirstAP", 50);
+	m_configs[CONFIG_BFPT_FIRST_ITEM_ID] = sConfig.GetIntDefault("BonusForPlayerdTime.FirstItemID", 29434);
+	m_configs[CONFIG_BFPT_FIRST_ITEM_COUNT] = sConfig.GetIntDefault("BonusForPlayerdTime.FirstItemCount", 5);
+
+	m_configs[CONFIG_BFPT_SECOND_GOLD] = sConfig.GetIntDefault("BonusForPlayerdTime.SecondGold", 10);
+	m_configs[CONFIG_BFPT_SECOND_HONOR] = sConfig.GetIntDefault("BonusForPlayerdTime.SecondHonor", 1000);
+	m_configs[CONFIG_BFPT_SECOND_AP] = sConfig.GetIntDefault("BonusForPlayerdTime.SecondAP", 100);
+	m_configs[CONFIG_BFPT_SECOND_ITEM_ID] = sConfig.GetIntDefault("BonusForPlayerdTime.SecondItemID", 29434);
+	m_configs[CONFIG_BFPT_SECOND_ITEM_COUNT] = sConfig.GetIntDefault("BonusForPlayerdTime.SecondItemCount", 10);
+
+	m_configs[CONFIG_BFPT_THIRD_GOLD] = sConfig.GetIntDefault("BonusForPlayerdTime.ThirdGold", 20);
+	m_configs[CONFIG_BFPT_THIRD_HONOR] = sConfig.GetIntDefault("BonusForPlayerdTime.ThirdHonor", 2000);
+	m_configs[CONFIG_BFPT_THIRD_AP] = sConfig.GetIntDefault("BonusForPlayerdTime.ThirdAP", 200);
+	m_configs[CONFIG_BFPT_THIRD_ITEM_ID] = sConfig.GetIntDefault("BonusForPlayerdTime.ThirdItemID", 29434);
+	m_configs[CONFIG_BFPT_THIRD_ITEM_COUNT] = sConfig.GetIntDefault("BonusForPlayerdTime.ThirdItemCount", 20);
 }
 
 // Initialize the World
