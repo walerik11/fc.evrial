@@ -703,7 +703,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "unbindsight",    SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnbindSightCommand,         "", NULL },
 		{ "vip",			SEC_PLAYER,			true,  &ChatHandler::HandleVipCommand,				   "", vipCommandTable },
 		{ "ref",			SEC_PLAYER,			false, NULL,										   "", refCommandTable },
-		{ "bfpt",			SEC_PLAYER,			false, NULL,										   "", NULL },
+		{ "bfpt",			SEC_PLAYER,			false, &ChatHandler::HandleBfptCommand,				   "", NULL },
 
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };
