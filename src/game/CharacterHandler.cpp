@@ -766,7 +766,8 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 		if (pCurrChar->GetTotalPlayedTime() <= sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME))
 		{
 			pCurrChar->SetNewChar(true);
-			ChatHandler(pCurrChar).PSendSysMessage("Your chat is DISABLED. You can speak when the played time is more than %u", sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME));
+			uint32 mutetime = sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME)*60;
+			ChatHandler(pCurrChar).PSendSysMessage("Your chat is DISABLED. You can speak when the played time is more than %u minutes!", mutetime);
 		}
 		else
 			pCurrChar->SetNewChar(false);
