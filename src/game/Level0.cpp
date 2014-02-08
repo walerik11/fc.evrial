@@ -77,10 +77,10 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 		PSendSysMessage("Your VIP status is NOT Confirmed in session! Talk to GM to VIP status");
 		//PSendSysMessage("VIP status grands:");
 	}
-	/*if (sWorld.getConfig(CONFIG_VIP_PVE_SHOW))
+	if (sWorld.getConfig(CONFIG_VIP_PVE_SHOW))
 	{
-		PSendSysMessage("In PVE:");
-		uint32 maxhonor = sWorld.getConfig(CONFIG_VIP_MAX_HONOR_POINTS);
+		PSendSysMessage("If you have VIP status, In PVE You Have incrised rates of XP, Reputation gain, Gold loot, More Profession skills, incrised skills gain.");
+		/*uint32 maxhonor = sWorld.getConfig(CONFIG_VIP_MAX_HONOR_POINTS);
 		PSendSysMessage("Max Honor Points - %u",maxhonor);
 		uint32 maxarena = sWorld.getConfig(CONFIG_VIP_MAX_ARENA_POINTS);
 		PSendSysMessage("Max Arena Points - %u",maxarena);
@@ -105,13 +105,13 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 		uint32 skills = sWorld.getConfig(CONFIG_VIP_SKILL_GAIN_WEAPON);
 		PSendSysMessage("Skills levelup - %u",skills);
 		uint32 slevel = sWorld.getConfig(CONFIG_VIP_DEATH_SICKNESS_LEVEL);
-		PSendSysMessage("Death Sickness level - %u",slevel);
+		PSendSysMessage("Death Sickness level - %u",slevel);*/
 	}
 
 	if (sWorld.getConfig(CONFIG_VIP_PVP_SHOW))
 	{
-		PSendSysMessage("In PVP");
-		float honor = sWorld.getConfig(VIP_RATE_HONOR);
+		PSendSysMessage("If you have VIP status, In PVP You Have incrised rates Honor, Arena Points, BattleGround Marks.");
+		/*float honor = sWorld.getConfig(VIP_RATE_HONOR);
 		PSendSysMessage("Honor - %f X",honor);
 		uint32 bgwin = sWorld.getConfig(CONFIG_VIP_BG_MARKS_WIN);
 		PSendSysMessage("More BG Marks if win - +%u",bgwin);
@@ -121,8 +121,8 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 		PSendSysMessage("More Arena Points Dintributing - %f X",arena);
 		uint32 desert = sWorld.getConfig(CONFIG_VIP_BATTLEGROUND_CAST_DESERTER);
 		if (desert == 0)
-			PSendSysMessage("No Desertire after leave BG");
-	}*/
+			PSendSysMessage("No Desertire after leave BG");*/
+	}
 	return true;
 }
 
