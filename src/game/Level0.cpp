@@ -136,7 +136,7 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
 	{
 		Field *fields = rlInfo->Fetch();
 		uint64 rroldguid = fields[0].GetInt64();
-		std::string rroldname = fields[0].GetCppString();
+		std::string rroldname = fields[1].GetString();
 
 		PSendSysMessage("You have already registered referrer! Its nickname is %s", rroldname);
 		return false;
