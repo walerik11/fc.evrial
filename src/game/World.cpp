@@ -1234,6 +1234,29 @@ void World::LoadConfigSettings(bool reload)
 
 	m_configs[CONFIG_VIP_SPELL] = sConfig.GetIntDefault("Vip.Spell", 0);
 	m_configs[CONFIG_VIP_AURA] = sConfig.GetIntDefault("Vip.Aura", 0);
+
+	// Referrals system
+	m_configs[CONFIG_REF_TIME_FIRST] = sConfig.GetIntDefault("Referrals.TimeFirst", 24);
+	m_configs[CONFIG_REF_TIME_SECOND] = sConfig.GetIntDefault("Referrals.TimeSecond", 100);
+	m_configs[CONFIG_REF_TIME_THIRD] = sConfig.GetIntDefault("Referrals.TimeThird", 300);
+
+	m_configs[CONFIG_REF_FIRST_GOLD] = sConfig.GetIntDefault("Referrals.FirstGold", 5);
+	m_configs[CONFIG_REF_FIRST_HONOR] = sConfig.GetIntDefault("Referrals.FirstHonor", 500);
+	m_configs[CONFIG_REF_FIRST_AP] = sConfig.GetIntDefault("Referrals.FirstAP", 50);
+	m_configs[CONFIG_REF_FIRST_ITEM_ID] = sConfig.GetIntDefault("Referrals.FirstItemID", 29434);
+	m_configs[CONFIG_REF_FIRST_ITEM_COUNT] = sConfig.GetIntDefault("Referrals.FirstItemCount", 5);
+
+	m_configs[CONFIG_REF_SECOND_GOLD] = sConfig.GetIntDefault("Referrals.SecondGold", 10);
+	m_configs[CONFIG_REF_SECOND_HONOR] = sConfig.GetIntDefault("Referrals.SecondHonor", 1000);
+	m_configs[CONFIG_REF_SECOND_AP] = sConfig.GetIntDefault("Referrals.SecondAP", 100);
+	m_configs[CONFIG_REF_SECOND_ITEM_ID] = sConfig.GetIntDefault("Referrals.SecondItemID", 29434);
+	m_configs[CONFIG_REF_SECOND_ITEM_COUNT] = sConfig.GetIntDefault("Referrals.SecondItemCount", 10);
+
+	m_configs[CONFIG_REF_THIRD_GOLD] = sConfig.GetIntDefault("Referrals.ThirdGold", 20);
+	m_configs[CONFIG_REF_THIRD_HONOR] = sConfig.GetIntDefault("Referrals.ThirdHonor", 2000);
+	m_configs[CONFIG_REF_THIRD_AP] = sConfig.GetIntDefault("Referrals.ThirdAP", 200);
+	m_configs[CONFIG_REF_THIRD_ITEM_ID] = sConfig.GetIntDefault("Referrals.ThirdItemID", 29434);
+	m_configs[CONFIG_REF_THIRD_ITEM_COUNT] = sConfig.GetIntDefault("Referrals.ThirdItemCount", 20);
 }
 
 // Initialize the World

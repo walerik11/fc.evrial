@@ -126,6 +126,58 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 	return true;
 }
 
+bool ChatHandler::HandleReferralAddCommand(const char* args)
+{
+	uint64 rlguid = m_session->GetPlayer()->GetGUIDLow();
+	uint32 rltotaltime = m_session->GetPlayer()->GetTotalPlayedTime();
+
+	QueryResult_AutoPtr rlInfo = CharacterDatabase.PQuery("SELECT `refferer_guid`, `referrer_name` FROM `referrals` WHERE `referral_guid` = '%u'", rlguid);
+	if (rlInfo)
+	{
+		Field *fields = rlInfo->Fetch();
+		uint64 rroldguid = fields[0].GetInt64();
+		std::string rroldname = fields[0].GetCppString();
+
+		PSendSysMessage("You have already registered referrer! Its nickname is %s", rroldname);
+		return false;
+	}
+
+	if (!*args)
+        return false;
+
+    char *referrername = strtok((char*)args, " ");
+    if (!referrername)
+        return false;
+
+    std::string rrname = referrername;
+
+	if (!normalizePlayerName(rrname))
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+	uint64 rrguid = objmgr.GetPlayerGUIDByName(rrname.c_str());
+    if (!rrguid)
+    {
+        SendSysMessage(LANG_PLAYER_NOT_FOUND);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+    Player *rrplr = objmgr.GetPlayer(rrguid);
+
+	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (%u, %u, %s, %u, 0, 0, 0)", rlguid, rrguid, rrname, rltotaltime);
+
+	PSendSysMessage("You have registered referrer! Its nickname is %s", rrname);
+
+	if (rrplr)
+		ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player ID %u now! You will get a PRESENT when its Played Time will increase", rlguid);
+
+	return true;
+}
+
 bool ChatHandler::HandleStartCommand(const char* /*args*/)
 {
     Player *chr = m_session->GetPlayer();

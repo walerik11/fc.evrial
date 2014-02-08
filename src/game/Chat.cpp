@@ -582,6 +582,17 @@ ChatCommand * ChatHandler::getCommandTable()
 		{ NULL,				0,					false,	NULL,												"", NULL}
 	};
 
+	// Referral system
+	static ChatCommand refCommandTable[] =
+	{
+		{ "add",			SEC_PLAYER,			false,	&ChatHandler::HandleReferralAddCommand,				"", NULL},
+		{ "delete",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralDeleteCommand,			"", NULL},
+		{ "first",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralPresentFirstCommand,	"", NULL},
+		{ "second",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralPresentSecondCommand,	"", NULL},
+		{ "third",			SEC_ADMINISTRATOR,	true,	&ChatHandler::HandleReferralPresentThirdCommand,	"", NULL},
+		{ NULL,				0,					false,	NULL,												"", NULL}
+	};
+
     static ChatCommand commandTable[] =
     {
         { "account",        SEC_PLAYER,         true,  NULL,                                           "", accountCommandTable  },
@@ -690,6 +701,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "bindsight",      SEC_ADMINISTRATOR,  false, &ChatHandler::HandleBindSightCommand,           "", NULL },
         { "unbindsight",    SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnbindSightCommand,         "", NULL },
 		{ "vip",			SEC_PLAYER,			true,  &ChatHandler::HandleVipCommand,				   "", vipCommandTable },
+		{ "ref",			SEC_PLAYER,			false, NULL,										   "", refCommandTable },
 
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };

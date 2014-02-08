@@ -122,6 +122,13 @@ class ChatHandler
 		bool HandleVipAddCommand(const char* args);
 		bool HandleVipDeleteCommand(const char* args);
 
+		// Referrals system
+		bool HandleReferralAddCommand(const char* args);
+		bool HandleReferralDeleteCommand(const char* args);
+		bool HandleReferralPresentFirstCommand(const char* args);
+		bool HandleReferralPresentSecondCommand(const char* args);
+		bool HandleReferralPresentThirdCommand(const char* args);
+
         bool HandleNamegoCommand(const char* args);
         bool HandleGonameCommand(const char* args);
         bool HandleGroupgoCommand(const char* args);
