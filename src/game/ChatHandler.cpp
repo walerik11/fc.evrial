@@ -169,7 +169,7 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket & recv_data)
             return;
         }
 
-		if (_player->isNewChar() && !_player->isGameMaster())
+		if (_player->isNewChar() && _player->GetSession()->GetSecurity() < sWorld.getConfig(CONFIG_NEWCHAR_MUTE_GM_LEVEL))
 		{
 			SendNotification("Your chat is DISABLED. You can speak when the played time is more than %u", sWorld.getConfig(CONFIG_NEWCHAR_MUTE_TIME));
 			return;
