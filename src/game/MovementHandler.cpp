@@ -334,7 +334,37 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)
     }
 
 	if (plMover)
+	{
         sAnticheatMgr->StartHackDetection(plMover, movementInfo, opcode);
+
+		// Anti Teleport Huck
+
+			UnitMoveType move_type;
+
+            if (movementInfo.HasMovementFlag(MOVEFLAG_FLYING))
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_FLIGHT_BACK : MOVE_FLIGHT;
+            else if (movementInfo.HasMovementFlag(MOVEFLAG_SWIMMING))
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_SWIM_BACK : MOVE_SWIM;
+            else if (movementInfo.HasMovementFlag(MOVEFLAG_WALK_MODE))
+                move_type = MOVE_WALK;
+            else    //hmm... in first time after login player has MOVE_SWIMBACK instead MOVE_WALKBACK
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_SWIM_BACK : MOVE_RUN;
+
+
+		float allowed_delta = plMover->GetSpeed(move_type);
+		allowed_delta = allowed_delta * allowed_delta + 2;
+
+        float delta_x = plMover->GetPositionX() - movementInfo.GetPos()->GetPositionX();
+        float delta_y = plMover->GetPositionY() - movementInfo.GetPos()->GetPositionY();
+        float delta_z = plMover->GetPositionZ() - movementInfo.GetPos()->GetPositionZ();
+        float real_delta = delta_x * delta_x + delta_y * delta_y;
+
+		if ((real_delta > 4900.0f) && !(real_delta < allowed_delta))
+		{
+			sWorld.SendGMText(6613,"Player %s is possible use teleport huck!!!", plMover->GetName());
+			//plMover->GetSession()->KickPlayer();
+        }
+	}
 
     /* process position-change */
     recv_data.put<uint32>(5, getMSTime());                  // offset flags(4) + unk(1)
