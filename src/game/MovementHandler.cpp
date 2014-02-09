@@ -361,7 +361,12 @@ void WorldSession::HandleMovementOpcodes(WorldPacket & recv_data)
 
 		if ((real_delta > 4900.0f) && !(real_delta < allowed_delta))
 		{
-			sWorld.SendGMText(6613,"Player %s is possible use teleport huck!!!", plMover->GetName());
+			// display warning at the center of the screen, hacky way?
+			std::string str = "";
+			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(plMover->GetName()) + " |cFF00FFFF] Found possible teleport-chiter!";
+			WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
+			data << str;
+			sWorld.SendGlobalGMMessage(&data);
 			//plMover->GetSession()->KickPlayer();
         }
 	}
