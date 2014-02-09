@@ -166,13 +166,11 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
         return false;
     }
 
-    Player *rrplr = objmgr.GetPlayer(rrguid);
-
 	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (%u, %u, %s, %u, 0, 0, 0)", rlguid, rrguid, rrname, rltotaltime);
 
 	PSendSysMessage("You have registered referrer! Its nickname is %s", rrname);
 
-	if (rrplr)
+	if (Player *rrplr = objmgr.GetPlayer(rrguid))
 	{
 		QueryResult_AutoPtr rlName = CharacterDatabase.PQuery("SELECT `name` FROM `characters` WHERE `guid` = %u", rlguid);
 		if (!rlName)
