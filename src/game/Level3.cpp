@@ -5734,7 +5734,7 @@ bool ChatHandler::HandleReferralDeleteCommand(const char* args)
 
     Player *rlplr = objmgr.GetPlayer(rlguid);
 
-	QueryResult_AutoPtr rlInfo = CharacterDatabase.PQuery("SELECT `refferral_guid` FROM `referrals` WHERE `referral_guid` = '%u'", rlguid);
+	QueryResult_AutoPtr rlInfo = CharacterDatabase.PQuery("SELECT `referral_guid` FROM `referrals` WHERE `referral_guid` = '%u'", rlguid);
 	if (!rlInfo)
 	{
 		PSendSysMessage("Player %s have not REFERRER!!!", rlname);
@@ -5746,7 +5746,7 @@ bool ChatHandler::HandleReferralDeleteCommand(const char* args)
 	PSendSysMessage("REFERRER of Player %s is Deleted", rlname);
 
 	if (rlplr)
-		ChatHandler(rlplr).PSendSysMessage("Your REFERRER is Deleted. You can register new refferer! Use .ref command.");
+		ChatHandler(rlplr).PSendSysMessage("Your REFERRER is Deleted. You can register new refferer! Use .ref add command.");
 
 	return true;
 }

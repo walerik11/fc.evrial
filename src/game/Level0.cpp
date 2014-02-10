@@ -78,51 +78,11 @@ bool ChatHandler::HandleVipCommand(const char* /*args*/)
 		//PSendSysMessage("VIP status grands:");
 	}
 	if (sWorld.getConfig(CONFIG_VIP_PVE_SHOW))
-	{
 		PSendSysMessage("If you have VIP status, In PVE You Have incrised rates of XP, Reputation gain, Gold loot, More Profession skills, incrised skills gain.");
-		/*uint32 maxhonor = sWorld.getConfig(CONFIG_VIP_MAX_HONOR_POINTS);
-		PSendSysMessage("Max Honor Points - %u",maxhonor);
-		uint32 maxarena = sWorld.getConfig(CONFIG_VIP_MAX_ARENA_POINTS);
-		PSendSysMessage("Max Arena Points - %u",maxarena);
-		uint32 tradeskill = sWorld.getConfig(CONFIG_VIP_MAX_PRIMARY_TRADE_SKILL);
-		PSendSysMessage("Count of Professions - %u",tradeskill);
-		uint32 petition = sWorld.getConfig(CONFIG_VIP_MIN_PETITION_SIGNS);
-		PSendSysMessage("Petition Sings for Guild - %u",petition);
-		uint32 xpdist = sWorld.getConfig(CONFIG_VIP_GROUP_XP_DISTANCE);
-		PSendSysMessage("Distance of giving XP in party - %u",xpdist);
-		float money = sWorld.getConfig(VIP_RATE_DROP_MONEY);
-		PSendSysMessage("Drop gold - %f X",money);
-		float xpkill = sWorld.getConfig(VIP_RATE_XP_KILL);
-		PSendSysMessage("XP for kills - %f X",xpkill);
-		float xpquest = sWorld.getConfig(VIP_RATE_XP_QUEST);
-		PSendSysMessage("XP for quests - %f X",xpquest);
-		float rest = sWorld.getConfig(VIP_RATE_REST_OFFLINE_IN_TAVERN_OR_CITY);
-		PSendSysMessage("Rate Rest - %f X",rest);
-		float fall = sWorld.getConfig(VIP_RATE_DAMAGE_FALL);
-		PSendSysMessage("Damage of fall - %f X",fall);
-		float rep = sWorld.getConfig(VIP_RATE_REPUTATION_GAIN);
-		PSendSysMessage("Reputation giving - %f X",rep);
-		uint32 skills = sWorld.getConfig(CONFIG_VIP_SKILL_GAIN_WEAPON);
-		PSendSysMessage("Skills levelup - %u",skills);
-		uint32 slevel = sWorld.getConfig(CONFIG_VIP_DEATH_SICKNESS_LEVEL);
-		PSendSysMessage("Death Sickness level - %u",slevel);*/
-	}
 
 	if (sWorld.getConfig(CONFIG_VIP_PVP_SHOW))
-	{
 		PSendSysMessage("If you have VIP status, In PVP You Have incrised rates Honor, Arena Points, BattleGround Marks.");
-		/*float honor = sWorld.getConfig(VIP_RATE_HONOR);
-		PSendSysMessage("Honor - %f X",honor);
-		uint32 bgwin = sWorld.getConfig(CONFIG_VIP_BG_MARKS_WIN);
-		PSendSysMessage("More BG Marks if win - +%u",bgwin);
-		uint32 bglose = sWorld.getConfig(CONFIG_VIP_BG_MARKS_LOSE);
-		PSendSysMessage("More BG Marks if lose - +%u",bglose);
-		float arena = sWorld.getConfig(VIP_RATE_ARENA_POINTS);
-		PSendSysMessage("More Arena Points Dintributing - %f X",arena);
-		uint32 desert = sWorld.getConfig(CONFIG_VIP_BATTLEGROUND_CAST_DESERTER);
-		if (desert == 0)
-			PSendSysMessage("No Desertire after leave BG");*/
-	}
+
 	return true;
 }
 
@@ -136,9 +96,9 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
 	{
 		Field *fields = rlInfo->Fetch();
 		uint64 rroldguid = fields[0].GetInt64();
-		std::string rroldname = fields[1].GetString();
+		std::string rroldname = fields[1].GetCppString();
 
-		PSendSysMessage("You have already registered referrer! Its nickname is %s", rroldname);
+		PSendSysMessage("You have already registered referrer! Its nickname is %s", rroldname.c_str());
 		return false;
 	}
 
@@ -166,9 +126,18 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
         return false;
     }
 
-	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (%u, %u, %s, %u, 0, 0, 0)", rlguid, rrguid, rrname, rltotaltime);
+	if (rlguid == rrguid)
+	{
+		PSendSysMessage("You can not to bee self Referrer!");
+		return false;
+	}
 
-	PSendSysMessage("You have registered referrer! Its nickname is %s", rrname);
+	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (0, %u, 'Evrial', 0, 0, 0, 0)", rrguid);
+	CharacterDatabase.PExecute("UPDATE `referrals` SET `referrer_name` = '%s' WHERE `referral_guid` = 0", rrname.c_str());
+	CharacterDatabase.PExecute("UPDATE `referrals` SET `totaltime_start` = %u WHERE `referral_guid` = 0", rltotaltime);
+	CharacterDatabase.PExecute("UPDATE `referrals` SET `referral_guid` = %u WHERE `referral_guid` = 0", rlguid);
+
+	PSendSysMessage("You have registered referrer! Its nickname is %s", rrname.c_str());
 
 	if (Player *rrplr = objmgr.GetPlayer(rrguid))
 	{
@@ -177,7 +146,7 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
 			ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player ID %u now! You will get a PRESENT when its Played Time will increase", rlguid);
 		Field *fieldss = rlName->Fetch();
 		std::string rlname = fieldss[0].GetString();
-		ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player %s now! You will get a PRESENT when its Played Time will increase", rlname);
+		ChatHandler(rrplr).PSendSysMessage("You are REFERRER of player %s now! You will get a PRESENT when its Played Time will increase", rlname.c_str());
 	}
 
 	return true;
@@ -207,8 +176,8 @@ bool ChatHandler::HandleReferralInfoCommand(const char* /*args*/)
 			Field *fieldss = rldata->Fetch();
 			std::string rlname = fieldss[0].GetString();
 			uint32 rltime = fieldss[1].GetInt32();
-			uint32 reftime = rltime - rlsttime;
-			PSendSysMessage("Name - %s, Referral time - %u",  rlname, reftime);
+			uint32 reftime = (rltime - rlsttime)/3600;
+			PSendSysMessage("Name - %s, Referral time - %u hours",  rlname.c_str(), reftime);
 		}
 	}
 	while (rrInfo->NextRow());
