@@ -21324,41 +21324,41 @@ uint32 Player::SuitableForTransmogrification(Item* oldItem, Item* newItem) // cu
 
 void Player::ChangeRace(uint8 new_race)
 {
-    static uint16 CapitalForRace[] = {0,72,76,47,69,68,81,54,530,0,911,930};
+	uint16 CapitalForRace[] = {0,72,76,47,69,68,81,54,530,0,911,930};
+	uint8 old_race = getRace();
 
-    //sLog.outLog(LOG_CHAR,"Starting race change for player %s [%u]",GetName(),GetGUIDLow());
-    Races old_race = Races(getRace());
+	if (!HasAuraType(SPELL_AURA_MOD_SHAPESHIFT))
+        m_form = FORM_NONE;
 
-    if (bool((1 << new_race) & 0x44D) != bool((1 << old_race) & 0x2B2))
+	PlayerInfo const *info = objmgr.GetPlayerInfo(new_race, getClass());
+
+	if (m_form == FORM_NONE)
     {
-        //sLog.outLog(LOG_CHAR,"Race change: invalid race change, trans-faction NYI");
-        return;
+        switch(getGender())
+        {
+            case GENDER_FEMALE:
+                SetDisplayId(info->displayId_f);
+                SetNativeDisplayId(info->displayId_f);
+                break;
+            case GENDER_MALE:
+                SetDisplayId(info->displayId_m);
+                SetNativeDisplayId(info->displayId_m);
+                break;
+            default:
+                break;
+        }
     }
 
-    const PlayerInfo* new_info = objmgr.GetPlayerInfo(new_race,getClass());
-    if (!new_info)
-    {
-        //sLog.outLog(LOG_CHAR,"Race change: invalid race/class pair");
-        return;
-    }
+	uint32 bytes0 = GetUInt32Value(UNIT_FIELD_BYTES_0) & 0xFF000000;
+    bytes0 |= new_race;				                        // race
+    bytes0 |= getClass() << 8;				                // class
+    bytes0 |= getGender() << 16;			                // gender
+    SetUInt32Value(UNIT_FIELD_BYTES_0, bytes0);
+	
+	setFactionForRace(new_race);
 
-    if (getGender() == GENDER_FEMALE)
-    {
-        SetDisplayId(new_info->displayId_f);
-        SetNativeDisplayId(new_info->displayId_f);
-    }
-    else
-    {
-        SetDisplayId(new_info->displayId_m);
-        SetNativeDisplayId(new_info->displayId_m);
-    }
-
-    uint32 unitbytes0 = GetUInt32Value(UNIT_FIELD_BYTES_0) & 0xFFFFFF00;
-    unitbytes0 |= new_race;
-    SetUInt32Value(UNIT_FIELD_BYTES_0, unitbytes0);
-
-    //spells
-    const PlayerInfo* old_info = objmgr.GetPlayerInfo(old_race,getClass());
+	//spells
+    const PlayerInfo* old_info = objmgr.GetPlayerInfo(old_race, getClass());
     std::list<CreateSpellPair>::const_iterator spell_itr;
     for (spell_itr = old_info->spell.begin(); spell_itr!=old_info->spell.end(); ++spell_itr)
     {
@@ -21382,7 +21382,7 @@ void Player::ChangeRace(uint8 new_race)
         removeSpell(44041);
     }
 
-    for (spell_itr = new_info->spell.begin(); spell_itr!=new_info->spell.end(); ++spell_itr)
+    for (spell_itr = info->spell.begin(); spell_itr!=info->spell.end(); ++spell_itr)
     {
         uint16 tspell = spell_itr->first;
         if (tspell)
@@ -21390,7 +21390,6 @@ void Player::ChangeRace(uint8 new_race)
     }
 
     //reps
-    setFaction(Player::getFactionForRace(new_race));
     SwitchReputation(CapitalForRace[old_race],CapitalForRace[new_race]);
 
     //Items??
