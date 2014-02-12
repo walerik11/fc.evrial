@@ -648,6 +648,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(1);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(1);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -664,6 +666,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(2);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(2);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -680,6 +684,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(3);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(3);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -696,6 +702,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(4);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(4);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -712,6 +720,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(5);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(5);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -728,6 +738,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(6);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(6);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -744,6 +756,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(7);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(7);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -760,6 +774,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(8);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(8);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -776,6 +792,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(10);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(10);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
@@ -792,6 +810,8 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->ChangeRace(11);
 			pPlayer->CastSpell(pPlayer, 24222, true);
 			pPlayer->ChangeRace(11);
+
+			pPlayer->GetSession()->KickPlayer();
 			
 			pPlayer->CLOSE_GOSSIP_MENU();
 		}
