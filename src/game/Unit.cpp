@@ -7972,8 +7972,8 @@ uint32 Unit::SpellCriticalBonus(SpellEntry const *spellProto, uint32 damage, Uni
 uint32 Unit::SpellHealingBonus(SpellEntry const *spellProto, uint32 healamount, DamageEffectType damagetype, Unit *pVictim)
 {
     // Do not waste your time if there is nothing to heal
-    if (pVictim->GetHealth() == pVictim->GetMaxHealth())
-        return 0;
+    /*if (pVictim->GetHealth() == pVictim->GetMaxHealth())
+        return 0;*/
 
     // For totems get healing bonus from owner (statue isn't totem in fact)
     if (GetTypeId() == TYPEID_UNIT && ToCreature()->isTotem())
