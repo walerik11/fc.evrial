@@ -1061,6 +1061,9 @@ class Unit : public WorldObject
         //Need fix or use this
         bool isGuard() const  { return HasFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GUARD); }
 
+		// Is the unit a player?
+        bool isPlayer() const { return GetTypeId() == TYPEID_PLAYER; }
+
         bool isInFlight()  const { return hasUnitState(UNIT_STAT_IN_FLIGHT); }
 
 		// Is the unit casting, or has recently casted a combat spell but not in combat yet? 
