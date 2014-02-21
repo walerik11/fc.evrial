@@ -374,6 +374,9 @@ void WorldSession::HandleCancelAuraOpcode(WorldPacket& recvPacket)
     }
 
     // non channeled case
+	if (!IsPositiveSpell(spellId))
+		return;
+
     _player->RemoveAurasDueToSpellByCancel(spellId);
 }
 
