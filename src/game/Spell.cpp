@@ -4470,8 +4470,7 @@ uint8 Spell::CanCast(bool strict)
 
                 break;
             }
-            case SPELL_AURA_MOD_ROOT::
-
+            case SPELL_AURA_MOD_ROOT:
                 if (!m_targets.getUnitTarget())
                     return SPELL_FAILED_BAD_IMPLICIT_TARGETS;
 
