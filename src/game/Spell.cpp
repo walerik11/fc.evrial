@@ -2321,6 +2321,8 @@ void Spell::cast(bool skipCheck)
         }
     }
 
+	FillTargetMap();
+
     // triggered cast called from Spell::prepare where it was already checked
     if (!skipCheck)
     {
@@ -2338,7 +2340,6 @@ void Spell::cast(bool skipCheck)
     if (IsAutoRepeat() && !IsNonCombatSpell(m_spellInfo))
         m_caster->RemoveAurasWithInterruptFlags(AURA_INTERRUPT_FLAG_ATTACK);
 
-    FillTargetMap();
 
     if (m_spellState == SPELL_STATE_FINISHED)                // stop cast if spell marked as finish somewhere in Take*/FillTargetMap
     {
@@ -4470,6 +4471,21 @@ uint8 Spell::CanCast(bool strict)
                 break;
             }
             default:
+
+                if (!m_targets.getUnitTarget())
+                    return SPELL_FAILED_BAD_IMPLICIT_TARGETS;
+
+                if (!IsPositiveSpell(m_spellInfo->Id))
+                {
+                    if (m_targets.getUnitTarget() == m_caster && !IsPositiveSpell(m_spellInfo->Id))
+                        return SPELL_FAILED_BAD_TARGETS;
+
+                    if (m_caster->IsFriendlyTo(m_targets.getUnitTarget()))
+                        return SPELL_FAILED_TARGET_FRIENDLY;
+                }
+                else if (m_caster->IsFriendlyTo(m_targets.getUnitTarget()))
+                        return SPELL_FAILED_TARGET_ENEMY;
+
                 break;
         }
     }
@@ -4652,11 +4668,11 @@ bool Spell::CanAutoCast(Unit* target)
         }
     }
 
+	FillTargetMap();
     int16 result = PetCanCast(target);
 
     if (result == -1 || result == SPELL_FAILED_UNIT_NOT_INFRONT)
     {
-        FillTargetMap();
         //check if among target units, our WANTED target is as well (->only self cast spells return false)
         for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
         {
