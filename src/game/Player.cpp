@@ -6788,7 +6788,7 @@ void Player::ModifyHonorPoints(int32 value)
 	}
 }
 
-void Player::ModifyArenaPoints(int32 value)
+void Player::ModifyArenaPoints(int32 value, bool update)
 {
 	if (isVip())
 	{
@@ -6814,6 +6814,9 @@ void Player::ModifyArenaPoints(int32 value)
 		else
 			SetUInt32Value(PLAYER_FIELD_ARENA_CURRENCY, GetArenaPoints() < sWorld.getConfig(CONFIG_MAX_ARENA_POINTS) - value ? GetArenaPoints() + value : sWorld.getConfig(CONFIG_MAX_ARENA_POINTS));
 	}
+
+	if(update)
+        CharacterDatabase.PExecute("UPDATE characters SET arenaPoints = arenaPoints + '%u' WHERE guid = '%u'",value,GetGUIDLow());
 }
 
 uint32 Player::GetGuildIdFromDB(uint64 guid)

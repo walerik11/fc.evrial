@@ -1727,22 +1727,29 @@ void BattleGroundMgr::DistributeArenaPoints()
     //cycle that gives points to all players
     for (std::map<uint32, uint32>::iterator plr_itr = PlayerPoints.begin(); plr_itr != PlayerPoints.end(); ++plr_itr)
     {
-        //update to database
-        CharacterDatabase.PExecute("UPDATE characters SET arenaPoints = arenaPoints + '%u' WHERE guid = '%u'", plr_itr->second, plr_itr->first);
+		uint32 vippoints = ((plr_itr->second)*sWorld.getConfig(VIP_RATE_ARENA_POINTS));
+		uint32 playerpoints = ((plr_itr->second)*sWorld.getConfig(RATE_ARENA_POINTS));
         //add points if player is online
-        Player* pl = objmgr.GetPlayer(plr_itr->first);
-        if (pl)
+        if (Player* player = HashMapHolder<Player>::Find(plr_itr->first))
 		{
 			uint32 points;
-			if (pl->isVip())
+			if (player->isVip())
 			{
-				points = ((plr_itr->second)*sWorld.getConfig(VIP_RATE_ARENA_POINTS));
+				points = vippoints;
 			}
 			else
 			{
-				points = ((plr_itr->second)*sWorld.getConfig(RATE_ARENA_POINTS));
+				points = playerpoints;
 			}
-            pl->ModifyArenaPoints(points);
+            player->ModifyArenaPoints(points, true);
+		}
+		else
+		{
+			QueryResult_AutoPtr vip = CharacterDatabase.PQuery("SELECT `guid` FROM `vip` WHERE `guid` = '%u'",plr_itr->first);
+			if (vip)
+				CharacterDatabase.PExecute("UPDATE characters SET arenaPoints = arenaPoints + '%u' WHERE guid = '%u'", vippoints, plr_itr->first);
+			else
+				CharacterDatabase.PExecute("UPDATE characters SET arenaPoints = arenaPoints + '%u' WHERE guid = '%u'", playerpoints, plr_itr->first);
 		}
     }
 
