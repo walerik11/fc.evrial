@@ -2489,13 +2489,16 @@ SpellMissInfo Unit::MeleeSpellHitResult(Unit *pVictim, SpellEntry const *spell, 
 	bool canMiss = !(spell->Attributes & SPELL_ATTR_UNAFFECTED_BY_INVULNERABILITY) && cMiss ||
         spell->AttributesEx3 & SPELL_ATTR_EX3_CANT_MISS || spell->AttributesEx3 & SPELL_ATTR_EX3_UNK15;
 
-    if (spell->AttributesEx & SPELL_ATTR_EX_CANT_AVOID) // overpower spells
+    /*if (spell->AttributesEx & SPELL_ATTR_EX_CANT_AVOID) // overpower spells
     {
         // we still can miss
         // none of these spells has CAN_BE_BLOCKED, so we dont need to set canBlock
         canDodge = false;
         canParry = false;
-    }
+    }*/
+	// Same spells cannot be parry/dodge
+    if (spell->Attributes & SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK)
+        return SPELL_MISS_NONE;
 
     if (canMiss)
     {
