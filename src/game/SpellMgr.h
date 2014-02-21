@@ -793,6 +793,7 @@ inline bool IsProfessionSkill(uint32 skill)
 #define SPELL_ATTR_CU_NO_SPELL_DMG_COEFF	0x00040000
 #define SPELL_ATTR_CU_TREAT_AS_WELL_FEED	0x00080000
 #define SPELL_ATTR_CU_NO_SCROLL_STACK	0x00100000
+#define SPELL_ATTR_CU_CAST_BY_ITEM_ONLY 0x00200000
 
 
 typedef std::vector<uint32> SpellCustomAttribute;
