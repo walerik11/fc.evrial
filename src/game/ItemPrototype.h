@@ -452,8 +452,8 @@ struct _Damage
 struct _ItemStat
 {
     uint32  ItemStatType;
-    //int32   ItemStatValue;
-	float	ItemStatValue;
+    int32   ItemStatValue;
+	//float	ItemStatValue;
 };
 struct _Spell
 {
