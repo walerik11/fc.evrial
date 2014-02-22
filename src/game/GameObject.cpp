@@ -1399,12 +1399,12 @@ void GameObject::CastSpell(Unit* target, uint32 spell)
     if (Unit *owner = GetOwner())
     {
         trigger->setFaction(owner->getFaction());
-        trigger->CastSpell(target, spell, true, 0, 0, owner->GetGUID());
+		trigger->CastSpell(target, spell, true, 0, 0, owner ? owner->GetGUID() : NULL);
     }
     else
     {
         trigger->setFaction(14);
-        trigger->CastSpell(target, spell, true, 0, 0, target ? target->GetGUID() : 0);
+        trigger->CastSpell(target, spell, true, 0, 0, target ? target->GetGUID() : NULL);
     }
     //trigger->setDeathState(JUST_DIED);
     //trigger->RemoveCorpse();
