@@ -646,11 +646,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(1);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -667,11 +667,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(2);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -688,11 +688,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(3);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -709,11 +709,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(4);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -730,11 +730,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(5);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -751,11 +751,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(6);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -772,11 +772,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(7);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -793,11 +793,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(8);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -814,11 +814,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(10);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
@@ -835,11 +835,11 @@ void SendDefaultMenu_npc_customer(Player* pPlayer, Creature* pCreature, uint32 u
 			pPlayer->DestroyItemCount(fields1[3].GetUInt32(), fields1[4].GetUInt32(), true);
 
 			pPlayer->ChangeRace(11);
-			player->SetByteValue(PLAYER_BYTES_2, 0, 0);
-			player->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
-			player->SetByteValue(PLAYER_BYTES, 2, 0);
-			player->SetByteValue(PLAYER_BYTES, 1, 0);
-			player->SetByteValue(PLAYER_BYTES, 0, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES_2, 0, 0);
+			pPlayer->SetUInt32Value(PLAYER_BYTES_2, (0 | (0x00 << 8) | (0x00 << 16) | (0x02 << 24)));
+			pPlayer->SetByteValue(PLAYER_BYTES, 2, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 1, 0);
+			pPlayer->SetByteValue(PLAYER_BYTES, 0, 0);
 
 			pPlayer->GetSession()->KickPlayer();
 			
