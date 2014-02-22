@@ -21357,7 +21357,11 @@ void Player::ChangeRace(uint8 new_race)
 	uint8 old_race = getRace();
 
 	if (!HasAuraType(SPELL_AURA_MOD_SHAPESHIFT))
+	{
+		setTransForm(0);
+		SetDisplayId(GetNativeDisplayId());
         m_form = FORM_NONE;
+	}
 
 	PlayerInfo const *info = objmgr.GetPlayerInfo(new_race, getClass());
 
