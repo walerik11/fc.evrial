@@ -19133,6 +19133,12 @@ void Player::LeaveBattleground(bool teleportToEntryPoint)
 {
     if (BattleGround *bg = GetBattleGround())
     {
+		if (sWorld.getConfig(CONFIG_ARENA_NOLEAVE))
+		{
+			if (bg->isArena() && bg->GetStatus() != STATUS_WAIT_LEAVE)
+				return;
+		}
+
         bg->RemovePlayerAtLeave(GetGUID(), teleportToEntryPoint, true);
 
         // call after remove to be sure that player resurrected for correct cast

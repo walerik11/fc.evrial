@@ -550,6 +550,7 @@ void World::LoadConfigSettings(bool reload)
 	if (m_configs[CONFIG_ARENA_END_AFTER_TIME] < 0)
 		m_configs[CONFIG_ARENA_END_AFTER_TIME] = 0;
 	m_configs[CONFIG_ARENA_ANTIFARM] = sConfig.GetBoolDefault("Arena.Antifarm", 0);
+	m_configs[CONFIG_ARENA_NOLEAVE] = sConfig.GetBoolDefault("Arena.NoLeave", 0);
     m_configs[CONFIG_ARENA_END_AFTER_ALWAYS_DRAW] = sConfig.GetBoolDefault("Arena.EndAfter.AlwaysDraw",false);
     // Read other configuration items from the config file
 
