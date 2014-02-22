@@ -749,7 +749,7 @@ void BattleGround::EndBattleGround(uint32 winner)
 			int32 winner_change;
 			int32 loser_change;
 			// ≈сли IP капитанов совпадают - проиграли обе команды
-			if (FirstCapitanIP == SecondCapitanIP)
+			if (FirstCapitanIP == SecondCapitanIP && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
 			{
 				winner_change = winner_arena_team->LostAgainst(loser_rating);
 				loser_change = loser_arena_team->LostAgainst(winner_rating);
@@ -835,7 +835,7 @@ void BattleGround::EndBattleGround(uint32 winner)
 			std::string PlayerIP = plr->GetSession()->GetRemoteAddress();
 
 			// ≈сли IP капитанов совпадают, то считаетс€ что игрок проиграл
-			if (FirstCapitanIP == SecondCapitanIP)
+			if (FirstCapitanIP == SecondCapitanIP && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
 			{
 				if (team == winner)
 					winner_arena_team->MemberLost(plr,loser_rating);
@@ -843,7 +843,7 @@ void BattleGround::EndBattleGround(uint32 winner)
 					loser_arena_team->MemberLost(plr,winner_rating);
 			}
 			// ≈сли игрок не капитан первой команды, но его IP совпадает с капитаном первой команды, то считаетс€ что игрок проиграл
-			else if (plr != capitanFirstTeam && PlayerIP == FirstCapitanIP)
+			else if (plr != capitanFirstTeam && PlayerIP == FirstCapitanIP && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
 			{
 				if (team == winner)
 					winner_arena_team->MemberLost(plr,loser_rating);
@@ -851,7 +851,7 @@ void BattleGround::EndBattleGround(uint32 winner)
 					loser_arena_team->MemberLost(plr,winner_rating);
 			}
 			// јналогично дл€ капитана второй команды
-			else if (plr != capitanSecondTeam && PlayerIP == SecondCapitanIP)
+			else if (plr != capitanSecondTeam && PlayerIP == SecondCapitanIP && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
 			{
 				if (team == winner)
 					winner_arena_team->MemberLost(plr,loser_rating);
@@ -1984,7 +1984,7 @@ void BattleGround::HandleKillUnit(Creature * /*creature*/, Player * /*killer*/)
 void BattleGround::CheckArenaWinConditions()
 {
 	// ≈сли јрена в подготовительной фазе - победивших нет
-	if (GetStatus() != STATUS_WAIT_JOIN)
+	if (GetStatus() != STATUS_WAIT_JOIN && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
 	{
 		if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
 			EndBattleGround(HORDE);
