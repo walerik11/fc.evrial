@@ -48,7 +48,8 @@ ArenaTeam::ArenaTeam()
     m_stats.games_week    = 0;
     m_stats.games_season  = 0;
     m_stats.rank          = 0;
-    m_stats.rating        = ARENA_NEW_TEAM_RATING;
+    //m_stats.rating        = ARENA_NEW_TEAM_RATING;
+	m_stats.rating        = sWorld.getConfig(CONFIG_ARENA_START_RATING);
     m_stats.wins_week     = 0;
     m_stats.wins_season   = 0;
 }
@@ -142,7 +143,8 @@ bool ArenaTeam::AddMember(const uint64& playerGuid)
     newmember.games_week        = 0;
     newmember.wins_season       = 0;
     newmember.wins_week         = 0;
-    newmember.personal_rating   = ARENA_NEW_PERSONAL_RATING;
+    //newmember.personal_rating   = ARENA_NEW_PERSONAL_RATING;
+	newmember.personal_rating   = sWorld.getConfig(CONFIG_ARENA_START_RATING);
     m_members.push_back(newmember);
 
     CharacterDatabase.PExecute("INSERT INTO arena_team_member (arenateamid, guid, personal_rating) VALUES ('%u', '%u', '%u')", m_TeamId, GUID_LOPART(newmember.guid), newmember.personal_rating);
@@ -526,6 +528,8 @@ uint32 ArenaTeam::GetPoints(uint32 MemberRating)
         points *= 0.76f;
     else if (m_Type == ARENA_TEAM_3v3)
         points *= 0.88f;
+	else if (sWorld.getConfig(CONFIG_ARENA_SINGLE) && m_Type == ARENA_TEAM_5v5)
+		points *= sWorld.getConfig(CONFIG_ARENA_SINGLE_AP);
 
     return (uint32) points;
 }
