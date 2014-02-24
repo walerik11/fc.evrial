@@ -28,6 +28,7 @@ void AddSC_npc_arena_spectator();
 void AddSC_npc_exchanger();
 void AddSC_npc_item_exchanger();
 void AddSC_npc_customer();
+void AddSC_npc_arena_1v1();
 
 //examples
 //void AddSC_custom_example();
@@ -410,6 +411,7 @@ void AddScripts()
 	AddSC_npc_exchanger();
 	AddSC_npc_item_exchanger();
 	AddSC_npc_customer();
+	AddSC_npc_arena_1v1();
 
 //    AddSC_custom_example();
 //    AddSC_custom_gossip_codebox();

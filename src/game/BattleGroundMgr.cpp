@@ -690,8 +690,16 @@ void BattleGroundQueue::Update(uint32 bgTypeId, uint32 queue_id, uint8 arenatype
                 MinPlayersPerTeam = 3;
                 break;
             case ARENA_TYPE_5v5:
-                MaxPlayersPerTeam = 5;
-                MinPlayersPerTeam = 5;
+				if (sWorld.getConfig(CONFIG_ARENA_SINGLE))
+				{
+					MaxPlayersPerTeam = 1;
+					MinPlayersPerTeam = 1;
+				}
+				else
+				{
+					MaxPlayersPerTeam = 5;
+					MinPlayersPerTeam = 5;
+				}
                 break;
             }
         }

@@ -101,9 +101,6 @@ bool ArenaTeam::AddMember(const uint64& playerGuid)
     if (GetMembersSize() >= GetType() * 2)
         return false;
 
-	if (sWorld.getConfig(CONFIG_ARENA_SINGLE) && GetType() == ARENA_TEAM_5v5)
-		return false;
-
     Player *pl = objmgr.GetPlayer(playerGuid);
     if (pl)
     {
