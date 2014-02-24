@@ -473,7 +473,7 @@ void BattleGround::Update(time_t diff)
         }
     }
 
-	/*if (isArena() && sBattleGroundMgr.GetArenaEndAfterTime() && m_TimeElapsedSinceBeggining > sBattleGroundMgr.GetArenaEndAfterTime() && GetStatus() == STATUS_IN_PROGRESS)
+	if (isArena() && sBattleGroundMgr.GetArenaEndAfterTime() && m_TimeElapsedSinceBeggining > sBattleGroundMgr.GetArenaEndAfterTime() && GetStatus() == STATUS_IN_PROGRESS)
     {
         if (!sBattleGroundMgr.IsArenaEndAfterAlwaysDraw())
         {
@@ -487,11 +487,18 @@ void BattleGround::Update(time_t diff)
                 EndBattleGround(ALLIANCE);
                 return;
             }
+			else
+			{
+				EndBattleGround(0);
+				return;
+			}
         }
-
-        EndBattleGround(0);
-        return;
-    }*/
+		else
+		{
+	        EndBattleGround(0);
+		    return;
+		}
+    }
 }
 
 void BattleGround::SetTeamStartLoc(uint32 TeamID, float X, float Y, float Z, float O)
