@@ -1628,6 +1628,7 @@ Arena.EndAfter.AlwaysDraw = 1
 Arena.Antifarm = 1
 Arena.NoLeave = 1
 Arena.StartRating = 1500
+Arena.Single = 1
 
 ###############################################################################
 # NETWORK CONFIG
