@@ -46,9 +46,9 @@ void SendDefaultMenu_npc_arena_1v1(Player* player, Creature* creature, uint32 ac
     {
 	case 1000:
 		{
-			uint32 atid = player->GetArenaTeamId(2);
-			ArenaTeam* at = objmgr.GetArenaTeamById(atid);
-			if (at)
+			uint32 oldatid = player->GetArenaTeamId(2);
+			ArenaTeam* oldat = objmgr.GetArenaTeamById(oldatid);
+			if (oldat)
 			{
 				player->CLOSE_GOSSIP_MENU();
 				creature->MonsterWhisper("You have a 1v1 team.", player->GetGUID());
