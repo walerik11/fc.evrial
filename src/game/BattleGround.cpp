@@ -473,7 +473,7 @@ void BattleGround::Update(time_t diff)
         }
     }
 
-	if (isArena() && sBattleGroundMgr.GetArenaEndAfterTime() && m_TimeElapsedSinceBeggining > sBattleGroundMgr.GetArenaEndAfterTime() && GetStatus() == STATUS_IN_PROGRESS)
+	/*if (isArena() && sBattleGroundMgr.GetArenaEndAfterTime() && m_TimeElapsedSinceBeggining > sBattleGroundMgr.GetArenaEndAfterTime() && GetStatus() == STATUS_IN_PROGRESS)
     {
         if (!sBattleGroundMgr.IsArenaEndAfterAlwaysDraw())
         {
@@ -491,7 +491,7 @@ void BattleGround::Update(time_t diff)
 
         EndBattleGround(0);
         return;
-    }
+    }*/
 }
 
 void BattleGround::SetTeamStartLoc(uint32 TeamID, float X, float Y, float Z, float O)
@@ -874,7 +874,7 @@ void BattleGround::EndBattleGround(uint32 winner)
 
 		uint32 nITEM_WINNER_COUNT;
 		uint32 nITEM_LOSER_COUNT;
-		switch(GetTypeID())
+		/*switch(GetTypeID())
 		{
 			case BATTLEGROUND_AV:
 				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_WIN_COUNT);
@@ -892,6 +892,26 @@ void BattleGround::EndBattleGround(uint32 winner)
 				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_WIN_COUNT);
 				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_LOSE_COUNT);
 				break;
+		}*/
+		if (GetTypeID() == BATTLEGROUND_AV)
+		{
+			nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_WIN_COUNT);
+			nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AV_LOSE_COUNT);
+		}
+		if (GetTypeID() == BATTLEGROUND_WS)
+		{
+			nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_WS_WIN_COUNT);
+			nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_WS_LOSE_COUNT);
+		}
+		if (GetTypeID() == BATTLEGROUND_AB)
+		{
+			nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AB_WIN_COUNT);
+			nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_AB_LOSE_COUNT);
+		}
+		if (GetTypeID() == BATTLEGROUND_EY)
+		{
+			nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_WIN_COUNT);
+			nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_LOSE_COUNT);
 		}
 
 		if (plr->isVip())
@@ -1982,15 +2002,15 @@ void BattleGround::HandleKillUnit(Creature * /*creature*/, Player * /*killer*/)
 void BattleGround::CheckArenaWinConditions()
 {
 	// Если Арена в подготовительной фазе - победивших нет
-	if (GetStatus() != STATUS_WAIT_JOIN && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
-	{
+	//if (GetStatus() != STATUS_WAIT_JOIN && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
+	//{
 		if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
 			EndBattleGround(HORDE);
 		else if (GetPlayersCountByTeam(ALLIANCE) && !GetAlivePlayersCountByTeam(HORDE))
 			EndBattleGround(ALLIANCE);
-	}
-	else
-		EndBattleGround(0);
+	//}
+	//else
+		//EndBattleGround(0);
 }
 
 WorldSafeLocsEntry const* BattleGround::GetClosestGraveYard(Player* player)
