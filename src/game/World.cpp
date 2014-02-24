@@ -1167,6 +1167,8 @@ void World::LoadConfigSettings(bool reload)
     m_configs[CONFIG_ANTICHEAT_DETECTIONS_ENABLED] = sConfig.GetIntDefault("Anticheat.DetectionsEnabled",31);
     m_configs[CONFIG_ANTICHEAT_MAX_REPORTS_FOR_DAILY_REPORT] = sConfig.GetIntDefault("Anticheat.MaxReportsForDailyReport",70);
 	m_configs[CONFIG_ANTICHEAT_KICK_ENABLE] = sConfig.GetBoolDefault("Anticheat.KickEnable", false);
+	m_configs[CONFIG_ANTICHEAT_BAN_ENABLE] = sConfig.GetBoolDefault("Anticheat.BanEnable", false);
+	//m_configs[CONFIG_ANTICHEAT_BAN_TIME] = sConfig.GetStringDefault("Anticheat.BanTime", "1d");
 
 	m_configs[CONFIG_AUTORESTART_TIMER] = sConfig.GetIntDefault("Autorestart.Timer", 0);
 	if (m_configs[CONFIG_AUTORESTART_TIMER] < 0)

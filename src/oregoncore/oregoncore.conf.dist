@@ -2292,6 +2292,8 @@ Anticheat.MaxReportsForDailyReport = 70
 #					1 (Enabled)
 
 Anticheat.KickEnable = 1
+# Если кик не включен, то и бан работать не будет
+Anticheat.BanEnable = 1
 
 ###############################################################################
 # CHAT LEXICS CUTTER

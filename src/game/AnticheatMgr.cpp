@@ -218,6 +218,38 @@ void AnticheatMgr::SpeedHackDetection(Player* player,MovementInfo movementInfo)
         BuildReport(player,SPEED_HACK_REPORT);
         //sLog->outError("AnticheatMgr:: Speed-Hack detected player GUID (low) %u",player->GetGUIDLow());
     }
+
+	UnitMoveType move_type;
+
+            if (movementInfo.HasMovementFlag(MOVEFLAG_FLYING))
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_FLIGHT_BACK : MOVE_FLIGHT;
+            else if (movementInfo.HasMovementFlag(MOVEFLAG_SWIMMING))
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_SWIM_BACK : MOVE_SWIM;
+            else if (movementInfo.HasMovementFlag(MOVEFLAG_WALK_MODE))
+                move_type = MOVE_WALK;
+            else    //hmm... in first time after login player has MOVE_SWIMBACK instead MOVE_WALKBACK
+                move_type = movementInfo.HasMovementFlag(MOVEFLAG_BACKWARD) ? MOVE_SWIM_BACK : MOVE_RUN;
+
+
+		float allowed_delta = player->GetSpeed(move_type);
+		allowed_delta = allowed_delta * allowed_delta + 2;
+
+        float delta_x = player->GetPositionX() - movementInfo.GetPos()->GetPositionX();
+        float delta_y = player->GetPositionY() - movementInfo.GetPos()->GetPositionY();
+        float delta_z = player->GetPositionZ() - movementInfo.GetPos()->GetPositionZ();
+        float real_delta = delta_x * delta_x + delta_y * delta_y;
+
+		if ((real_delta > 4900.0f) && !(real_delta < allowed_delta) && !player->HasAura(2497, 0))
+			BuildReport(player,SPEED_HACK_REPORT);
+		/*{
+			// display warning at the center of the screen, hacky way?
+			std::string str = "";
+			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(player->GetName()) + " |cFF00FFFF] Found possible teleport-chiter! Kicked or banned!";
+			WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
+			data << str;
+			sWorld.SendGlobalGMMessage(&data);
+			//plMover->GetSession()->KickPlayer();
+        }*/
 }
 
 void AnticheatMgr::StartScripts()
@@ -334,11 +366,14 @@ void AnticheatMgr::BuildReport(Player* player,uint8 reportType)
 		{
 			// display warning at the center of the screen, hacky way?
 			std::string str = "";
-			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(player->GetName()) + " |cFF00FFFF] Found chiter! Kicked";
+			str = "|cFFFFFC00[Anticheat]|cFF00FFFF[|cFF60FF00 " + std::string(player->GetName()) + " |cFF00FFFF] Found chiter! Kicked or Banned";
 			WorldPacket data(SMSG_NOTIFICATION, (str.size()+1));
 			data << str;
 			sWorld.SendGlobalGMMessage(&data);
-			player->GetSession()->KickPlayer();
+			if (sWorld.getConfig(CONFIG_ANTICHEAT_BAN_ENABLE))
+				sWorld.BanAccount(BAN_CHARACTER, player->GetName(), "1d", "Anticheat autoban", "Anticheat");
+			else
+				player->GetSession()->KickPlayer();
 		}
 		else
 		{
