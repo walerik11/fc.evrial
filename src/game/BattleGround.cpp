@@ -2001,16 +2001,20 @@ void BattleGround::HandleKillUnit(Creature * /*creature*/, Player * /*killer*/)
 
 void BattleGround::CheckArenaWinConditions()
 {
-	// Если Арена в подготовительной фазе - победивших нет
-	//if (GetStatus() != STATUS_WAIT_JOIN && sWorld.getConfig(CONFIG_ARENA_ANTIFARM))
-	//{
-		if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
+	if (!GetAlivePlayersCountByTeam(ALLIANCE) && GetPlayersCountByTeam(HORDE))
+	{
+		if (sWorld.getConfig(CONFIG_ARENA_ANTIFARM) && GetStatus() == STATUS_WAIT_JOIN)
+			EndBattleGround(0);
+		else
 			EndBattleGround(HORDE);
-		else if (GetPlayersCountByTeam(ALLIANCE) && !GetAlivePlayersCountByTeam(HORDE))
+	}
+	else if (GetPlayersCountByTeam(ALLIANCE) && !GetAlivePlayersCountByTeam(HORDE))
+	{
+		if (sWorld.getConfig(CONFIG_ARENA_ANTIFARM) && GetStatus() == STATUS_WAIT_JOIN)
+			EndBattleGround(0);
+		else
 			EndBattleGround(ALLIANCE);
-	//}
-	//else
-		//EndBattleGround(0);
+	}
 }
 
 WorldSafeLocsEntry const* BattleGround::GetClosestGraveYard(Player* player)
