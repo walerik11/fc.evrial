@@ -892,8 +892,6 @@ void BattleGround::EndBattleGround(uint32 winner)
 				nITEM_WINNER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_WIN_COUNT);
 				nITEM_LOSER_COUNT = sWorld.getConfig(CONFIG_BATTLEGROUND_EY_LOSE_COUNT);
 				break;
-			default:
-				return;
 		}
 
 		if (plr->isVip())
