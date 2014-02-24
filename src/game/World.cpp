@@ -554,6 +554,7 @@ void World::LoadConfigSettings(bool reload)
 	m_configs[CONFIG_ARENA_START_RATING] = sConfig.GetIntDefault("Arena.StartRating", 1500);
 	m_configs[CONFIG_ARENA_SINGLE] = sConfig.GetBoolDefault("Arena.Single", 0);
 	m_configs[CONFIG_ARENA_SINGLE_AP] = sConfig.GetFloatDefault("Arena.Single.AP", 0.60f);
+	m_configs[CONFIG_ARENA_SINGLE_RFD] = sConfig.GetBoolDefault("Arena.Single.RatingForVendor", 0);
     m_configs[CONFIG_ARENA_END_AFTER_ALWAYS_DRAW] = sConfig.GetBoolDefault("Arena.EndAfter.AlwaysDraw",false);
     // Read other configuration items from the config file
 

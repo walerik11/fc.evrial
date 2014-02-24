@@ -18780,6 +18780,22 @@ uint32 Player::GetMaxPersonalArenaRatingRequirement()
     // the personal rating of the arena team must match the required limit as well
     // so return max[in arenateams](min(personalrating[teamtype], teamrating[teamtype]))
     uint32 max_personal_rating = 0;
+	if (sWorld.getConfig(CONFIG_ARENA_SINGLE_RFD))
+	{
+	for (uint8 i = 0; i < 2; ++i)
+    {
+        if (ArenaTeam * at = objmgr.GetArenaTeamById(GetArenaTeamId(i)))
+        {
+            uint32 p_rating = GetArenaPersonalRating(i);
+            uint32 t_rating = at->GetRating();
+            p_rating = p_rating < t_rating ? p_rating : t_rating;
+            if (max_personal_rating < p_rating)
+                max_personal_rating = p_rating;
+        }
+    }
+	}
+	else
+	{
     for (uint8 i = 0; i < MAX_ARENA_SLOT; ++i)
     {
         if (ArenaTeam * at = objmgr.GetArenaTeamById(GetArenaTeamId(i)))
@@ -18791,6 +18807,7 @@ uint32 Player::GetMaxPersonalArenaRatingRequirement()
                 max_personal_rating = p_rating;
         }
     }
+	}
     return max_personal_rating;
 }
 
