@@ -40,6 +40,38 @@ void SendDefaultMenu_npc_arena_1v1(Player* player, Creature* creature, uint32 ac
 		return;
 	}
 
+	if (player->GetInt32Value(PLAYER_FIELD_MOD_HEALING_DONE_POS) > sWorld.getConfig(CONFIG_ARENA_SINGLE_MAX_BH))
+	{
+		player->CLOSE_GOSSIP_MENU();
+		creature->MonsterWhisper("You are HEALER! Change your equipment!", player->GetGUID());
+		return;
+	}
+
+	if (sWorld.getConfig(CONFIG_ARENA_SINGLE_MAX_BH))
+		if (player->HasSpell(31842) || 
+			player->HasSpell(5420) || 
+			player->HasSpell(33891) || 
+			player->HasSpell(34123) || 
+			player->HasSpell(33886) || 
+			player->HasSpell(33887) || 
+			player->HasSpell(33888) || 
+			player->HasSpell(33889) || 
+			player->HasSpell(33890) || 
+			player->HasSpell(32593) || 
+			player->HasSpell(32594) || 
+			player->HasSpell(16190) || 
+			player->HasSpell(20711) || 
+			player->HasSpell(15354) || 
+			player->HasSpell(15355) || 
+			player->HasSpell(15356)
+			)
+		{
+			player->CLOSE_GOSSIP_MENU();
+			creature->MonsterWhisper("You are HEALER! Change your tallents!", player->GetGUID());
+			return;
+		}
+
+
 	std::string teamname = player->GetName();
 	uint32 type = 5;
 	switch(action)
