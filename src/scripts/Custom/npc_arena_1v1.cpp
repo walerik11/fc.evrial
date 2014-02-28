@@ -47,7 +47,7 @@ void SendDefaultMenu_npc_arena_1v1(Player* player, Creature* creature, uint32 ac
 		return;
 	}
 
-	if (sWorld.getConfig(CONFIG_ARENA_SINGLE_MAX_BH))
+	if (sWorld.getConfig(CONFIG_ARENA_SINGLE_NOHEAL_SPELLS))
 		if (player->HasSpell(31842) || 
 			player->HasSpell(5420) || 
 			player->HasSpell(33891) || 
