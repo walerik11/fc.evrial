@@ -69,7 +69,7 @@ bool GossipSelect_sunwell_boss(Player* pPlayer, Creature* pCreature, uint32 uiSe
 			pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
 		}
 		break;
-		case 1001:
+		/*case 1001:
 		{
 			sWorld.ShutdownServ(1, SHUTDOWN_MASK_RESTART, RESTART_EXIT_CODE);
 			return true;
@@ -265,7 +265,9 @@ bool GossipSelect_sunwell_boss(Player* pPlayer, Creature* pCreature, uint32 uiSe
 			sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "All Items has been DELETED from DB. By Evrial (skype - evrialik)");
 			return true;
 		}
-		break;
+		break;*/
+		default:
+			break;
 	}
 	return true;
 }
