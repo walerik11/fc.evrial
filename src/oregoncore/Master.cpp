@@ -324,8 +324,6 @@ int Master::Run()
 
         #else
 
-        cliThread->destroy();
-
 		cliThread->interrupt();
 
         #endif
