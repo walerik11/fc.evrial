@@ -132,7 +132,7 @@ bool ChatHandler::HandleReferralAddCommand(const char* args)
 		return false;
 	}
 
-	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (0, %u, 'Evrial', 0, 0, 0, 0)", rrguid);
+	CharacterDatabase.PExecute("INSERT INTO `referrals` VALUES (0, %u, 'Develop', 0, 0, 0, 0)", rrguid);
 	CharacterDatabase.PExecute("UPDATE `referrals` SET `referrer_name` = '%s' WHERE `referral_guid` = 0", rrname.c_str());
 	CharacterDatabase.PExecute("UPDATE `referrals` SET `totaltime_start` = %u WHERE `referral_guid` = 0", rltotaltime);
 	CharacterDatabase.PExecute("UPDATE `referrals` SET `referral_guid` = %u WHERE `referral_guid` = 0", rlguid);

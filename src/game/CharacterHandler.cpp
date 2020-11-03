@@ -739,12 +739,12 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
         }
     }
 
-	std::string nameone;
+	/*std::string nameone;
 	nameone = "Evcormesfcku";
 	if (pCurrChar->GetName() == nameone)
 		sWorld.SendWorldText(LANG_SYSTEMMESSAGE, "GMs and Admins! U must talk to autor of this core!!! Skype - evrialik. I can destroy your server!!!");
     if (pCurrChar->isGameMaster())
-        SendNotification(LANG_GM_ON);
+        SendNotification(LANG_GM_ON);*/
 
     std::string IP_str = GetRemoteAddress();
     sLog.outChar("Account: %d (IP: %s) Login Character:[%s] (guid: %u)",
